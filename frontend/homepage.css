@@ -1,0 +1,41 @@
+.navigation_bar {
+    background-color: black;
+    padding: 0.6rem 1.5rem;
+    display:flex;
+    align-items: center
+    /* You need to use the above as there is a flex, you use that when you have either flex or grid */
+}
+
+.navigation_bar .logo {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: red;
+    margin-right: 1.25rem
+}
+
+.navigation_bar .logo span {
+    color:limegreen
+}
+
+
+.navigation_bar .page_links {
+    display: flex;
+    gap: 1.5rem;
+    margin-left: auto
+}
+
+
+.navigation_bar .page_links a {
+    /* to remove the underline for the link */
+    text-decoration: none; 
+    color: white;
+    font-size: 1.1rem;
+}
+
+.navigation_bar .page_links a:hover {
+    color: cyan;
+}
+
+
+
+
