@@ -1,6 +1,20 @@
+body {
+    background-color: rgb(62, 62, 62);
+    font-family: 'Arial';
+    margin: 0rem;
+    padding: 0rem;
+    color: white;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+
 .navigation_bar {
     background-color: black;
-    padding: 0.6rem 1.5rem;
+    padding: 0.5rem 1.0rem;
     display:flex;
     align-items: center
     /* You need to use the above as there is a flex, you use that when you have either flex or grid */
@@ -20,8 +34,8 @@
 
 .navigation_bar .page_links {
     display: flex;
-    gap: 1.5rem;
-    margin-left: auto
+    gap: 5rem;
+    margin: auto
 }
 
 
@@ -38,4 +52,47 @@
 
 
 
+.allCentered{
+    justify-items: center;
+}
 
+
+.button {
+    margin-top: 4rem;
+    background-color: rgba(101, 100, 100, 0.489);
+    color: rgb(180, 175, 175);
+    width: 20rem;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.8rem;
+    border-radius: 1.5rem;
+    padding: 3rem;
+}
+
+.allCentered .flex {
+    display:flex;
+    flex-direction: row;
+    gap: 10rem;
+    
+}
+
+
+.allCentered .catchyText {
+    justify-items: center;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: rgb(193, 190, 190);
+    line-height: 0.2rem;
+    margin-top: 3rem;
+}
+
+#AppClick {
+    color:  rgb(193, 190, 190);
+   border-radius: 1rem;
+   background-color: rgb(105, 48, 48);
+   width: 24rem;
+   padding: 1rem;
+   margin-top: 6rem;
+   font-size: 1.5rem;
+}
