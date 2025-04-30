@@ -165,12 +165,18 @@ body {
 
 }
 
-.card input{
+/* not that no space between the input and the type */
+.card input[type="text"]{ 
+    padding: 0.6rem;
+    margin-bottom: 0.6rem; 
+}
+
+.card input[type="password"]{
     padding: 0.6em;
     margin-bottom: 0.6rem; 
 }
 
-.card div{
+.card section{
     display: flex;
     flex-direction: column;
     margin-top: 1rem;
@@ -178,13 +184,13 @@ body {
 
 }
 
-.card div a{
-    font-size: 0.9em;
+.card section a{
+    font-size: 0.8em;
     text-decoration: none;
     
 }
 
-.card div button{
+.card section button{
     padding:0.4rem;
     background-color: rgb(16, 90, 228);
     color: white;
@@ -193,8 +199,25 @@ body {
     border-radius: 1em;
     font-weight: bold;
     cursor: pointer;
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
     
 }
+
+.newUser .signUp{
+    font-size: 1rem;
+
+}
+
+
+.newUser {
+    justify-self: center;
+    color:rgb(44, 39, 39);
+    font-size: 1rem;
+}
+
+.newUser p{
+    font-size: 1rem;
+}
+
 
 
