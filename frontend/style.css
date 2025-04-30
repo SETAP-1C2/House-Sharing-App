@@ -87,6 +87,11 @@ body {
     
 }
 
+.groupQuestion {
+    justify-self: center;
+    line-height: ;
+}
+
 
 .allCentered .catchyText {
     justify-items: center;
@@ -218,6 +223,7 @@ body {
 .newUser p{
     font-size: 1rem;
 }
+
 
 
 
