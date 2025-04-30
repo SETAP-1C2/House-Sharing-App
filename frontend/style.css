@@ -97,14 +97,19 @@ body {
     margin-top: 3rem;
 }
 
-#AppClick {
-    color:  rgb(193, 190, 190);
+.AppClick {
+   color:  rgb(193, 190, 190);
    border-radius: 1rem;
    background-color: rgb(105, 48, 48);
    width: 24rem;
    padding: 1rem;
    margin-top: 6rem;
    font-size: 1.5rem;
+}
+
+.AppClick a{
+    text-decoration: none;
+    color: white;
 }
 
 .features {
@@ -132,8 +137,8 @@ body {
 }
 
 .card{
-    background-color: rgb(252, 249, 249);
-    padding: 4rem;
+    background-color: rgb(199, 199, 199);
+    padding: 3rem;
     border-radius:0.8rem;
     box-shadow: 0 4rem 12rem black;
     width: 25rem;
@@ -146,38 +151,50 @@ body {
 }
 
 .card h2 {
+    justify-self: center;
     color: black;
 }
 
 .card p{
+    justify-self: center;
     color:rgb(22, 22, 22);
-    font-style: italic;
-    font-size: 0.7em;
+    font-size: 0.8rem;
     font-weight: bold;
-    margin-bottom: 2.5rem;
-    line-height: 0.5rem;
+    margin-bottom: 2rem;
+    line-height: 1rem;
 
 }
 
 .card input{
     padding: 0.6em;
-    margin-bottom: 0.4rem; 
-    border: 0.1rem solid 
+    margin-bottom: 0.6rem; 
 }
 
-.card a{
-    color:rgb(112, 112, 226);
+.card div{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    font-weight: bold;
+
+}
+
+.card div a{
     font-size: 0.9em;
     text-decoration: none;
+    
 }
 
-.card button{
+.card div button{
     padding:0.4rem;
     background-color: rgb(16, 90, 228);
     color: white;
+    font-size: 1rem;
     border: none;
     border-radius: 1em;
     font-weight: bold;
     cursor: pointer;
-    margin:1rem;
+    margin-top: 2.5rem;
+    
 }
+
+
