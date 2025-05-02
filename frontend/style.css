@@ -73,7 +73,7 @@ body {
 
 
 .button {
-    margin: auto;
+    /* margin: auto; */
     background-color: rgba(101, 100, 100, 0.489);
     color: rgb(180, 175, 175);
     width: 20rem;
@@ -90,10 +90,20 @@ body {
     justify-content: center;
     display:flex;
     flex-direction: row;
+}
 
+
+.flexForPricing{
+    display:flex;
+    flex-direction: row;
+    margin-top: 8rem;
 }
 
 .flex section{
+    margin: auto;
+}
+
+.flexForPricing section{
     margin: auto;
 }
 
@@ -150,16 +160,21 @@ body {
     font-style: italic;
     font-size: 1rem;
     color: rgb(193, 190, 190);
-    margin-top: 3rem;
-    margin-left: 3rem;
+    /* margin-top: 3rem; */
+    /* margin-left: 3rem; */
 }
 
 
-.features .header {
+.header {
     color: rgb(180, 175, 175);
     font-size: 1.4rem;
     font-style: normal;
-    margin-left: rem;
+    display: flex;
+    justify-content: center;
+}
+
+.features section{
+    margin-top:0.5rem;
 }
 
 .try_now{
@@ -252,6 +267,8 @@ body {
 .newUser p{
     font-size: 1rem;
 }
+
+
 
 
 
