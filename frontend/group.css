@@ -1,0 +1,75 @@
+/* for group.html */
+html, body {
+    scroll-behavior: smooth;
+    height: 100%; /* Ensure both html and body take up the full height of the viewport */
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
+    box-sizing: border-box; /* Include border in the element's dimensions */
+}
+
+body {
+    background-color: rgb(62, 62, 62);
+    font-family: 'Arial';
+    margin: 0rem;
+    padding: 0rem;
+    color: white;
+    border: 0.5rem solid black;
+}
+
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+h1 {
+    text-align: center;
+    margin: 4rem;
+    margin-bottom: 2rem;
+}
+
+.table {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: white;
+    color: black;
+    text-align: left;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.table th, .table td {
+    padding: 1rem;
+    border: 1px solid white;
+}
+
+
+.table th {
+    background-color: rgb(48, 47, 47);
+    color: white;
+    text-transform: uppercase;
+}
+
+.table tr:hover {
+    background-color: rgb(202, 200, 200);
+}
+
+.table button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.table button:hover {
+    background-color: rgb(51, 129, 189);
+}
+

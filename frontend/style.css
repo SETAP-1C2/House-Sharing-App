@@ -61,71 +61,120 @@ body {
 }
 
 
-
-.allCentered{
+.catchyText {
     justify-items: center;
+    font-style: italic;
+    font-size: 1.5rem;
+    color: rgb(193, 190, 190);
+    line-height: 0.2rem;
+    margin-top: 4.5rem;
 }
 
 
+
 .button {
-    margin-top: 4rem;
+    /* margin: auto; */
     background-color: rgba(101, 100, 100, 0.489);
     color: rgb(180, 175, 175);
     width: 20rem;
+    height: 11rem ;
     display:flex;
     flex-direction: column;
-    align-items: center;
     font-size: 1.8rem;
     border-radius: 1.5rem;
     padding: 3rem;
 }
 
-.allCentered .flex {
+
+.flex {
+    justify-content: center;
     display:flex;
     flex-direction: row;
-    gap: 10rem;
+}
+
+
+.flexForPricing{
+    display:flex;
+    flex-direction: row;
+    margin-top: 8rem;
+}
+
+.flex section{
+    margin: auto;
+}
+
+.flexForPricing section{
+    margin: auto;
+}
+
+
+.flex section a {
+    text-decoration: none;
+}
+
+
+#grpButton {
+    margin: auto;
+    margin-top: 8rem;
+    background-color: rgba(101, 100, 100, 0.489);
+    color: white;
+    width: 10rem;
+    height: 1rem ;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.2rem;
+    border-radius: 1.5rem;
+    padding: 3rem;
+}
+
+
+.groupQuestion {
+    justify-self: center;
+    font-size: 1.3rem;
+    margin-top: 5rem;
     
 }
 
 
-.allCentered .catchyText {
-    justify-items: center;
-    font-style: italic;
-    font-size: 1.3rem;
-    color: rgb(193, 190, 190);
-    line-height: 0.2rem;
-    margin-top: 3rem;
-}
-
-.AppClick {
-   color:  rgb(193, 190, 190);
-   border-radius: 1rem;
-   background-color: rgb(105, 48, 48);
-   width: 24rem;
-   padding: 1rem;
-   margin-top: 6rem;
-   font-size: 1.5rem;
-}
-
-.AppClick a{
+.getStarted{
+    display: flex;
+    justify-content: center;
     text-decoration: none;
     color: white;
 }
+
+
+.getStarted button {
+    color:  rgb(193, 190, 190);
+    border-radius: 1rem;
+    background-color: rgb(105, 48, 48);
+    width: 24rem;
+    padding: 1rem;
+    margin-top: 6rem;
+    font-size: 1.5rem;
+ }
+
 
 .features {
     font-style: italic;
     font-size: 1rem;
     color: rgb(193, 190, 190);
-    margin-top: 3rem;
-    margin-left: 3rem;
+    /* margin-top: 3rem; */
+    /* margin-left: 3rem; */
 }
 
 
-.features .header {
+.header {
     color: rgb(180, 175, 175);
     font-size: 1.4rem;
     font-style: normal;
-    margin-left: rem;
+    display: flex;
+    justify-content: center;
+}
+
+.features section{
+    margin-top:0.5rem;
 }
 
 .try_now{
@@ -218,6 +267,9 @@ body {
 .newUser p{
     font-size: 1rem;
 }
+
+
+
 
 
 
