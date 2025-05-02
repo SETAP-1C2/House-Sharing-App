@@ -269,6 +269,26 @@ body {
 }
 
 
+.mainFlex{
+    justify-content: center;
+    display:flex;
+    margin-bottom:3rem;
+}
+
+.mainFlex li {
+    display: flex;
+    margin: 2rem;
+}
+
+.centerHead {
+    justify-self: center;
+}
+
+.centerP{
+    justify-self:center;
+    font-size: 1.5rem;
+    
+}
 
 
 

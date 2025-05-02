@@ -1,4 +1,4 @@
-/* for group.html */
+/* for grouplist.html */
 html, body {
     scroll-behavior: smooth;
     height: 100%; /* Ensure both html and body take up the full height of the viewport */
@@ -72,4 +72,8 @@ h1 {
 .table button:hover {
     background-color: rgb(51, 129, 189);
 }
+
+/* for groupMainPage.html */
+/* some of these are in the style.css file */
+
 
