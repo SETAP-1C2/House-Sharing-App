@@ -1,8 +1,4 @@
-function pageLoaded() {
-    console.log('js ready');
-}
 
-pageLoaded();
 registerUserAttacher();
 
 function getFirstName() {
