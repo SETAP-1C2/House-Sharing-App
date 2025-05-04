@@ -84,13 +84,26 @@
 
                 <!-- Priority -->
                 <section>
-                    <label for="Assign-users">Assign Users:</label>
-                    
-
-
+                    <label for="priority">Priority (Select Priority):</label>
+                    <ul>
+                        <li> <button>(critical)</button></li>
+                        <li><button>(Important)</button></li>
+                        <li><button>(Low Priority)</button></li>
+                    </ul>
                 </section>
-        
+
+                <!-- Task Deadline -->
+                <section>
+                    <label for="deadline">Task Deadline:</label>
+                    <!-- set dates to be only for future. -->
+                    <input type="date" id="task-deadline" name="deadline" required>
+                </section>
+
+
+                <!-- Create Button -->
+                <button id="create-task-button" type="submit">Create</button>
             </form>
+            
         </section>
 
     </section>
