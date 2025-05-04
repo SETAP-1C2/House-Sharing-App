@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>main page</title>
-    <link rel="stylesheet" href="style.css">
-
     <link rel="stylesheet" href="group.css">
 </head>
 <body>
@@ -44,8 +42,8 @@
     </section>
 
     <section>
-        <h2 class="centerHead">Share Tasks</h2>
         <section>
+            <h2>Share Tasks</h2>
 
             <form>
                 <!-- Task Title -->
@@ -56,7 +54,7 @@
 
                 <!-- Description -->
                 <section>
-                    <label for="task-description">Description:</label>
+                    <label for="description">Task Description:</label>
                     <textarea id="task-description" name="description" placeholder="Optional"></textarea>
                 </section>
 
@@ -84,7 +82,7 @@
 
                 <!-- Priority -->
                 <section>
-                    <label for="priority">Priority (Select Priority):</label>
+                    <label for="task-priority">Task Priority (Select Priority):</label>
                     <ul>
                         <li> <button>(critical)</button></li>
                         <li><button>(Important)</button></li>
@@ -96,14 +94,95 @@
                 <section>
                     <label for="deadline">Task Deadline:</label>
                     <!-- set dates to be only for future. -->
-                    <input type="date" id="task-deadline" name="deadline" required>
+                    <input type="date" id="task-deadline" name="deadline">
                 </section>
 
 
                 <!-- Create Button -->
                 <button id="create-task-button" type="submit">Create</button>
             </form>
+
+        </section>
+
+        <section>
+            <h2>Split Costs</h2>
+
+            <form>
+                <!--Costs -->
+                <section>
+                    <label for="costs">Give Total Cost:</label>
+                    <input type="number"  id="costs" required>
+                </section>
+
+                <!-- Description -->
+                <section>
+                    <label for="cost-description">Cost Description:</label>
+                    <textarea id="cost-description" name="description" placeholder="Optional"></textarea>
+                </section>
+
+                <!-- Assign Users -->
+                <section>
+                    <label for="Assign-users">Assign Users:</label>
+                    <ul>
+                        <li>member 1 <input type="checkbox"></li>
+                        <li>member 2 <input type="checkbox"></li>
+                        <li>member 3 <input type="checkbox"></li>
+                        <li>member 4 <input type="checkbox"></li>
+                    </ul>
+                </section>
+
+                <!-- Priority -->
+                <section>
+                    <label for="cost-priority">Cost Priority (Select Priority):</label>
+                    <ul>
+                        <li> <button>(critical)</button></li>
+                        <li><button>(Important)</button></li>
+                        <li><button>(Low Priority)</button></li>
+                    </ul>
+                </section>
+
+                <!-- Task Deadline -->
+                <section>
+                    <label for="deadline">Cost Deadline:</label>
+                    <!-- set dates to be only for future. -->
+                    <input type="date" id="cost-deadline" name="deadline">
+                </section>
+
+
+                <!-- Create Button -->
+                <button id="create-cost-button" type="submit">Create</button>
+            </form>
+        </section>
+
+
+        <section>
+            <h2>Task Summary</h2>
+
+            <label for="description">Description:</label>
+            <p id="description">Loading...</p>
+
+
+
+
+
+
+
+
+
+        </section>
+
+
+        <section>
+            <h2>Cost Summary</h2>
+
             
+
+
+
+
+
+
+
         </section>
 
     </section>

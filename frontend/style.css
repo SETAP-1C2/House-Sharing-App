@@ -99,9 +99,11 @@ body {
     margin-top: 8rem;
 }
 
+
 .flex section{
     margin: auto;
 }
+
 
 .flexForPricing section{
     margin: auto;
@@ -278,16 +280,6 @@ body {
 .mainFlex li {
     display: flex;
     margin: 2rem;
-}
-
-.centerHead {
-    justify-self: center;
-}
-
-.centerP{
-    justify-self:center;
-    font-size: 1.5rem;
-    
 }
 
 
