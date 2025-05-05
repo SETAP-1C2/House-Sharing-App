@@ -41,26 +41,28 @@
         </section>
     </section>
 
+    <!-- forms and summaries -->
     <section>
         <section>
+            <!-- task form -->
             <h2>Share Tasks</h2>
 
             <form>
                 <!-- Task Title -->
                 <section>
-                    <label for="title">Task Title:</label>
+                    <label>Task Title:</label>
                     <input type="text" required>
                 </section>
 
                 <!-- Description -->
                 <section>
-                    <label for="description">Task Description:</label>
+                    <label for="task-description">Task Description:</label>
                     <textarea id="task-description" name="description" placeholder="Optional"></textarea>
                 </section>
 
                 <!-- Recurrence -->
                 <section>
-                    <label for="recurrence">Recurrence:</label>
+                    <label>Recurrence:</label>
                     <select name="recurrence">
                         <option value="none">none</option>
                         <option value="One-Time">One-Time</option>
@@ -71,7 +73,7 @@
 
                 <!-- Assign Users -->
                 <section>
-                    <label for="Assign-users">Assign Users:</label>
+                    <label>Assign Users:</label>
                     <ul>
                         <li>member 1 <input type="checkbox"></li>
                         <li>member 2 <input type="checkbox"></li>
@@ -80,19 +82,53 @@
                     </ul>
                 </section>
 
+
+                <!-- <section>
+                    <label>Assign Users:</label>
+                    <ul>
+                        <li>
+                            <label for="member1">Member 1</label>
+                            <input type="checkbox" id="member1" name="users" value="member1">
+                        </li>
+                        <li>
+                            <label for="member2">Member 2</label>
+                            <input type="checkbox" id="member2" name="users" value="member2">
+                        </li>
+                        <li>
+                            <label for="member3">Member 3</label>
+                            <input type="checkbox" id="member3" name="users" value="member3">
+                        </li>
+                        <li>
+                            <label for="member4">Member 4</label>
+                            <input type="checkbox" id="member4" name="users" value="member4">
+                        </li>
+                    </ul>
+                </section> -->
+
+
+                <!-- <section>
+                    <label>Assign Users:</label>
+                    <ul>
+                        <li><label><input type="checkbox" name="users" value="member1"> Member 1</label></li>
+                        <li><label><input type="checkbox" name="users" value="member2"> Member 2</label></li>
+                        <li><label><input type="checkbox" name="users" value="member3"> Member 3</label></li>
+                        <li><label><input type="checkbox" name="users" value="member4"> Member 4</label></li>
+                    </ul>
+                </section> -->
+
                 <!-- Priority -->
                 <section>
-                    <label for="task-priority">Task Priority (Select Priority):</label>
+                    <label>Task Priority (Select Priority):</label>
                     <ul>
-                        <li> <button>(critical)</button></li>
-                        <li><button>(Important)</button></li>
-                        <li><button>(Low Priority)</button></li>
+                        <li> <button type="button">(critical)</button></li>
+                        <li><button type="button">(Important)</button></li>
+                        <li><button type="button">(Low Priority)</button></li>
                     </ul>
                 </section>
 
                 <!-- Task Deadline -->
                 <section>
-                    <label for="deadline">Task Deadline:</label>
+                    <label for="task-deadline">Task Deadline:</label>
                     <!-- set dates to be only for future. -->
                     <input type="date" id="task-deadline" name="deadline">
                 </section>
@@ -122,7 +158,7 @@
 
                 <!-- Assign Users -->
                 <section>
-                    <label for="Assign-users">Assign Users:</label>
+                    <label>Assign Users:</label>
                     <ul>
                         <li>member 1 <input type="checkbox"></li>
                         <li>member 2 <input type="checkbox"></li>
@@ -133,17 +169,17 @@
 
                 <!-- Priority -->
                 <section>
-                    <label for="cost-priority">Cost Priority (Select Priority):</label>
+                    <label>Cost Priority (Select Priority):</label>
                     <ul>
-                        <li> <button>(critical)</button></li>
-                        <li><button>(Important)</button></li>
-                        <li><button>(Low Priority)</button></li>
+                        <li> <button type="button">(critical)</button></li>
+                        <li><button type="button">(Important)</button></li>
+                        <li><button type="button">(Low Priority)</button></li>
                     </ul>
                 </section>
 
                 <!-- Task Deadline -->
                 <section>
-                    <label for="deadline">Cost Deadline:</label>
+                    <label for="cost-deadline">Cost Deadline:</label>
                     <!-- set dates to be only for future. -->
                     <input type="date" id="cost-deadline" name="deadline">
                 </section>
@@ -158,31 +194,89 @@
         <section>
             <h2>Task Summary</h2>
 
-            <label for="description">Description:</label>
-            <p id="description">Loading...</p>
+            <!-- What we should see if nothing is loaded. -->
+            <section>
+                <p>Loading...</p>
+            </section>
+
+            <!-- What should be shown if task is created.  -->
+            <!-- <section>
+                This will be with priority anyways
+                <section>
+                    <label for="title">Title:</label>
+                    <p>Loading...</p>
+                </section>
 
 
+                <section>
+                    <label>Description:</label>
+                    <p>Loading...</p>
+                </section>
 
 
+                <section>
+                    <label>Recurrence:</label>
+                    <p>Loading...</p>
+                </section>
 
 
+                <section>
+                    <label>Assign Users:</label>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </section>
 
 
+                <section>
+                    <label>Task Deadline</label>
 
+                </section>
+            </section> -->
         </section>
+
+
 
 
         <section>
             <h2>Cost Summary</h2>
 
-            
+            <!-- What we should see if nothing is loaded. -->
+            <section>
+                <p>Loading...</p>
+            </section>
+
+            <!-- what we should see when cost is created -->
+            <!-- <section>
+                This will be with priority anyways
+                <section>
+                    <label>Amount (to be paid by each user): </label>
+                    <p>Loading...</p>
+                </section>
 
 
+                <section>
+                    <label>Description:</label>
+                    <p>Loading...</p>
+                </section>
 
 
+                <section>
+                    <label>Assign Users:</label>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </section>
 
 
-
+                <section>
+                    <label>Payment Deadline</label>
+                </section>
+            </section> -->
         </section>
 
     </section>
