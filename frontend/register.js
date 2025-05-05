@@ -22,11 +22,10 @@ function getPassword() {
 }
 
 function checkPasswordLength(password) {
-    if(password.length < 8){
-        
+    if(password.length < 8) {
         return false
     }
-    else{
+    else {
         return true;
     }
 }
@@ -43,9 +42,7 @@ function checkCharacterMix(password) {
 }
 
 function checkCase(password) {
-    if (password === 
-        password.toUpperCase()||password === 
-        password.toLowerCase()) {
+    if (password === password.toUpperCase()||password === password.toLowerCase()) {
         return false;
     } else {
         return true;
