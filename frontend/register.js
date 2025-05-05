@@ -42,6 +42,13 @@ function checkCharacterMix(password) {
 }
 
 function checkCase(password) {
+    /*
+    Convert password to upper or lowercase then
+    compare it with original to see if it
+    was all upper or lowercase.
+    Only returns true if both upper and lowercase
+    are present.
+     */
     if (password === password.toUpperCase()||password === password.toLowerCase()) {
         return false;
     } else {
@@ -50,10 +57,8 @@ function checkCase(password) {
 }
 
 function checkNumber(password) {
-    if (/^\d+$/.test(password)) {
-        return false;
-    }
     return /\d/.test(password);
+    // returns true if a number is in password
 }
 
 function checkSpecialChars(password) {
@@ -62,6 +67,7 @@ function checkSpecialChars(password) {
         return true;
     else
         return false;
+    //returns true if special characters present
 }
 
 function registerUser() {
