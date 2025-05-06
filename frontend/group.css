@@ -73,3 +73,65 @@ h1 {
     background-color: rgb(51, 129, 189);
 }
 
+
+/* Create group */
+
+p {
+    justify-self: center;
+    top: 2rem;
+    font-size: 1.2rem;
+    color: #ddd;
+  }
+  
+  /* Main card */
+  .creation {
+    justify-self: center;
+    background-color: #3a3a3a;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    width: 350px;
+  }
+  
+  /* Section inside the card */
+  .detail h2 {
+    font-size: 1rem;
+    margin: 1rem 0 0.5rem;
+    color: #e0e0e0;
+  }
+  
+  .detail input {
+    width: 100%;
+    padding: 0.6rem;
+    background-color: #2b2b2b;
+    border: 1px solid #555;
+    border-radius: 8px;
+    color: #f0f0f0;
+    font-size: 0.9rem;
+  }
+  
+  .detail input::placeholder {
+    color: #888;
+  }
+  
+  /* Button section */
+  .create {
+    margin-top: 1.5rem;
+  }
+  
+  .create button {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #782d2d;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .create button:hover {
+    background-color: #5e2222;
+  }
