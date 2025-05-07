@@ -81,7 +81,7 @@ h1 {
 
 /* Create group */
 
-p {
+#groupTitle {
     justify-self: center;
     top: 2rem;
     font-size: 1.2rem;
@@ -200,4 +200,45 @@ p {
 .centerP{
     justify-self:center;
     font-size: 1.5rem;
+}
+
+
+/* join group */
+
+.groupId {
+  justify-self: center;
+  background-color: #3a3a3a;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  width: 350px;
+}
+
+.idText {
+  width: 100%;
+  padding: 0.6rem;
+  background-color: #2b2b2b;
+  border: 1px solid #555;
+  border-radius: 8px;
+  color: #f0f0f0;
+  font-size: 0.9rem;
+}
+
+
+.joining button {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #782d2d;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.joining button:hover {
+  background-color: #5e2222;
 }
