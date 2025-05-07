@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="login.js"></script>
     <title>login</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -11,12 +12,12 @@
         <h2>Login</h2>
         <p>Simplify shared budgets and to-dos.</p>
         <section>
-            <input type="text" placeholder="Email:">
-            <input type="password" placeholder="Password:">
+            <input type="text" id="loginEmail" placeholder="Email:">
+            <input type="password" id="loginPassword" placeholder="Password:">
         </section>
         <section>
             <a href>forgot password?</a>
-            <button>sign in</button>
+            <button id="signIn">sign in</button>
         </section>
         <section class="newUser">
             <p>Don't have an account? <a href="register.html" class="signUp">Sign up</a></p>
