@@ -1,10 +1,10 @@
-/* for group.html */
+/* for grouplist.html */
 html, body {
     scroll-behavior: smooth;
     height: 100%; /* Ensure both html and body take up the full height of the viewport */
     margin: 0; /* Remove any default margin */
     padding: 0; /* Remove any default padding */
-    box-sizing: border-box; /* Include border in the element's dimensions */
+    /* box-sizing: border-box; Include border in the element's dimensions */
 }
 
 body {
@@ -13,7 +13,7 @@ body {
     margin: 0rem;
     padding: 0rem;
     color: white;
-    border: 0.5rem solid black;
+    /* border: 0.5rem solid black; */
 }
 
 
@@ -72,6 +72,11 @@ h1 {
 .table button:hover {
     background-color: rgb(51, 129, 189);
 }
+
+
+
+
+
 
 
 /* Create group */
@@ -145,3 +150,54 @@ textarea {
   .create button:hover {
     background-color: #5e2222;
   }
+
+
+  /* for groupMainPage.html */
+/* some of these are in the style.css file */
+
+
+
+.flex {
+    justify-content: center;
+    display:flex;
+    flex-direction: row;
+}
+
+
+.flex section{
+    margin: auto;
+}
+
+
+.mainFlex{
+    justify-content: center;
+    display:flex;
+    margin-bottom:3rem;
+}
+
+.mainFlex li {
+    display: flex;
+    margin: 2rem;
+}
+
+.button {
+    /* margin: auto; */
+    background-color: rgba(101, 100, 100, 0.489);
+    color: rgb(180, 175, 175);
+    width: 20rem;
+    height: 11rem ;
+    display:flex;
+    flex-direction: column;
+    font-size: 1.8rem;
+    border-radius: 1.5rem;
+    padding: 3rem;
+}
+
+.centerHead {
+    justify-self: center;
+}
+
+.centerP{
+    justify-self:center;
+    font-size: 1.5rem;
+}

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main page</title>
+    <link rel="stylesheet" href="group.css">
+</head>
+<body>
+    <section>
+        <h1 class="centerHead">GROUP NAME</h1>
+
+        <p class="centerP">group description</p>
+
+        <!-- This list will be updated from time to time. when someonle joins -->
+
+        <h3>resident list: to be continued</h3>
+        <section>
+            <ul class="mainFlex">
+                <li>member 1</li>
+                <li>member 2</li>
+                <li>member 3</li>
+                <li>member 4</li>
+            </ul>
+        </section>
+
+        <section class="flex">
+            <section>
+                <button class="button">
+                    <section>Share</section>
+                    <section>Tasks</section>
+                </button>
+            </section>
+
+            <section>
+                <button class="button">
+                    <section>Split</section>
+                    <section>Cost</section>
+                </button>
+            </section>
+        </section>
+    </section>
+
+    <!-- forms and summaries -->
+    <section>
+        <section>
+            <!-- task form -->
+            <h2>Share Tasks</h2>
+
+            <form>
+                <!-- Task Title -->
+                <section>
+                    <label>Task Title:</label>
+                    <input type="text" required>
+                </section>
+
+                <!-- Description -->
+                <section>
+                    <label for="task-description">Task Description:</label>
+                    <textarea id="task-description" name="description" placeholder="Optional"></textarea>
+                </section>
+
+                <!-- Recurrence -->
+                <section>
+                    <label>Recurrence:</label>
+                    <select name="recurrence">
+                        <option value="none">none</option>
+                        <option value="One-Time">One-Time</option>
+                        <option value="Weekly">Weekly</option>
+                        <option value="Monthly">Monthly</option>
+                    </select>
+                </section>
+
+                <!-- Assign Users -->
+                <section>
+                    <label>Assign Users:</label>
+                    <ul>
+                        <li>member 1 <input type="checkbox"></li>
+                        <li>member 2 <input type="checkbox"></li>
+                        <li>member 3 <input type="checkbox"></li>
+                        <li>member 4 <input type="checkbox"></li>
+                    </ul>
+                </section>
+
+
+                <!-- <section>
+                    <label>Assign Users:</label>
+                    <ul>
+                        <li>
+                            <label for="member1">Member 1</label>
+                            <input type="checkbox" id="member1" name="users" value="member1">
+                        </li>
+                        <li>
+                            <label for="member2">Member 2</label>
+                            <input type="checkbox" id="member2" name="users" value="member2">
+                        </li>
+                        <li>
+                            <label for="member3">Member 3</label>
+                            <input type="checkbox" id="member3" name="users" value="member3">
+                        </li>
+                        <li>
+                            <label for="member4">Member 4</label>
+                            <input type="checkbox" id="member4" name="users" value="member4">
+                        </li>
+                    </ul>
+                </section> -->
+
+
+                <!-- <section>
+                    <label>Assign Users:</label>
+                    <ul>
+                        <li><label><input type="checkbox" name="users" value="member1"> Member 1</label></li>
+                        <li><label><input type="checkbox" name="users" value="member2"> Member 2</label></li>
+                        <li><label><input type="checkbox" name="users" value="member3"> Member 3</label></li>
+                        <li><label><input type="checkbox" name="users" value="member4"> Member 4</label></li>
+                    </ul>
+                </section> -->
+
+                <!-- Priority -->
+                <section>
+                    <label>Task Priority (Select Priority):</label>
+                    <ul>
+                        <li> <button type="button">(critical)</button></li>
+                        <li><button type="button">(Important)</button></li>
+                        <li><button type="button">(Low Priority)</button></li>
+                    </ul>
+                </section>
+
+                <!-- Task Deadline -->
+                <section>
+                    <label for="task-deadline">Task Deadline:</label>
+                    <!-- set dates to be only for future. -->
+                    <input type="date" id="task-deadline" name="deadline">
+                </section>
+
+
+                <!-- Create Button -->
+                <button id="create-task-button" type="submit">Create</button>
+            </form>
+
+        </section>
+
+        <section>
+            <h2>Split Costs</h2>
+
+            <form>
+                <!--Costs -->
+                <section>
+                    <label for="costs">Give Total Cost:</label>
+                    <input type="number"  id="costs" required>
+                </section>
+
+                <!-- Description -->
+                <section>
+                    <label for="cost-description">Cost Description:</label>
+                    <textarea id="cost-description" name="description" placeholder="Optional"></textarea>
+                </section>
+
+                <!-- Assign Users -->
+                <section>
+                    <label>Assign Users:</label>
+                    <ul>
+                        <li>member 1 <input type="checkbox"></li>
+                        <li>member 2 <input type="checkbox"></li>
+                        <li>member 3 <input type="checkbox"></li>
+                        <li>member 4 <input type="checkbox"></li>
+                    </ul>
+                </section>
+
+                <!-- Priority -->
+                <section>
+                    <label>Cost Priority (Select Priority):</label>
+                    <ul>
+                        <li> <button type="button">(critical)</button></li>
+                        <li><button type="button">(Important)</button></li>
+                        <li><button type="button">(Low Priority)</button></li>
+                    </ul>
+                </section>
+
+                <!-- Task Deadline -->
+                <section>
+                    <label for="cost-deadline">Cost Deadline:</label>
+                    <!-- set dates to be only for future. -->
+                    <input type="date" id="cost-deadline" name="deadline">
+                </section>
+
+
+                <!-- Create Button -->
+                <button id="create-cost-button" type="submit">Create</button>
+            </form>
+        </section>
+
+
+        <section>
+            <h2>Task Summary</h2>
+
+            <!-- What we should see if nothing is loaded. -->
+            <section>
+                <p>Loading...</p>
+            </section>
+
+            <!-- What should be shown if task is created.  -->
+            <!-- <section>
+                This will be with priority anyways
+                <section>
+                    <label for="title">Title:</label>
+                    <p>Loading...</p>
+                </section>
+
+
+                <section>
+                    <label>Description:</label>
+                    <p>Loading...</p>
+                </section>
+
+
+                <section>
+                    <label>Recurrence:</label>
+                    <p>Loading...</p>
+                </section>
+
+
+                <section>
+                    <label>Assign Users:</label>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </section>
+
+
+                <section>
+                    <label>Task Deadline</label>
+
+                </section>
+            </section> -->
+        </section>
+
+
+
+
+        <section>
+            <h2>Cost Summary</h2>
+
+            <!-- What we should see if nothing is loaded. -->
+            <section>
+                <p>Loading...</p>
+            </section>
+
+            <!-- what we should see when cost is created -->
+            <!-- <section>
+                This will be with priority anyways
+                <section>
+                    <label>Amount (to be paid by each user): </label>
+                    <p>Loading...</p>
+                </section>
+
+
+                <section>
+                    <label>Description:</label>
+                    <p>Loading...</p>
+                </section>
+
+
+                <section>
+                    <label>Assign Users:</label>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </section>
+
+
+                <section>
+                    <label>Payment Deadline</label>
+                </section>
+            </section> -->
+        </section>
+
+    </section>
+
+
+    
+</body>
+</html>
