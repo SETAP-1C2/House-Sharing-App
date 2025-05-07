@@ -81,7 +81,7 @@ h1 {
 
 /* Create group */
 
-p {
+#groupTitle {
     justify-self: center;
     top: 2rem;
     font-size: 1.2rem;
@@ -115,7 +115,7 @@ p {
     font-size: 0.9rem;
   }
   
-textarea {
+.typeText {
   width: 100%;
     padding: 0.6rem;
     background-color: #2b2b2b;
@@ -152,7 +152,10 @@ textarea {
   }
 
 
-  /* for groupMainPage.html */
+
+
+  
+/* for groupMainPage.html */
 /* some of these are in the style.css file */
 
 
