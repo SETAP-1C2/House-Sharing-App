@@ -121,7 +121,7 @@ h1 {
   width: 100%;
     padding: 0.6rem;
     background-color: #2b2b2b;
-    border: 1px solid #555;
+    border: 0.06rem solid #555;
     border-radius: 0.5rem;
     color: #f0f0f0;
     font-size: 0.9rem;
@@ -144,7 +144,7 @@ h1 {
     color: white;
     font-weight: bold;
     font-size: 1rem;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     cursor: pointer;
     transition: background 0.3s ease;
   }
