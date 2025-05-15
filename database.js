@@ -1,10 +1,10 @@
 const mysql = require('mysql2');
 
-// Connect to MySQL (without a specific DB so we can create it)
+// Connect to MySQL
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'yourpassword' // change this
+  password: 'password'
 });
 
 // Connect and run setup
@@ -20,12 +20,11 @@ connection.connect(err => {
     if (err) throw err;
     console.log("Database created or already exists.");
 
-    // Switch to that DB
+    
     connection.changeUser({ database: 'house_share_app' }, (err) => {
       if (err) throw err;
 
-      // Create tables one by one
-
+      
       // USERS
       connection.query(`
         CREATE TABLE IF NOT EXISTS users (
