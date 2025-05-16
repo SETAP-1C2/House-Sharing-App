@@ -1,25 +1,57 @@
 registerUserAttacher();
 
-
+//corrected
 function getFirstName() {
-    const firstName = document.querySelector("#firstName").value;
+    const firstName = document.querySelector("#first-name").value;
     return firstName;
 }
 
+//corrected
 function getLastName() {
-    const lastName = document.querySelector("#lastName").value;
+    const lastName = document.querySelector("#last-name").value;
     return lastName;
 }
 
+
+//correct
 function getEmail() {
     const email = document.querySelector("#email").value;
     return email;
 }
 
+// function getEmail() {
+//   const email = document.querySelector("#email").value.trim();
+//   if (!email.includes("@") || !email.includes(".")) {
+//     alert("Please enter a valid email.");
+//     return null;
+//   }
+//   return email;
+// }
+
+
+
+
+
+//correct
 function getPassword() {
     const password = document.querySelector("#password").value;
     return password;
 }
+
+//enhanced
+// function getPassword() {
+//     const password = document.querySelector("#password").value;
+//     if (password.length < 6) {
+//         alert("Password must be at least 6 characters long.");
+//         return null;
+//     }
+//     return password;
+// }
+
+
+
+
+
 
 function checkPasswordLength(password) {
     if(password.length < 8) {
@@ -29,6 +61,7 @@ function checkPasswordLength(password) {
         return true;
     }
 }
+
 
 function checkCharacterMix(password) {
     if (checkNumber(password)) {
@@ -70,6 +103,7 @@ function checkSpecialChars(password) {
     //returns true if special characters present
 }
 
+
 function registerUser() {
     const firstName = getFirstName();
     const lastName = getLastName();
@@ -92,8 +126,35 @@ function registerUser() {
     
 }
 
-function registerUserAttacher() {
-    const button = document.querySelector("#signUp");
-    button.addEventListener("click",registerUser);
+function formSubmissionHandler() {
+  registerUser();
+  // block the form from submitting (instead of preventDefault)
+  return false;
 }
+
+
+//had to do some changes because of the register changes
+// function registerUserAttacher() {
+//     const button = document.querySelector("#signUp");
+//     button.addEventListener("click",registerUser);
+// }
+
+
+
+function attachRegisterFunction() {
+  const signUpButton = document.querySelector("#sign-up");
+
+  if (signUpButton !== null) {
+    signUpButton.addEventListener("click", handleRegisterClick);
+  }
+}
+
+
+
+function handleRegisterClick() {
+  registerUser();
+}
+
+
+
 
