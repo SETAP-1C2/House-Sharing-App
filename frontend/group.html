@@ -8,8 +8,6 @@
 </head>
 <body>
     <section class="page-wrapper">
-        
-    
         <header class="nav-header">
           <h1 class="logo">
             <span class="red">House</span> <span class="green">Share</span>
@@ -17,7 +15,6 @@
         </header>
 
         <main class="group-container">
-            
             <h2 class="group-title">Group: Budget Masters</h2>
             <p class="group-description">Optional description about this group's purpose or focus.</p>
 
@@ -37,112 +34,110 @@
             
             <section id="form-wrapper">
             <!-- task section -->
-            <section id="task-section" class="task-section">
-                <p class="task-placeholder">Assign and manage tasks for your group easily.</p>
+                <section id="task-section" class="task-section">
+                    <p class="task-placeholder">Assign and manage tasks for your group easily.</p>
+                    <h3 class="task-heading">Create a New Task</h3>
 
-                <h3 class="task-heading">Create a New Task</h3>
+                    <form class="task-form">
+                        <section class="task-field">
+                            <label for="task-title">Task Title:</label>
+                            <input type="text" id="task-title" required />
+                        </section>
 
-                <form class="task-form">
-                <section class="task-field">
-                    <label for="task-title">Task Title:</label>
-                    <input type="text" id="task-title" required />
+                        <section class="task-field">
+                            <label for="task-desc">Task Description <span class="optional">(optional)</span>:</label>
+                            <textarea id="task-desc" placeholder="Optional description..."></textarea>
+                        </section>
+
+                        <section class="task-field">
+                            <label for="task-repeat">Recurrence:</label>
+                            <select id="task-repeat">
+                                <option value="">None</option>
+                                <option value="once">One-Time</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="monthly">Monthly</option>
+                            </select>
+                        </section>
+
+                        <section class="task-field">
+                            <label>Assign Users:</label>
+                            <section class="checkbox-list">
+                                <label><input type="checkbox" /> Abdelrhman</label>
+                                <label><input type="checkbox" /> Ashley</label>
+                                <label><input type="checkbox" /> Augustine</label>
+                            </section>
+                        </section>
+
+                        <section class="task-field">
+                            <label>Task Priority:</label>
+                            <section class="priority-options">
+                                <button type="button" class="priority critical">Critical</button>
+                                <button type="button" class="priority important">Important</button>
+                                <button type="button" class="priority low">Low Priority</button>
+                            </section>
+                        </section>
+
+                        <section class="task-field">
+                            <label for="task-deadline">Deadline:</label>
+                            <input type="date" id="task-deadline" />
+                        </section>
+
+                        <section class="task-actions">
+                            <button type="submit" class="group-button">Create Task</button>
+                        </section>
+                    </form>
                 </section>
 
-                <section class="task-field">
-                    <label for="task-desc">Task Description <span class="optional">(optional)</span>:</label>
-                    <textarea id="task-desc" placeholder="Optional description..."></textarea>
-                </section>
+                <!-- split cost section -->
+                <section id="cost-section" class="cost-section">
+                    <p class="task-placeholder">Track and share group costs effectively.</p>
 
-                <section class="task-field">
-                    <label for="task-repeat">Recurrence:</label>
-                    <select id="task-repeat">
-                        <option value="">None</option>
-                        <option value="once">One-Time</option>
-                        <option value="weekly">Weekly</option>
-                        <option value="monthly">Monthly</option>
-                    </select>
-                </section>
+                    <h3 class="task-heading">Split a New Cost</h3>
 
-                <section class="task-field">
-                    <label>Assign Users:</label>
-                    <section class="checkbox-list">
-                        <label><input type="checkbox" /> Abdelrhman</label>
-                        <label><input type="checkbox" /> Ashley</label>
-                        <label><input type="checkbox" /> Augustine</label>
-                    </section>
-                </section>
+                    <form class="task-form">
+                        <section class="task-field">
+                            <label for="cost-amount">Give Total Cost:</label>
+                            <input type="number" id="cost-amount" required />
+                        </section>
 
-                <section class="task-field">
-                    <label>Task Priority:</label>
-                    <section class="priority-options">
-                        <button type="button" class="priority critical">Critical</button>
-                        <button type="button" class="priority important">Important</button>
-                        <button type="button" class="priority low">Low Priority</button>
-                    </section>
-                </section>
+                        <section class="task-field">
+                            <label for="cost-desc">Cost Description <span class="optional">(optional)</span>:</label>
+                            <textarea id="cost-desc" placeholder="Optional description..."></textarea>
+                        </section>
 
-                <section class="task-field">
-                    <label for="task-deadline">Deadline:</label>
-                    <input type="date" id="task-deadline" />
-                </section>
+                        <section class="task-field">
+                            <label>Assign Users:</label>
+                            <section class="checkbox-list">
+                                <label><input type="checkbox" /> Abdelrhman</label>
+                                <label><input type="checkbox" /> Ashley</label>
+                                <label><input type="checkbox" /> Augustine</label>
+                            </section>
+                        </section>
 
-                <section class="task-actions">
-                    <button type="submit" class="group-button">Create Task</button>
-                </section>
-                </form>
-          </section>
+                        <section class="task-field">
+                            <label>Cost Priority:</label>
+                            <section class="priority-options">
+                                <button type="button" class="priority critical">Critical</button>
+                                <button type="button" class="priority important">Important</button>
+                                <button type="button" class="priority low">Low Priority</button>
+                            </section>
+                        </section>
 
-          <!-- split cost section -->
-            <section id="cost-section" class="cost-section">
-            <p class="task-placeholder">Track and share group costs effectively.</p>
+                        <section class="task-field">
+                            <label for="cost-deadline">Deadline:</label>
+                            <input type="date" id="cost-deadline" />
+                        </section>
 
-            <h3 class="task-heading">Split a New Cost</h3>
-
-            <form class="task-form">
-                <section class="task-field">
-                <label for="cost-amount">Give Total Cost:</label>
-                <input type="number" id="cost-amount" required />
+                        <section class="task-actions">
+                            <button type="submit" class="group-button">Create Cost</button>
+                        </section>
+                    </form>
                 </section>
-
-                <section class="task-field">
-                <label for="cost-desc">Cost Description <span class="optional">(optional)</span>:</label>
-                <textarea id="cost-desc" placeholder="Optional description..."></textarea>
-                </section>
-
-                <section class="task-field">
-                <label>Assign Users:</label>
-                <section class="checkbox-list">
-                    <label><input type="checkbox" /> Abdelrhman</label>
-                    <label><input type="checkbox" /> Ashley</label>
-                    <label><input type="checkbox" /> Augustine</label>
-                </section>
-                </section>
-
-                <section class="task-field">
-                <label>Cost Priority:</label>
-                <section class="priority-options">
-                    <button type="button" class="priority critical">Critical</button>
-                    <button type="button" class="priority important">Important</button>
-                    <button type="button" class="priority low">Low Priority</button>
-                </section>
-                </section>
-
-                <section class="task-field">
-                <label for="cost-deadline">Deadline:</label>
-                <input type="date" id="cost-deadline" />
-                </section>
-
-                <section class="task-actions">
-                <button type="submit" class="group-button">Create Cost</button>
-                </section>
-            </form>
-            </section>
             </section>
 
 
 
             <section class="group-footer">
-
                 <a href="#" class="group-button secondary leave-btn">Leave Group</a>
             </section>
 
@@ -150,9 +145,6 @@
                     <a href="#" class="group-button secondary">Leave Group</a>
                     <a href="#" class="group-button secondary">Manage Settings</a>
                 </section> -->
-
-
-
         </main>
 
     <footer class="footer">
