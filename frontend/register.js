@@ -1,4 +1,5 @@
-registerUserAttacher();
+// registerUserAttacher();
+attachRegisterFunction();
 
 //corrected
 function getFirstName() {
