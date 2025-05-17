@@ -1,161 +1,95 @@
-// registerUserAttacher();
 attachRegisterFunction();
 
-//corrected
+// Get input values
 function getFirstName() {
-    const firstName = document.querySelector("#first-name").value;
-    return firstName;
+  return document.querySelector("#first-name").value;
 }
-
-//corrected
 function getLastName() {
-    const lastName = document.querySelector("#last-name").value;
-    return lastName;
+  return document.querySelector("#last-name").value;
 }
-
-
-//correct
 function getEmail() {
-    const email = document.querySelector("#email").value;
-    return email;
+  return document.querySelector("#email").value;
 }
-
-// function getEmail() {
-//   const email = document.querySelector("#email").value.trim();
-//   if (!email.includes("@") || !email.includes(".")) {
-//     alert("Please enter a valid email.");
-//     return null;
-//   }
-//   return email;
-// }
-
-
-
-
-
-//correct
 function getPassword() {
-    const password = document.querySelector("#password").value;
-    return password;
+  return document.querySelector("#password").value;
 }
 
-//enhanced
-// function getPassword() {
-//     const password = document.querySelector("#password").value;
-//     if (password.length < 6) {
-//         alert("Password must be at least 6 characters long.");
-//         return null;
-//     }
-//     return password;
-// }
-
-
-
-
-
-
-function checkPasswordLength(password) {
-    if(password.length < 8) {
-        return false
-    }
-    else {
-        return true;
-    }
-}
-
-
-function checkCharacterMix(password) {
-    if (checkNumber(password)) {
-        if (checkCase(password)) {
-            if (checkSpecialChars(password)) {
-                return true;
-            }
-        }
-    }
+// all fields to be required
+function fieldsFilled() {
+  if (!getFirstName() || !getLastName() || !getEmail() || !getPassword()) {
+    alert("All fields are required.");
     return false;
+  }
+  return true;
 }
 
-function checkCase(password) {
-    /*
-    Convert password to upper or lowercase then
-    compare it with original to see if it
-    was all upper or lowercase.
-    Only returns true if both upper and lowercase
-    are present.
-     */
-    if (password === password.toUpperCase()||password === password.toLowerCase()) {
-        return false;
-    } else {
-        return true;
-    }
-}
-
-function checkNumber(password) {
-    return /\d/.test(password);
-    // returns true if a number is in password
-}
-
-function checkSpecialChars(password) {
-    const specialChars = /[!@#$%^&*()\-+={}[\]:;"'<>,.?\/|\\]/;
-    if (specialChars.test(password))
-        return true;
-    else
-        return false;
-    //returns true if special characters present
+// email validation
+function isEmailValid(email) {
+  if (email.includes(" ")) {
+    alert("Email must not contain spaces.");
+    return false;
+  }
+  if (!email.includes("@")) {
+    alert("Email must contain '@'");
+    return false;
+  }
+  return true;
 }
 
 
-function registerUser() {
-    const firstName = getFirstName();
-    const lastName = getLastName();
-    const email = getEmail();
-    const password = getPassword();
-    if (checkPasswordLength(password)){
-        if (checkCharacterMix(password)) {
-            console.log(`${firstName}`);
-            console.log(`${lastName}`);
-            console.log(`${email}`);
-            console.log(`${password}`);
-        }
-        else {
-            console.log("Password must be a mix of Uppercase, Lowercase, Numbers and Special charaacters")
-        }
-    }
-    else{
-        console.log("Password must be at least 8 characters");
-    }
-    
+// checking for Password length
+function checkPasswordLength(password) {
+  if (password.length < 8) {
+    alert("Password must be at least 8 characters long.");
+    return false;
+  }
+  return true;
 }
 
-function formSubmissionHandler() {
-  registerUser();
-  // block the form from submitting (instead of preventDefault)
+// Checking for mix of characters
+function checkCharacterMix(password) {
+  const hasUpper = /[A-Z]/.test(password);
+  const hasLower = /[a-z]/.test(password);
+  const hasNumber = /\d/.test(password);
+  const hasSpecial = /[!@#$%^&*()\-+={}[\]:;"'<>,.?\/|\\]/.test(password);
+
+  if (hasUpper && hasLower && hasNumber && hasSpecial) {
+    return true;
+  }
+
+  alert("Password must contain uppercase, lowercase, number, and special character.");
   return false;
 }
 
+// Handle register
+function registerUser() {
+  const email = getEmail();
+  const password = getPassword();
 
-//had to do some changes because of the register changes
-// function registerUserAttacher() {
-//     const button = document.querySelector("#signUp");
-//     button.addEventListener("click",registerUser);
-// }
+  if (!fieldsFilled()) return;
+  if (!isEmailValid(email)) return;
+  if (!checkPasswordLength(password)) return;
+  if (!checkCharacterMix(password)) return;
 
+  alert("Registration successful.");
+  window.location.href = "login.html";
+}
 
-
+// Event listener
 function attachRegisterFunction() {
   const signUpButton = document.querySelector("#sign-up");
+  if (signUpButton) {
+    signUpButton.addEventListener("click", registerUser);
+  }
 
-  if (signUpButton !== null) {
-    signUpButton.addEventListener("click", handleRegisterClick);
+  // Password toggle
+  const toggleBtn = document.querySelector(".toggle-password");
+  const passwordInput = document.querySelector("#password");
+
+  if (toggleBtn && passwordInput) {
+    toggleBtn.addEventListener("click", function () {
+      const type = passwordInput.getAttribute("type");
+      passwordInput.setAttribute("type", type === "password" ? "text" : "password");
+    });
   }
 }
-
-
-
-function handleRegisterClick() {
-  registerUser();
-}
-
-
-
-

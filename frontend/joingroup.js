@@ -28,7 +28,6 @@ function groupIdValid(){
 
 
 
-
 function joinGroupClick() {
   if (groupIdValid()) {
     window.location.href = "group.html";
