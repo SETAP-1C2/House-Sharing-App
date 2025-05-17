@@ -1,4 +1,4 @@
-
+//joingroup.css
 // pricing scroll-reveal
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -26,6 +26,7 @@ function addGroup(name, id, members) {
   groupTable.appendChild(row);
 }
 
+//index.html/css
 
 
 
