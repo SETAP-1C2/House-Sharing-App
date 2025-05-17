@@ -60,6 +60,16 @@ function isGroupIdValid() {
 // }
 
 
+function handleCreateGroupClick(){
+  const nameOkay = isGroupNameValid();
+  const descOkay= isGroupDescriptionValid();
+  const idOkay= isGroupIdValid();
+
+  if (nameOkay && descOkay && idOkay){
+    window.location.href= "group.html";
+  }
+}
+
 
 
 
