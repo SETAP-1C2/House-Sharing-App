@@ -9,14 +9,14 @@ function groupNameValid() {
   if (groupName.length > 50) {
     alert("Group name must be less than 50 characters.");
     return false;
-  }
+  };
   return true;
 }
 
 
 //name less than 50
 function  groupDescriptionValid() {
-  const groupDesc = document.querySelector("#group-desc").value;
+  const groupDesc = document.querySelector("#group-description").value;
 
   if (groupDesc.length > 200) {
     alert("Group description must be less than 200 characters.");
@@ -45,6 +45,8 @@ function groupIdValid() {
           return false;
       };
   };
+
+  return true;
 }
 // Uniqueness check: implement this to the databse constrauint, dont forget
   "DO NOT FORGET"
@@ -75,11 +77,14 @@ function CreateGroupClick(){
 
 //event listener
 function attachCreateGroupListener(){
-  const button= document.querySelector (".submit-button-link");
+  const button= document.querySelector ("#cg-submit-button-link");
   if (button !== null){
-    button.addEventListener ("click", CreateGroupClick)
-  }
-}
+    button.addEventListener ("click", CreateGroupClick);
+  };
+};
+
+
+attachCreateGroupListener()
 
 
 

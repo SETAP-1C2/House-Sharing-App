@@ -17,8 +17,8 @@
     <main class="form-container">
       <h2>Creating a Group?</h2>
       <p class="intro-text">Set up your group to start managing shared tasks and budgets with your housemates.</p>
-
-      <form class="group-form" action="#" method="post">
+      <!-- action="#" method="post" -->
+      <form class="group-form">
         <label for="group-name">Group Name:</label>
         <input type="text" placeholder="must be less than 50 characters" id="group-name" name="group-name" required />
 
@@ -28,7 +28,7 @@
         <label for="group-description">Group Description (Optional):</label>
         <textarea id="group-description" placeholder="name must be less than 200 characters" name="group-description" rows="4"></textarea>
 
-        <a href="group.html" class="submit-button-link">Create Group</a>
+        <button type="button" class="submit-button-link" id="cg-submit-button-link">Create Group</button>
 
       </form>
     </main>
