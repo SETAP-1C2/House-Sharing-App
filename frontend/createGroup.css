@@ -99,6 +99,25 @@ main {
   background-color: rgb(12, 75, 200);
 }
 
+.submit-button-link {
+  display: inline-block;
+  background-color: rgb(68, 85, 235);
+  color: white;
+  padding: 1rem 3rem;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%; /* or whatever width you had before */
+}
+
+.submit-button-link:hover {
+  background-color: rgb(16, 90, 228);
+}
+
 .footer {
   text-align: center;
   padding: 1.5rem;

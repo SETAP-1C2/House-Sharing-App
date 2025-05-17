@@ -136,7 +136,7 @@ main {
 
 /* Start hidden and transparent */
 .task-section {
-  margin-top: 2.5rem; /* Adds breathing room below buttons */
+  margin-top: 1.5rem; /* Adds breathing room below buttons */
   padding-top: 2rem;
   border-top: 0.0625rem solid rgb(100, 100, 100); /* Thin line */
   opacity: 0;                /* faded by default */
@@ -191,7 +191,7 @@ main {
 
 .cost-section {
   display: none;
-  margin-top: 2.5rem;
+  margin-top: 1.5rem;
   padding-top: 2rem;
   border-top: 0.0625rem solid rgb(100, 100, 100);
   opacity: 0;
@@ -292,6 +292,55 @@ main {
   justify-content: center;
   margin-top: 2rem;
 }
+
+
+/* group.css */
+/* Task Summary */
+.summary-section {
+  display: none;
+  background-color: rgb(50, 50, 50);
+  padding: 2rem;
+  border-radius: 0.75rem;
+  margin-top: 2rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.4);
+  transition: opacity 0.4s ease;
+}
+
+.summary-section.visible {
+  display: block;
+  opacity: 1;
+}
+
+.summary-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.summary-priority-box {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 0.25rem;
+  margin-left: 1rem;
+}
+
+/* Optional Description */
+.summary-desc {
+  font-style: italic;
+  color: rgb(200, 200, 200);
+  margin-bottom: 1.2rem;
+}
+
+/* Assigned Users & Deadline */
+.summary-meta p {
+  margin-bottom: 0.6rem;
+  color: white;
+}
+
+
 
 
 

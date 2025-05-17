@@ -37,3 +37,9 @@ if (splitCostsButton !== null) {
   splitCostsButton.addEventListener("click", showCostSection);
 }
 
+
+
+
+
+
+
