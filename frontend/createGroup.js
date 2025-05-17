@@ -3,7 +3,7 @@
 // ===============================
 
 //length less than 50
-function isGroupNameValid() {
+function groupNameValid() {
   const groupName = document.querySelector("#group-name").value;
 
   if (groupName.length > 50) {
@@ -15,7 +15,7 @@ function isGroupNameValid() {
 
 
 //name less than 50
-function isGroupDescriptionValid() {
+function  groupDescriptionValid() {
   const groupDesc = document.querySelector("#group-desc").value;
 
   if (groupDesc.length > 200) {
@@ -27,7 +27,7 @@ function isGroupDescriptionValid() {
 
 
 //characters must be numbers and 5 digits
-function isGroupIdValid() {
+function groupIdValid() {
   const groupId = document.querySelector("#group-id").value;
 
   //must be 5 digits
@@ -60,18 +60,26 @@ function isGroupIdValid() {
 // }
 
 
-function handleCreateGroupClick(){
-  const nameOkay = isGroupNameValid();
-  const descOkay= isGroupDescriptionValid();
-  const idOkay= isGroupIdValid();
+
+
+//valid for clicking
+function CreateGroupClick(){
+  const nameOkay = groupNameValid();
+  const descOkay= groupDescriptionValid();
+  const idOkay= groupIdValid();
 
   if (nameOkay && descOkay && idOkay){
     window.location.href= "group.html";
   }
 }
 
-
-
+//event listener
+function attachCreateGroupListener(){
+  const button= document.querySelector (".submit-button-link");
+  if (button !== null){
+    button.addEventListener ("click", CreateGroupClick)
+  }
+}
 
 
 
