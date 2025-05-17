@@ -2,10 +2,17 @@
 // CREATE GROUP VALIDATION LOGIC
 // ===============================
 
-//length less than 50
+//validity conditions for group name
 function groupNameValid() {
   const groupName = document.querySelector("#group-name").value;
 
+  // check if nothing is entered
+  if (groupName.length === 0) {
+    alert("Group name is required.");
+    return false;
+  }
+
+  //length less than 50
   if (groupName.length > 50) {
     alert("Group name must be less than 50 characters.");
     return false;
@@ -19,7 +26,7 @@ function  groupDescriptionValid() {
   const groupDesc = document.querySelector("#group-description").value;
 
   if (groupDesc.length > 200) {
-    alert("Group description must be less than 200 characters.");
+    alert("description must be less than 200 characters.");
     return false;
   }
   return true;
