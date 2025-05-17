@@ -1,4 +1,4 @@
-function joinGroupidValid(){
+function groupIdValid(){
     const groupId= document.querySelector("#group-id").value;
 
     //group id required
@@ -9,7 +9,7 @@ function joinGroupidValid(){
 
     //length must be 5
     if (groupId.length !== 5) {
-        alert("Group Id is required");
+        alert("ID must be exactly 5 digits");
         return false;
     }
 
@@ -18,13 +18,32 @@ function joinGroupidValid(){
 
     for (let i=0; i<groupId.length; i++){
         if (!digits.includes(groupId[i])) {
-            alert("Id must contain only digits");
+            alert("Group ID must contain only digits.");
             return false;
-        }
-    }
+        };
+    };
 
     return true;
 };
+
+
+
+
+function joinGroupClick() {
+  if (groupIdValid()) {
+    window.location.href = "group.html";
+  };
+};
+
+function attachJoinGroupListener() {
+  const button = document.querySelector("#join-group-btn"); // your button ID
+  if (button !== null) {
+    button.addEventListener("click", joinGroupClick);
+  };
+};
+
+
+attachJoinGroupListener();
 
 
 

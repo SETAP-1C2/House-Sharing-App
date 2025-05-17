@@ -72,7 +72,7 @@ function groupIdValid() {
 
 
 //valid for clicking
-function CreateGroupClick(){
+function createGroupClick(){
     if (!groupNameValid()) {
       return;
     }
@@ -85,7 +85,6 @@ function CreateGroupClick(){
       return;
     }
 
-    // ✅ All passed
     window.location.href = "group.html";
 }
 
@@ -95,7 +94,7 @@ function CreateGroupClick(){
 function attachCreateGroupListener(){
   const button= document.querySelector ("#cg-submit-button-link");
   if (button !== null){
-    button.addEventListener ("click", CreateGroupClick);
+    button.addEventListener ("click", createGroupClick);
   };
 };
 
