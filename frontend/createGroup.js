@@ -73,14 +73,23 @@ function groupIdValid() {
 
 //valid for clicking
 function CreateGroupClick(){
-  const nameOkay = groupNameValid();
-  const descOkay= groupDescriptionValid();
-  const idOkay= groupIdValid();
+    if (!groupNameValid()) {
+      return;
+    }
 
-  if (nameOkay && descOkay && idOkay){
-    window.location.href= "group.html";
-  }
+    if (!groupDescriptionValid()) {
+      return;
+    }
+
+    if (!groupIdValid()) {
+      return;
+    }
+
+    // ✅ All passed
+    window.location.href = "group.html";
 }
+
+
 
 //event listener
 function attachCreateGroupListener(){
