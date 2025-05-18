@@ -1,1 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <section class="page-wrapper">
+    <header class="nav-header">
+      <h1 class="logo">
+        <span class="red">House</span> <span class="green">Share</span>
+      </h1>
+    </header>
 
+    <main class="login-form-container">
+      <h2>Create an Account</h2>
+      <p class="tagline-small">Simplify shared budgets and to-dos</p>
+
+      <form id= "register-form" class="login-form" action="#" method="post">
+        <label for="first-name">First Name:</label>
+        <input type="text" id="first-name" name="first-name" required />
+
+        <label for="last-name">Last Name:</label>
+        <input type="text" id="last-name" name="last-name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="password">Password:</label>
+        <section class="password-wrapper">
+          <input type="password" id="password" name="password" required />
+          <button type="button" class="toggle-password" aria-label="Show password">&#128065;</button>
+        </section>
+
+        <button type="button" id="sign-up">Sign Up</button>
+        <p class="form-link">Already have an account? <a href="login.html">Login</a></p>
+      </form>
+    </main>
+
+    <footer class="footer">
+      <p>© 2025 HouseShare. All rights reserved.</p>
+    </footer>
+  </section>
+
+  <script src="register.js"></script>
+</body>
+</html>
