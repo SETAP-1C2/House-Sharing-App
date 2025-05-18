@@ -83,10 +83,25 @@
                         </section>
 
                         <section class="task-actions">
-                            <button type="submit" class="group-button" id="create-task-button">Create Task</button>
+                            <button type="button" class="group-button" id="create-task-button">Create Task</button>
                         </section>
                     </form>
                 </section>
+
+                <section id="task-summary" class="summary-section">
+                    <h3 class="summary-title">
+                        <span id="summary-task-title">[Title]</span>
+                        <span id="summary-priority-box" class="summary-priority-box"></span>
+                    </h3>
+
+                    <p id="summary-task-desc" class="summary-desc"></p>
+
+                    <section class="summary-ass-date">
+                        <p><strong>Assigned To:</strong> <span id="summary-assignees">[Names]</span></p>
+                        <p><strong>Deadline:</strong> <span id="summary-deadline">[Date]</span></p>
+                    </section>
+                </section>
+
 
                 <!-- split cost section -->
                 <section id="cost-section" class="cost-section">
