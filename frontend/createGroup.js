@@ -104,7 +104,17 @@ attachCreateGroupListener()
 
 
 
+// adding group name to local storage
+function createGroupClick() {
+    if (!groupNameValid()) return;
+    if (!groupDescriptionValid()) return;
+    if (!groupIdValid()) return;
 
+    const groupName = document.querySelector("#group-name").value;
+    localStorage.setItem("groupName", groupName); //Save group name
+
+    window.location.href = "group.html";
+}
 
 
 

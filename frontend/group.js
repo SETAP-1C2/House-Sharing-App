@@ -2,6 +2,22 @@
 // TASK SUMMARY SETUP AFTER CREATE TASK
 // ======================================
 
+
+
+// local storage for group name
+document.addEventListener("DOMContentLoaded", function () {
+  const groupName = localStorage.getItem("groupName");
+  if (groupName) {
+    document.querySelector(".group-title").textContent = `Group: ${groupName}`;
+  }
+});
+
+
+
+
+
+
+
 // Attach click listener to Create Task button
 const createTaskBtn = document.querySelector("#create-task-button");
 if (createTaskBtn !== null) {
@@ -31,8 +47,7 @@ function showTaskSummary() {
   let selectedUsers = [];
   for (let i = 0; i < checkboxes.length; i++) {
     if (checkboxes[i].checked) {
-      const label = checkboxes[i].parentElement;
-      const name = label.textContent;
+      const name = checkboxes[i].nextSibling.nodeValue.trim();
       selectedUsers.push(name);
     }
   }
@@ -82,7 +97,7 @@ function showCostSummary() {
   let selectedUsers = [];
   for (let i = 0; i < checkboxes.length; i++) {
     if (checkboxes[i].checked) {
-      const name = checkboxes[i].parentElement.textContent;
+      const name = checkboxes[i].nextSibling.nodeValue.trim();
       selectedUsers.push(name);
     }
   }
