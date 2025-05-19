@@ -179,6 +179,8 @@ function showTaskSection() {
   if (costSection) costSection.classList.remove("visible");
   if (taskSummary) taskSummary.classList.remove("visible");
   if (costSummary) costSummary.classList.remove("visible");
+
+  clearTaskForm();
 }
 
 
@@ -193,6 +195,8 @@ function showCostSection() {
   if (taskSection) taskSection.classList.remove("visible");
   if (taskSummary) taskSummary.classList.remove("visible");
   if (costSummary) costSummary.classList.remove("visible");
+
+  clearCostForm();
 }
 
 const splitCostsButton = document.querySelector("#split-costs");
@@ -200,4 +204,34 @@ if (splitCostsButton) {
   splitCostsButton.addEventListener("click", showCostSection);
 }
 
+
+// ========== Clear task form inputs ==========
+function clearTaskForm() {
+  document.querySelector("#task-title").value = "";
+  document.querySelector("#task-desc").value = "";
+  document.querySelector("#task-deadline").value = "";
+  document.querySelector("#task-recurrence").value = "";
+
+  const checkboxes = document.querySelectorAll("#task-section .checkbox-list input[type='checkbox']");
+  for (let i = 0; i < checkboxes.length; i++) {
+    checkboxes[i].checked = false;
+  }
+
+  clearPrioritySelection();
+}
+
+// ========== Clear cost form inputs ==========
+function clearCostForm() {
+  document.querySelector("#cost-amount").value = "";
+  document.querySelector("#cost-desc").value = "";
+  document.querySelector("#cost-deadline").value = "";
+  document.querySelector("#cost-recurrence").value = "";
+
+  const checkboxes = document.querySelectorAll("#cost-section .checkbox-list input[type='checkbox']");
+  for (let i = 0; i < checkboxes.length; i++) {
+    checkboxes[i].checked = false;
+  }
+
+  clearPrioritySelection();
+}
 
