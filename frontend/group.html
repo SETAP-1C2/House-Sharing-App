@@ -50,8 +50,8 @@
                         </section>
 
                         <section class="task-field">
-                            <label for="task-repeat">Recurrence:</label>
-                            <select id="task-repeat">
+                            <label for="task-recurrence">Recurrence:</label>
+                            <select id="task-recurrence">
                                 <option value="">None</option>
                                 <option value="once">One-Time</option>
                                 <option value="weekly">Weekly</option>
@@ -83,10 +83,28 @@
                         </section>
 
                         <section class="task-actions">
-                            <button type="submit" class="group-button" id="create-task-button">Create Task</button>
+                            <button type="button" class="group-button" id="create-task-button">Create Task</button>
                         </section>
                     </form>
                 </section>
+
+                <!-- task summary -->
+                <section id="task-summary" class="summary-section">
+                    <h3 class="summary-title">
+                        <span id="summary-task-title">[Title]</span>
+                        <span id="summary-priority-box" class="summary-priority-box"></span>
+                    </h3>
+
+                    <p id="summary-task-desc" class="summary-desc"></p>
+
+                    <section class="summary-ass-date">
+                        <p><strong>Assigned To:</strong></p>
+                        <ul id="summary-assignees"></ul>
+
+                        <p class="summary-recurrence"><strong>Recurrence:</strong> <span id="summary-recurrence">—</span></p>
+                        <p class="summary-deadline"><strong>Deadline:</strong> <span id="summary-deadline">—</span></p>                    </section>
+                </section>
+
 
                 <!-- split cost section -->
                 <section id="cost-section" class="cost-section">
@@ -104,6 +122,18 @@
                             <label for="cost-desc">Cost Description <span class="optional">(optional)</span>:</label>
                             <textarea id="cost-desc" placeholder="Optional description..."></textarea>
                         </section>
+
+
+                        <section class="task-field">
+                            <label for="cost-recurrence">Recurrence:</label>
+                            <select id="cost-recurrence">
+                                <option value="">None</option>
+                                <option value="once">One-Time</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="monthly">Monthly</option>
+                            </select>
+                        </section>
+
 
                         <section class="task-field">
                             <label>Assign Users:</label>
@@ -129,10 +159,28 @@
                         </section>
 
                         <section class="task-actions">
-                            <button type="submit" class="group-button">Split Cost</button>
+                            <button type="button" class="group-button" id="create-cost-button">Split Cost</button>
                         </section>
                     </form>
                 </section>
+
+
+                <!-- Cost Summary -->
+                <section id="cost-summary" class="summary-section">
+                    <h3 class="summary-title">
+                        <span id="summary-cost-amount">[Amount]</span>
+                        <span id="summary-cost-priority" class="summary-priority-box"></span>
+                    </h3>
+
+                    <p id="summary-cost-desc" class="summary-desc"></p>
+
+                    <section class="summary-ass-date">
+                        <p><strong>Shared With:</strong></p>
+                        <ul id="summary-cost-assignees"></ul>
+                        <p class="summary-deadline"><strong>Deadline:</strong> <span id="summary-cost-deadline">—</span></p>
+                    </section>
+                </section>
+
             </section>
 
 
