@@ -1,14 +1,14 @@
 // for task section
 function showTaskSection() {
-  const taskSection = document.querySelector("#task-section");
-  const costSection = document.querySelector("#cost-section");
-  const taskSummary = document.querySelector("#task-summary");
-  const costSummary = document.querySelector("#cost-summary"); // ✅ NEW
+    const taskSection = document.querySelector("#task-section");
+    const costSection = document.querySelector("#cost-section");
+    const taskSummary = document.querySelector("#task-summary");
+    const costSummary = document.querySelector("#cost-summary"); 
 
-  if (taskSection) taskSection.classList.add("visible");
-  if (costSection) costSection.classList.remove("visible");
-  if (taskSummary) taskSummary.classList.remove("visible");
-  if (costSummary) costSummary.classList.remove("visible"); // ✅ NEW
+    if (taskSection) taskSection.classList.add("visible");
+    if (costSection) costSection.classList.remove("visible");
+    if (taskSummary) taskSummary.classList.remove("visible");
+    if (costSummary) costSummary.classList.remove("visible"); 
 }
 
 
@@ -16,8 +16,11 @@ function showTaskSection() {
 const shareTasksButton = document.querySelector("#share-tasks");
 
 if (shareTasksButton) {
-  shareTasksButton.addEventListener("click", showTaskSection);
+    shareTasksButton.addEventListener("click", showTaskSection);
 }
+
+
+
 
 
 
@@ -26,16 +29,16 @@ if (shareTasksButton) {
 
 //for cost section
 function showCostSection() {
-  const costSection = document.querySelector("#cost-section");
-  const taskSection = document.querySelector("#task-section");
-  const taskSummary = document.querySelector("#task-summary"); // ✅ added
+    const costSection = document.querySelector("#cost-section");
+    const taskSection = document.querySelector("#task-section");
+    const taskSummary = document.querySelector("#task-summary"); 
 
-  // Show cost form
-  costSection.classList.add("visible");
+    // Show cost form
+    costSection.classList.add("visible");
 
-  // Hide task form and summary
-  taskSection.classList.remove("visible");
-  taskSummary.classList.remove("visible"); // ✅ hides task summary
+    // Hide task form and summary
+    taskSection.classList.remove("visible");
+    taskSummary.classList.remove("visible"); // hides task summary
 }
 
 
@@ -44,17 +47,22 @@ function showCostSection() {
 const splitCostsButton = document.querySelector("#split-costs");
 
 if (splitCostsButton !== null) {
-  splitCostsButton.addEventListener("click", showCostSection);
+    splitCostsButton.addEventListener("click", showCostSection);
 }
+
+
+
+
+
 
 
 function showTaskForm() {
-  // Hide all others
-  document.querySelector("#cost-section").classList.remove("visible");
-  document.querySelector("#task-summary").classList.remove("visible");
+    // Hide all others
+    document.querySelector("#cost-section").classList.remove("visible");
+    document.querySelector("#task-summary").classList.remove("visible");
 
-  // Show task section
-  document.querySelector("#task-section").classList.add("visible");
+    // Show task section
+    document.querySelector("#task-section").classList.add("visible");
 }
 
 
@@ -63,114 +71,116 @@ function showTaskForm() {
 
 
 
+
+
+
+// ========== Create and show task summary ==========
 function showTaskSummary() {
-  const title = document.querySelector("#task-title").value;
-  const desc = document.querySelector("#task-desc").value;
-  const deadline = document.querySelector("#task-deadline").value;
-  const recurrence = document.querySelector("#task-recurrence").value;
+    const title = document.querySelector("#task-title").value;
+    const desc = document.querySelector("#task-desc").value;
+    const deadline = document.querySelector("#task-deadline").value;
+    const recurrence = document.querySelector("#task-recurrence").value;
 
-  document.querySelector("#summary-recurrence").textContent = recurrence || "—";
-
-
-  // ========== Get assigned users ==========
-  const checkboxes = document.querySelectorAll(".checkbox-list input[type='checkbox']");
-  let selectedUsers = [];
-  for (let i = 0; i < checkboxes.length; i++) {
-    if (checkboxes[i].checked) {
-      const name = checkboxes[i].parentElement.textContent;
-      selectedUsers.push(name);
+    // ========== Get assigned users ==========
+    const checkboxes = document.querySelectorAll(".checkbox-list input[type='checkbox']");
+    let selectedUsers = [];
+    for (let i = 0; i < checkboxes.length; i++) {
+      if (checkboxes[i].checked) {
+        const label = checkboxes[i].parentElement;
+        const name = label.textContent;
+        selectedUsers.push(name);
+      }
     }
-  }
 
-
-  // ========== Get priority color ==========
-  const selectedPriority = document.querySelector(".priority.selected");
-  let priorityColor = "transparent";
-  if (selectedPriority) {
-    const type = selectedPriority.classList;
-    if (type.contains("critical")) priorityColor = "rgb(200, 0, 0)";
-    else if (type.contains("important")) priorityColor = "rgb(255, 165, 0)";
-    else if (type.contains("low")) priorityColor = "rgb(0, 180, 0)";
-  }
-
+    // ========== Get priority color ==========
+    const selectedPriority = document.querySelector(".priority.selected");
+    let priorityColor = "transparent";
+    if (selectedPriority) {
+      const type = selectedPriority.classList;
+      if (type.contains("critical")) priorityColor = "rgb(200, 0, 0)";
+      else if (type.contains("important")) priorityColor = "rgb(255, 165, 0)";
+      else if (type.contains("low")) priorityColor = "rgb(0, 180, 0)";
+    }
 
     // ========== Update the task summary section ==========
-  document.querySelector("#summary-task-title").textContent = title || "[Untitled]";
-  document.querySelector("#summary-task-desc").textContent = desc || "No description provided.";
-  document.querySelector("#summary-deadline").textContent = deadline || "—";
-  document.querySelector("#summary-priority-box").style.backgroundColor = priorityColor;
+    document.querySelector("#summary-task-title").textContent = title || "[Untitled]";
+    document.querySelector("#summary-task-desc").textContent = desc || "No description provided.";
+    document.querySelector("#summary-deadline").textContent = deadline || "—";
+    document.querySelector("#summary-recurrence").textContent = recurrence || "—";
+    document.querySelector("#summary-priority-box").style.backgroundColor = priorityColor;
 
-  const assigneeList = document.querySelector("#summary-assignees");
-  assigneeList.innerHTML = "";
+    const assigneeList = document.querySelector("#summary-assignees");
+    assigneeList.innerHTML = "";
 
-  if (selectedUsers.length > 0) {
-    for (let j = 0; j < selectedUsers.length; j++) {
+    if (selectedUsers.length > 0) {
+      for (let j = 0; j < selectedUsers.length; j++) {
+        const li = document.createElement("li");
+        li.textContent = selectedUsers[j];
+        assigneeList.appendChild(li);
+      }
+    } else {
       const li = document.createElement("li");
-      li.textContent = selectedUsers[j];
+      li.textContent = "None";
       assigneeList.appendChild(li);
     }
-  } else {
-    const li = document.createElement("li");
-    li.textContent = "None";
-    assigneeList.appendChild(li);
-  }
 
+    document.querySelector("#task-section").classList.remove("visible");
+    document.querySelector("#task-summary").classList.add("visible");
+  } 
 
-  // ========== Show summary and hide form ==========
-  document.querySelector("#task-section").classList.remove("visible");
-  document.querySelector("#task-summary").classList.add("visible");
-}
-
-
-// ========== Toggle selected class for priority buttons ==========
-const priorityButtons = document.querySelectorAll(".priority");
-for (let i = 0; i < priorityButtons.length; i++) {
-  priorityButtons[i].addEventListener("click", function () {
-    clearPrioritySelection();
-    priorityButtons[i].classList.add("selected");
-  });
-}
-
-
-// ========== Clear selected class from all priority buttons ==========
-function clearPrioritySelection() {
+  // ========== Toggle selected class for priority buttons ==========
+  const priorityButtons = document.querySelectorAll(".priority");
   for (let i = 0; i < priorityButtons.length; i++) {
-    priorityButtons[i].classList.remove("selected");
+    priorityButtons[i].addEventListener("click", function () {
+      clearPrioritySelection();
+      priorityButtons[i].classList.add("selected");
+    });
   }
+
+  // ========== Clear selected class from all priority buttons ==========
+  function clearPrioritySelection() {
+    for (let i = 0; i < priorityButtons.length; i++) {
+      priorityButtons[i].classList.remove("selected");
+    }
 }
 
 
 
-//event listener for task section
+
+
+
+
+
+//event listener for task section to task summary
 const createTaskButton = document.querySelector("#create-task-button");
 
 if (createTaskButton !== null) {
-  createTaskButton.addEventListener("click", showTaskSummary);
+    createTaskButton.addEventListener("click", showTaskSummary);
 }
 
 //event listener for cost section
 const splitCostButton = document.querySelector("#create-cost-button");
 
 if (splitCostButton !== null) {
-  splitCostButton.addEventListener("click", showCostSummary);
+    splitCostButton.addEventListener("click", showCostSummary);
 }
 
 
 
 
 function showCostSummary() {
-  const amount = parseFloat(document.querySelector("#cost-amount").value);
-  const desc = document.querySelector("#cost-desc").value;
-  const deadline = document.querySelector("#cost-deadline").value;
+    const amount = parseFloat(document.querySelector("#cost-amount").value);
+    const desc = document.querySelector("#cost-desc").value;
+    const deadline = document.querySelector("#cost-deadline").value;
 
   // Assigned users
   const checkboxes = document.querySelectorAll("#cost-section .checkbox-list input[type='checkbox']");
   let selectedUsers = [];
   for (let i = 0; i < checkboxes.length; i++) {
-    if (checkboxes[i].checked) {
-      const name = checkboxes[i].parentElement.textContent;
-      selectedUsers.push(name);
-    }
+      if (checkboxes[i].checked) {
+          const name = checkboxes[i].parentElement.textContent;
+          selectedUsers.push(name);
+      }
   }
 
   const perPersonCost = selectedUsers.length > 0 ? (amount / selectedUsers.length).toFixed(2) : "—";
@@ -181,17 +191,17 @@ function showCostSummary() {
   let priorityMessage = "";
 
   if (selectedPriority) {
-    const type = selectedPriority.classList;
-    if (type.contains("critical")) {
-      priorityColor = "rgb(200, 0, 0)";
-      priorityMessage = " Urgent: You must pay immediately.";
-    } else if (type.contains("important")) {
-      priorityColor = "rgb(255, 165, 0)";
-      priorityMessage = " Important: Payment is due soon.";
-    } else if (type.contains("low")) {
-      priorityColor = "rgb(0, 180, 0)";
-      priorityMessage = " Reminder: You have a pending payment.";
-    }
+      const type = selectedPriority.classList;
+      if (type.contains("critical")) {
+        priorityColor = "rgb(200, 0, 0)";
+        priorityMessage = " Urgent: You must pay immediately.";
+      } else if (type.contains("important")) {
+        priorityColor = "rgb(255, 165, 0)";
+        priorityMessage = " Important: Payment is due soon.";
+      } else if (type.contains("low")) {
+        priorityColor = "rgb(0, 180, 0)";
+        priorityMessage = " Reminder: You have a pending payment.";
+      }
   }
 
   // Update summary display
@@ -205,31 +215,32 @@ function showCostSummary() {
   costAssigneeList.innerHTML = "";
 
   if (selectedUsers.length > 0) {
-    for (let j = 0; j < selectedUsers.length; j++) {
-      const li = document.createElement("li");
-      li.innerHTML = `${selectedUsers[j]} — <span style="color:${priorityColor}">GBP ${perPersonCost}</span>`;
-      costAssigneeList.appendChild(li);
+      for (let j = 0; j < selectedUsers.length; j++) {
+        const li = document.createElement("li");
+        li.innerHTML = `${selectedUsers[j]} — <span style="color:${priorityColor}">GBP ${perPersonCost}</span>`;
+        costAssigneeList.appendChild(li);
+      }
+    } else {
+        const li = document.createElement("li");
+        li.textContent = "None";
+        costAssigneeList.appendChild(li);
     }
-  } else {
-    const li = document.createElement("li");
-    li.textContent = "None";
-    costAssigneeList.appendChild(li);
-  }
 
   // Add or update priority message
   let messagePara = document.querySelector("#summary-cost-priority-message");
   if (!messagePara) {
-    messagePara = document.createElement("p");
-    messagePara.id = "summary-cost-priority-message";
-    document.querySelector("#cost-summary .summary-ass-date").appendChild(messagePara);
-  }
-  messagePara.textContent = priorityMessage;
-  messagePara.style.marginTop = "1rem";
-  messagePara.style.color = priorityColor;
+      messagePara = document.createElement("p");
+      messagePara.id = "summary-cost-priority-message";
+      document.querySelector("#cost-summary .summary-ass-date").appendChild(messagePara);
+    }
 
-  // Show summary, hide form
-  document.querySelector("#cost-section").classList.remove("visible");
-  document.querySelector("#cost-summary").classList.add("visible");
+    messagePara.textContent = priorityMessage;
+    messagePara.style.marginTop = "1rem";
+    messagePara.style.color = priorityColor;
+
+    // Show summary, hide form
+    document.querySelector("#cost-section").classList.remove("visible");
+    document.querySelector("#cost-summary").classList.add("visible");
 }
 
 
