@@ -250,3 +250,69 @@ function clearCostForm() {
   clearPrioritySelection();
 }
 
+
+
+function populateAssigneeCheckboxes() {
+    const residentItems = document.querySelectorAll(".resident-list li");
+    const taskAssignees = document.querySelector("#task-assignees");
+    const costAssignees = document.querySelector("#cost-assignees");
+
+    taskAssignees.innerHTML = "";
+    costAssignees.innerHTML = "";
+
+    for (let i = 0; i < residentItems.length; i++) {
+        const name = residentItems[i].textContent.trim();
+
+        const taskLabel = document.createElement("label");
+        const taskCheckbox = document.createElement("input");
+        taskCheckbox.type = "checkbox";
+        taskCheckbox.setAttribute("data-name", name);
+        taskLabel.appendChild(taskCheckbox);
+        taskLabel.append(" " + name);
+        taskAssignees.appendChild(taskLabel);
+
+        const costLabel = document.createElement("label");
+        const costCheckbox = document.createElement("input");
+        costCheckbox.type = "checkbox";
+        costCheckbox.setAttribute("data-name", name);
+        costLabel.appendChild(costCheckbox);
+        costLabel.append(" " + name);
+        costAssignees.appendChild(costLabel);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", populateAssigneeCheckboxes);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
