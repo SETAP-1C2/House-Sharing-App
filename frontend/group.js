@@ -285,6 +285,33 @@ document.addEventListener("DOMContentLoaded", populateAssigneeCheckboxes);
 
 
 
+document.addEventListener("DOMContentLoaded", function () {
+    displayGroupName();
+    displayGroupDescription();
+});
+
+// ========== Show Group Name ==========
+function displayGroupName() {
+    const groupName = localStorage.getItem("groupName");
+    if (groupName) {
+      document.querySelector(".group-title").textContent = `Group: ${groupName}`;
+    }
+}
+
+// ========== Show Group Description if present ==========
+function displayGroupDescription() {
+    const groupDesc = localStorage.getItem("groupDescription");
+    const descElement = document.querySelector(".group-description");
+
+    if (groupDesc && descElement) {
+      descElement.textContent = groupDesc;
+    } else if (descElement) {
+      descElement.style.display = "none";
+    }
+}
+
+
+
 
 
 

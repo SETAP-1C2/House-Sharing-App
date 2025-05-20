@@ -8,14 +8,14 @@ function groupNameValid() {
 
   // check if nothing is entered
   if (groupName.length === 0) {
-    alert("Group name is required.");
-    return false;
+      alert("Group name is required.");
+      return false;
   }
 
   //length less than 50
   if (groupName.length > 50) {
-    alert("Group name must be less than 50 characters.");
-    return false;
+      alert("Group name must be less than 50 characters.");
+      return false;
   };
   return true;
 }
@@ -26,8 +26,8 @@ function  groupDescriptionValid() {
   const groupDesc = document.querySelector("#group-description").value;
 
   if (groupDesc.length > 200) {
-    alert("description must be less than 200 characters.");
-    return false;
+      alert("description must be less than 200 characters.");
+      return false;
   }
   return true;
 }
@@ -39,8 +39,8 @@ function groupIdValid() {
 
   //must be 5 digits
   if (groupId.length !== 5) {
-    alert("Group ID must be exactly 5 digits.");
-    return false;
+      alert("Group ID must be exactly 5 digits.");
+      return false;
   };
 
 
@@ -71,7 +71,7 @@ function groupIdValid() {
 
 
 
-//valid for clicking
+//valid for clicking (local storage added)
 function createGroupClick(){
     if (!groupNameValid()) {
       return;
@@ -84,6 +84,28 @@ function createGroupClick(){
     if (!groupIdValid()) {
       return;
     }
+
+    const groupName = document.querySelector("#group-name").value;
+    const groupId = document.querySelector("#group-id").value;
+    const groupDesc = document.querySelector("#group-description").value;
+
+    const createdGroup= {
+      name: groupName,
+      id: groupId,
+      description: groupDesc
+    };
+
+    //get the existing group 
+    const yourGroups= JSON.parse(localStorage.getItem("userGroups")) || [];
+    yourGroups.push (createdGroup);
+
+    localStorage.setItem("userGroups", JSON.stringify (yourGroups));
+
+
+    //stored the group in a local storage to display in group.html.
+    localStorage.setItem("groupName", groupName);
+    localStorage.setItem("groupDescription", groupDesc);
+    localStorage.setItem("groupId", groupId);
 
     window.location.href = "group.html";
 }
@@ -102,19 +124,6 @@ function attachCreateGroupListener(){
 attachCreateGroupListener()
 
 
-
-
-// adding group name to local storage
-function createGroupClick() {
-    if (!groupNameValid()) return;
-    if (!groupDescriptionValid()) return;
-    if (!groupIdValid()) return;
-
-    const groupName = document.querySelector("#group-name").value;
-    localStorage.setItem("groupName", groupName); //Save group name
-
-    window.location.href = "group.html";
-}
 
 
 
