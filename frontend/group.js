@@ -47,7 +47,7 @@ function showTaskSummary() {
   let selectedUsers = [];
   for (let i = 0; i < checkboxes.length; i++) {
     if (checkboxes[i].checked) {
-      const name = checkboxes[i].nextSibling.nodeValue.trim();
+      const name = checkboxes[i].getAttribute("data-name");
       selectedUsers.push(name);
     }
   }
