@@ -53,6 +53,24 @@ function joinGroupClick() {
         return;
     }
 
+
+    // To check if the group is already in the user's list
+    const joinedGroups = JSON.parse(localStorage.getItem("userGroups")) || [];
+    let alreadyJoined = false;
+
+    for (let j = 0; j < joinedGroups.length; j++) {
+      if (joinedGroups[j].id === existingGroup.id) {
+          alreadyJoined = true;
+          break;
+      }
+    }
+
+    // Add to your groups list if not already there
+    if (!alreadyJoined) {
+        joinedGroups.push(existingGroup);
+        localStorage.setItem("userGroups", JSON.stringify(joinedGroups));
+    }
+
     // Optional: Store selected group in localStorage before redirecting
     localStorage.setItem("groupName", existingGroup.name);
     localStorage.setItem("groupDescription", existingGroup.description);
