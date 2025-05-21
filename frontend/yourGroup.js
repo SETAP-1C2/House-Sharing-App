@@ -4,8 +4,18 @@ document.addEventListener("DOMContentLoaded", displayUserGroups);
 function displayUserGroups() {
   const groupList = document.querySelector("#group-list");
   const groups = JSON.parse(localStorage.getItem("userGroups")) || [];
+  const emptyGroupText= document.querySelector("#empty-group-text")
 
   groupList.innerHTML = "";
+
+  if (groups.length === 0) {
+    emptyGroupText.style.display = "block";  // show message
+    return;
+  } else {
+    emptyGroupText.style.display = "none";  // hide if groups exist
+  }
+
+
 
   groups.forEach((group, index) => {
     const row = document.createElement("section");

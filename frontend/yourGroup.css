@@ -123,3 +123,11 @@ main {
   background-color: rgb(160, 0, 0);
 }
 
+.no-groups {
+  text-align: center;
+  font-style: italic;
+  color: rgb(180, 180, 180);
+  margin-top: 1rem;
+}
+
+
