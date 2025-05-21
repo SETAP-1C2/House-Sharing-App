@@ -2,6 +2,22 @@
 // TASK SUMMARY SETUP AFTER CREATE TASK
 // ======================================
 
+
+
+// local storage for group name
+document.addEventListener("DOMContentLoaded", function () {
+  const groupName = localStorage.getItem("groupName");
+  if (groupName) {
+    document.querySelector(".group-title").textContent = `Group: ${groupName}`;
+  }
+});
+
+
+
+
+
+
+
 // Attach click listener to Create Task button
 const createTaskBtn = document.querySelector("#create-task-button");
 if (createTaskBtn !== null) {
@@ -31,8 +47,7 @@ function showTaskSummary() {
   let selectedUsers = [];
   for (let i = 0; i < checkboxes.length; i++) {
     if (checkboxes[i].checked) {
-      const label = checkboxes[i].parentElement;
-      const name = label.textContent;
+      const name = checkboxes[i].getAttribute("data-name");
       selectedUsers.push(name);
     }
   }
@@ -82,7 +97,7 @@ function showCostSummary() {
   let selectedUsers = [];
   for (let i = 0; i < checkboxes.length; i++) {
     if (checkboxes[i].checked) {
-      const name = checkboxes[i].parentElement.textContent;
+      const name = checkboxes[i].nextSibling.nodeValue.trim();
       selectedUsers.push(name);
     }
   }
@@ -179,6 +194,8 @@ function showTaskSection() {
   if (costSection) costSection.classList.remove("visible");
   if (taskSummary) taskSummary.classList.remove("visible");
   if (costSummary) costSummary.classList.remove("visible");
+
+  clearTaskForm();
 }
 
 
@@ -193,11 +210,136 @@ function showCostSection() {
   if (taskSection) taskSection.classList.remove("visible");
   if (taskSummary) taskSummary.classList.remove("visible");
   if (costSummary) costSummary.classList.remove("visible");
+
+  clearCostForm();
 }
 
 const splitCostsButton = document.querySelector("#split-costs");
 if (splitCostsButton) {
   splitCostsButton.addEventListener("click", showCostSection);
 }
+
+
+// ========== Clear task form inputs ==========
+function clearTaskForm() {
+  document.querySelector("#task-title").value = "";
+  document.querySelector("#task-desc").value = "";
+  document.querySelector("#task-deadline").value = "";
+  document.querySelector("#task-recurrence").value = "";
+
+  const checkboxes = document.querySelectorAll("#task-section .checkbox-list input[type='checkbox']");
+  for (let i = 0; i < checkboxes.length; i++) {
+    checkboxes[i].checked = false;
+  }
+
+  clearPrioritySelection();
+}
+
+// ========== Clear cost form inputs ==========
+function clearCostForm() {
+  document.querySelector("#cost-amount").value = "";
+  document.querySelector("#cost-desc").value = "";
+  document.querySelector("#cost-deadline").value = "";
+  document.querySelector("#cost-recurrence").value = "";
+
+  const checkboxes = document.querySelectorAll("#cost-section .checkbox-list input[type='checkbox']");
+  for (let i = 0; i < checkboxes.length; i++) {
+    checkboxes[i].checked = false;
+  }
+
+  clearPrioritySelection();
+}
+
+
+
+function populateAssigneeCheckboxes() {
+    const residentItems = document.querySelectorAll(".resident-list li");
+    const taskAssignees = document.querySelector("#task-assignees");
+    const costAssignees = document.querySelector("#cost-assignees");
+
+    taskAssignees.innerHTML = "";
+    costAssignees.innerHTML = "";
+
+    for (let i = 0; i < residentItems.length; i++) {
+        const name = residentItems[i].textContent.trim();
+
+        const taskLabel = document.createElement("label");
+        const taskCheckbox = document.createElement("input");
+        taskCheckbox.type = "checkbox";
+        taskCheckbox.setAttribute("data-name", name);
+        taskLabel.appendChild(taskCheckbox);
+        taskLabel.append(" " + name);
+        taskAssignees.appendChild(taskLabel);
+
+        const costLabel = document.createElement("label");
+        const costCheckbox = document.createElement("input");
+        costCheckbox.type = "checkbox";
+        costCheckbox.setAttribute("data-name", name);
+        costLabel.appendChild(costCheckbox);
+        costLabel.append(" " + name);
+        costAssignees.appendChild(costLabel);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", populateAssigneeCheckboxes);
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    displayGroupName();
+    displayGroupDescription();
+});
+
+// ========== Show Group Name ==========
+function displayGroupName() {
+    const groupName = localStorage.getItem("groupName");
+    if (groupName) {
+      document.querySelector(".group-title").textContent = `Group: ${groupName}`;
+    }
+}
+
+// ========== Show Group Description if present ==========
+function displayGroupDescription() {
+    const groupDesc = localStorage.getItem("groupDescription");
+    const descElement = document.querySelector(".group-description");
+
+    if (groupDesc && descElement) {
+      descElement.textContent = groupDesc;
+    } else if (descElement) {
+      descElement.style.display = "none";
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

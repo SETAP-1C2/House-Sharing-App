@@ -19,29 +19,26 @@
       <p class="intro-text">Here are the groups you've created or joined. Click “View” to manage your group.</p>
 
       <section class="group-table">
-        <section class="table-header">
-          <span>Group Name</span>
-          <span>Group ID</span>
-          <span>Total Members</span>
-          <span>Action</span>
-        </section>
+          <section class="table-header">
+            <span>Group Name</span>
+            <span>Group ID</span>
+            <span>Total Members</span>
+            <span>Action</span>
+          </section>
 
-        <!-- Example static row -->
-        <section class="table-row">
-          <span>Budget Buddies</span>
-          <span>#GRP123</span>
-          <span>4</span>
-          <a href="#" class="view-button">View</a>
-        </section>
+          <p id="empty-group-text" class="no-groups">No groups created yet.</p>
 
-        <section class="table-row">
-          <span>Kitchen Crew</span>
-          <span>#KITCH456</span>
-          <span>3</span>
-          <a href="#" class="view-button">View</a>
-        </section>
 
-        <!-- More rows will be dynamically added here later -->
+          <!-- Dynamic content from local storage will come here-->
+          <section id="group-list"></section>
+
+          
+
+
+          <!-- Example static row -->
+
+
+          <!-- More rows will be dynamically added here later (I used local storage as the database wasnt ready)-->
       </section>
     </main>
 
@@ -49,5 +46,7 @@
       <p>© 2025 HouseShare. All rights reserved.</p>
     </footer>
   </section>
+
+  <script src="yourGroup.js"></script>
 </body>
 </html>
