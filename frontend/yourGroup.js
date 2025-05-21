@@ -12,10 +12,13 @@ function displayUserGroups() {
     row.classList.add("table-row");
 
     row.innerHTML = `
-      <span>${group.name}</span>
-      <span>${group.id}</span>
-      <span>—</span> <!-- Placeholder for member count -->
-      <button onclick="viewGroup(${index})" class="view-button">View</button>
+        <span>${group.name}</span>
+        <span>${group.id}</span>
+        <span>—</span> <!-- Placeholder for member count -->
+        <span>
+            <button onclick="viewGroup(${index})" class="view-button">View</button>
+            <button onclick="deleteGroup(${index})" class="delete-button">Delete</button>
+        </span>
     `;
 
     groupList.appendChild(row);
@@ -33,3 +36,58 @@ function viewGroup(index) {
 
     window.location.href = "group.html";
 }
+
+
+// ======== To delete from group lists ========
+function deleteGroup(index) {
+  let groups = JSON.parse(localStorage.getItem("userGroups")) || [];
+
+  // Remove group by index
+  groups.splice(index, 1);
+
+  // Update localStorage
+  localStorage.setItem("userGroups", JSON.stringify(groups));
+
+  // Refresh view
+  displayUserGroups();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
