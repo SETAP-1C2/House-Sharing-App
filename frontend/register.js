@@ -23,73 +23,120 @@ function fieldsFilled() {
   return true;
 }
 
-// email validation
-function isEmailValid(email) {
-  if (email.includes(" ")) {
-    alert("Email must not contain spaces.");
-    return false;
-  }
-  if (!email.includes("@")) {
-    alert("Email must contain '@'");
-    return false;
+
+//must be letters only
+function isFirstNameValid(name) {
+  for (let i = 0; i < name.length; i++) {
+    const char = name[i];
+    if (
+      !(char >= "A" && char <= "Z") &&
+      !(char >= "a" && char <= "z")
+    ) {
+      alert("First Name: Only alphabet characters are allowed");
+      return false;
+    }
   }
   return true;
+}
+
+
+
+//must be letters only
+function isLastNameValid(name) {
+    for (let i = 0; i < name.length; i++) {
+        const char = name[i];
+        if (
+            !(char >= "A" && char <= "Z") &&
+            !(char >= "a" && char <= "z")
+        ) {
+            alert("Last Name: Only alphabet characters are allowed");
+            return false;
+        }
+    }
+    return true;
+}
+
+
+
+
+// email validation
+function isEmailValid(email) {
+    if (email.includes(" ")) {
+        alert("Email must not contain spaces.");
+        return false;
+    }
+    if (!email.includes("@")) {
+        alert("Email must contain '@'");
+        return false;
+    }
+    return true;
 }
 
 
 // checking for Password length
 function checkPasswordLength(password) {
-  if (password.length < 8) {
-    alert("Password must be at least 8 characters long.");
-    return false;
-  }
-  return true;
+    if (password.length < 8) {
+        alert("Password must be at least 8 characters long.");
+        return false;
+    }
+    return true;
 }
 
 // Checking for mix of characters
 function checkCharacterMix(password) {
-  const hasUpper = /[A-Z]/.test(password);
-  const hasLower = /[a-z]/.test(password);
-  const hasNumber = /\d/.test(password);
-  const hasSpecial = /[!@#$%^&*()\-+={}[\]:;"'<>,.?\/|\\]/.test(password);
+    const hasUpper = /[A-Z]/.test(password);
+    const hasLower = /[a-z]/.test(password);
+    const hasNumber = /\d/.test(password);
+    const hasSpecial = /[!@#$%^&*()\-+={}[\]:;"'<>,.?\/|\\]/.test(password);
 
-  if (hasUpper && hasLower && hasNumber && hasSpecial) {
-    return true;
-  }
+    if (hasUpper && hasLower && hasNumber && hasSpecial) {
+      return true;
+    }
 
-  alert("Password must contain uppercase, lowercase, number, and special character.");
-  return false;
+    alert("Password must contain uppercase, lowercase, number, and special character.");
+    return false;
 }
 
 // Handle register
 function registerUser() {
-  const email = getEmail();
-  const password = getPassword();
+    const email = getEmail();
+    const password = getPassword();
+    const firstName = getFirstName();
+    const lastName = getLastName();
 
-  if (!fieldsFilled()) return;
-  if (!isEmailValid(email)) return;
-  if (!checkPasswordLength(password)) return;
-  if (!checkCharacterMix(password)) return;
+    if (!fieldsFilled()) return;
+    if (!isEmailValid(email)) return;
+    if (!checkPasswordLength(password)) return;
+    if (!checkCharacterMix(password)) return;
+    if (!isFirstNameValid(firstName)) {
+        return; // Stop if first name is invalid
+    }
 
-  alert("Registration successful.");
-  window.location.href = "login.html";
+    if (!isLastNameValid(lastName)) {
+        return; // Stop if last name is invalid
+    }
+
+    alert("Registration successful.");
+    console.log("User registered:", firstName, lastName, email, password);
+
+    window.location.href = "login.html";
 }
 
 // Event listener
 function attachRegisterFunction() {
-  const signUpButton = document.querySelector("#sign-up");
-  if (signUpButton) {
-    signUpButton.addEventListener("click", registerUser);
-  }
+    const signUpButton = document.querySelector("#sign-up");
+    if (signUpButton) {
+        signUpButton.addEventListener("click", registerUser);
+    }
 
   // Password toggle
   const toggleBtn = document.querySelector(".toggle-password");
   const passwordInput = document.querySelector("#password");
 
   if (toggleBtn && passwordInput) {
-    toggleBtn.addEventListener("click", function () {
-      const type = passwordInput.getAttribute("type");
-      passwordInput.setAttribute("type", type === "password" ? "text" : "password");
-    });
+      toggleBtn.addEventListener("click", function () {
+          const type = passwordInput.getAttribute("type");
+          passwordInput.setAttribute("type", type === "password" ? "text" : "password");
+      });
   }
 }
