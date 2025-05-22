@@ -92,7 +92,8 @@ function createGroupClick(){
     const createdGroup= {
       name: groupName,
       id: groupId,
-      description: groupDesc
+      description: groupDesc,
+      role: "creator"
     };
 
     //get the existing group 

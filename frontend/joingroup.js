@@ -67,7 +67,14 @@ function joinGroupClick() {
 
     // Add to your groups list if not already there
     if (!alreadyJoined) {
-        joinedGroups.push(existingGroup);
+        const joinedAsMember = {
+            name: existingGroup.name,
+            id: existingGroup.id,
+            description: existingGroup.description,
+            role: "member"
+        };
+
+        joinedGroups.push(joinedAsMember);
         localStorage.setItem("userGroups", JSON.stringify(joinedGroups));
     }
 
