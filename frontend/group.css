@@ -442,6 +442,22 @@ main {
   display: flex; /* or block depending on your layout */
 }
 
+.clear-export-btn {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.clear-export-btn .group-button {
+  flex: 1 1 auto;
+  max-width: 12rem;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
 
 
 

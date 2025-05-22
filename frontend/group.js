@@ -38,52 +38,76 @@ if (shareTasksButton) {
 
 // ========== Create and show task summary ==========
 function showTaskSummary() {
-  const title = document.querySelector("#task-title").value;
-  const desc = document.querySelector("#task-desc").value;
-  const deadline = document.querySelector("#task-deadline").value;
-  const recurrence = document.querySelector("#task-recurrence").value;
+    const title = document.querySelector("#task-title").value;
+    const desc = document.querySelector("#task-desc").value;
+    const deadline = document.querySelector("#task-deadline").value;
+    const recurrence = document.querySelector("#task-recurrence").value;
 
-  const checkboxes = document.querySelectorAll(".checkbox-list input[type='checkbox']");
-  let selectedUsers = [];
-  for (let i = 0; i < checkboxes.length; i++) {
-    if (checkboxes[i].checked) {
-      const name = checkboxes[i].getAttribute("data-name");
-      selectedUsers.push(name);
+    const checkboxes = document.querySelectorAll(".checkbox-list input[type='checkbox']");
+    let selectedUsers = [];
+    for (let i = 0; i < checkboxes.length; i++) {
+      if (checkboxes[i].checked) {
+        const name = checkboxes[i].getAttribute("data-name");
+        selectedUsers.push(name);
+      }
     }
-  }
 
-  const selectedPriority = document.querySelector(".priority.selected");
-  let priorityColor = "transparent";
-  if (selectedPriority) {
-    const type = selectedPriority.classList;
-    if (type.contains("critical")) priorityColor = "rgb(200, 0, 0)";
-    else if (type.contains("important")) priorityColor = "rgb(255, 165, 0)";
-    else if (type.contains("low")) priorityColor = "rgb(0, 180, 0)";
-  }
+    const selectedPriority = document.querySelector(".priority.selected");
+    let priorityColor = "transparent";
+    if (selectedPriority) {
+      const type = selectedPriority.classList;
+      if (type.contains("critical")) priorityColor = "rgb(200, 0, 0)";
+      else if (type.contains("important")) priorityColor = "rgb(255, 165, 0)";
+      else if (type.contains("low")) priorityColor = "rgb(0, 180, 0)";
+    }
 
-  document.querySelector("#summary-task-title").textContent = title || "[Untitled]";
-  document.querySelector("#summary-task-desc").textContent = desc || "No description provided.";
-  document.querySelector("#summary-deadline").textContent = deadline || "—";
-  document.querySelector("#summary-recurrence").textContent = recurrence || "—";
-  document.querySelector("#summary-priority-box").style.backgroundColor = priorityColor;
+    document.querySelector("#summary-task-title").textContent = title || "[Untitled]";
+    document.querySelector("#summary-task-desc").textContent = desc || "No description provided.";
+    document.querySelector("#summary-deadline").textContent = deadline || "—";
+    document.querySelector("#summary-recurrence").textContent = recurrence || "—";
+    document.querySelector("#summary-priority-box").style.backgroundColor = priorityColor;
 
-  const assigneeList = document.querySelector("#summary-assignees");
-  assigneeList.innerHTML = "";
+    const assigneeList = document.querySelector("#summary-assignees");
+    assigneeList.innerHTML = "";
 
-  if (selectedUsers.length > 0) {
-    for (let j = 0; j < selectedUsers.length; j++) {
+    if (selectedUsers.length > 0) {
+      for (let j = 0; j < selectedUsers.length; j++) {
+        const li = document.createElement("li");
+        li.textContent = selectedUsers[j];
+        assigneeList.appendChild(li);
+      }
+    } else {
       const li = document.createElement("li");
-      li.textContent = selectedUsers[j];
+      li.textContent = "None";
       assigneeList.appendChild(li);
     }
-  } else {
-    const li = document.createElement("li");
-    li.textContent = "None";
-    assigneeList.appendChild(li);
-  }
 
-  document.querySelector("#task-section").classList.remove("visible");
-  document.querySelector("#task-summary").classList.add("visible");
+    document.querySelector("#task-section").classList.remove("visible");
+    document.querySelector("#task-summary").classList.add("visible");
+
+
+    //local storage for task summary and export
+
+    //preparing the task summary data
+    const taskData = {
+        title,
+        desc,
+        deadline,
+        recurrence,
+        assignees: selectedUsers,
+        priority: priorityColor,
+        timestamp: new Date().toISOString()
+    };
+
+
+    //Get existing tasks
+    let allTasks=  JSON.parse(localStorage.getItem("taskSummaries")) || [];
+
+    //add new task
+    allTasks.push(taskData);
+
+    //save back to storage
+    localStorage.setItem("taskSummaries", JSON.stringify(allTasks));
 }
 
 // ========== Create and show cost summary ==========
@@ -335,6 +359,57 @@ const clearTaskSummaryBtn = document.querySelector("#clear-task-summary");
 if (clearTaskSummaryBtn) {
   clearTaskSummaryBtn.addEventListener("click", handleClearTaskSummary);
 }
+
+
+//function to export tasks to local storage
+function exportTaskSummariesToCSV(){
+    const tasks = JSON.parse(localStorage.getItem("taskSummaries")) || [];
+
+    if (tasks.length === 0) {
+        alert("No tasks to export.");
+        return;
+    }
+
+    // Prepare CSV header
+    let csv = "Title,Description,Deadline,Recurrence,Assignees,Priority,Timestamp\n";
+
+    tasks.forEach(task => {
+      const assignees = task.assignees.join(" | ");
+      const row = [
+          task.title,
+          task.desc,
+          task.deadline,
+          task.recurrence,
+          `"${assignees}"`,
+          task.priority,
+          task.timestamp
+      ].map(field => `"${field}"`).join(",");
+
+      csv += row + "\n";
+    });
+
+
+    //Download the CSV
+    const blob = new Blob([csv], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "task_summaries.csv";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+//event listener for download
+const exportBtn = document.querySelector("#export-tasks-csv");
+if (exportBtn) {
+    exportBtn.addEventListener("click", exportTaskSummariesToCSV);
+}
+
+
+
+
 
 
 
