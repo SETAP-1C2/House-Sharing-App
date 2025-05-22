@@ -408,6 +408,62 @@ if (exportBtn) {
 }
 
 
+//function to clear costs 
+// Handle clearing cost summary
+function handleClearCostSummary() {
+    document.querySelector("#cost-summary").classList.remove("visible");
+
+    clearCostForm(); // Optional: reset form inputs
+
+    // Show main buttons
+    const mainActions = document.querySelector(".group-main-actions");
+    if (mainActions) {
+      mainActions.classList.add("visible");
+    }
+
+    // Hide other sections
+    document.querySelector("#task-section").classList.remove("visible");
+    document.querySelector("#task-summary").classList.remove("visible");
+    document.querySelector("#cost-section").classList.remove("visible");
+}
+
+const clearCostSummaryBtn = document.querySelector("#clear-cost-summary");
+if (clearCostSummaryBtn) {
+    clearCostSummaryBtn.addEventListener("click", handleClearCostSummary);
+}
+
+
+//for cost export
+function exportCostSummariesToCSV() {
+    const amount = document.querySelector("#summary-cost-amount").textContent || "";
+    const desc = document.querySelector("#summary-cost-desc").textContent || "";
+    const deadline = document.querySelector("#summary-cost-deadline").textContent || "";
+    const recurrence = document.querySelector("#summary-cost-recurrence")?.textContent || "";
+    const assignees = Array.from(document.querySelectorAll("#summary-cost-assignees li")).map(li => li.textContent).join(" | ");
+    const priority = document.querySelector("#summary-cost-priority")?.style.backgroundColor || "";
+    const timestamp = new Date().toISOString();
+
+    // Prepare CSV
+    let csv = "Amount,Description,Deadline,Recurrence,Assignees,Priority,Timestamp\n";
+    let row = [amount, desc, deadline, recurrence, `"${assignees}"`, priority, timestamp].map(f => `"${f}"`).join(",");
+    csv += row + "\n";
+
+    const blob = new Blob([csv], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "cost_summary.csv";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    alert("Cost summary exported as CSV!");
+}
+
+const exportCostBtn = document.querySelector("#export-costs-csv");
+if (exportCostBtn) {
+    exportCostBtn.addEventListener("click", exportCostSummariesToCSV);
+}
+
 
 
 
