@@ -312,6 +312,34 @@ function displayGroupDescription() {
 
 
 
+//to clear the task summary
+function handleClearTaskSummary() {
+    document.querySelector("#task-summary").classList.remove("visible");
+
+    clearTaskForm(); // Optional: reset form inputs
+
+    // Show main group buttons (Share Tasks, Split Costs)
+    const mainActions = document.querySelector(".group-main-actions");
+    if (mainActions) {
+      mainActions.classList.add("visible");
+    }
+
+    // Hide all task/cost forms
+    document.querySelector("#task-section").classList.remove("visible");
+    document.querySelector("#cost-section").classList.remove("visible");
+    document.querySelector("#cost-summary").classList.remove("visible");
+}
+
+const clearTaskSummaryBtn = document.querySelector("#clear-task-summary");
+
+if (clearTaskSummaryBtn) {
+  clearTaskSummaryBtn.addEventListener("click", handleClearTaskSummary);
+}
+
+
+
+
+
 
 
 

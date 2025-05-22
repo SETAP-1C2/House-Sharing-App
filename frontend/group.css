@@ -425,10 +425,6 @@ main {
 }
 
 
-
-
-
-
 .footer {
   text-align: center;
   padding: 1.5rem;
@@ -436,6 +432,16 @@ main {
   color: rgb(180, 180, 180);
   border-top: 0.0625rem solid rgb(90, 90, 90);
 }
+
+
+.group-main-actions {
+  display: none;
+}
+
+.group-main-actions.visible {
+  display: flex; /* or block depending on your layout */
+}
+
 
 
 
