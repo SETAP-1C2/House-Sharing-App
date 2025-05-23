@@ -33,14 +33,27 @@ function loginValid(){
 
 
 function loginUser() {
-    if (loginValid()) {
-        const loginEmail = getLoginEmail();
-        const loginPassword = getLoginPassword();
+    if (!loginValid()) return;
 
-        console.log("Email:", loginEmail);
-        console.log("Password:", loginPassword);
+    const loginEmail = getLoginEmail();
+    const loginPassword = getLoginPassword();
 
-        window.location.href = "index.html";
+    const registeredUsers = JSON.parse(localStorage.getItem("registeredUsers")) || [];
+
+    let matchFound = false;
+
+    for (let i = 0; i < registeredUsers.length; i++) {
+        const user = registeredUsers[i];
+        if (user.email === loginEmail && user.password === loginPassword) {
+            matchFound = true;
+            break;
+        }
+    }
+
+    if (matchFound) {
+        window.location.href = "index.html"; // ✅ success: go to homepage
+    } else {
+        alert("Email or password is incorrect."); // ❌ show error
     }
 }
 
