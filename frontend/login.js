@@ -25,7 +25,7 @@ function loginValid(){
     if (password === "") {
         alert("Password is required.");
     return false;
-  }
+    }
 
     return true;
 }
