@@ -66,12 +66,24 @@ function isAssigneeSelected() {
     const checkboxes = document.querySelectorAll(".checkbox-list input[type='checkbox']");
     for (let i = 0; i < checkboxes.length; i++) {
         if (checkboxes[i].checked) {
-          return true;
+            return true;
         }
     }
     alert("Members required for task creation.");
     return false;
 }
+
+
+function isPrioritySelected() {
+    const selected = document.querySelector(".priority.selected");
+    if (!selected) {
+        alert("Priority required for task creation.");
+        return false;
+    }
+    return true;
+}
+
+
 
 
 
@@ -91,7 +103,7 @@ function showTaskSummary() {
     }
 
     if (!isAssigneeSelected()) return;
-
+    if (!isPrioritySelected()) return;
 
 
     const deadline = document.querySelector("#task-deadline").value;
