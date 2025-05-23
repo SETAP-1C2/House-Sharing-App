@@ -1,0 +1,542 @@
+[33mcommit d9d2b9338a9f6512364addc8abae027ee46db552[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Fri May 23 16:41:54 2025 +0100
+
+    deleted not needed files
+
+[33mcommit f27e3703cdb2500d3a9241f5d3c7aa9b735e5d62[m
+Merge: 6ee810e 0a5a31c
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Fri May 23 16:22:11 2025 +0100
+
+    Merge pull request #17 from SETAP-1C2/frontend
+    
+    Frontend
+
+[33mcommit 0a5a31c196fbdaf665e55e2b7acad17da756caa3[m[33m ([m[1;31morigin/frontend[m[33m, [m[1;32mfrontend[m[33m)[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Fri May 23 16:21:01 2025 +0100
+
+    done for now
+
+[33mcommit cd9053679b828bdb8c5064cb5a8122bd3dd9c79e[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Fri May 23 02:01:13 2025 +0100
+
+    adds local storage to register form and filters login email and password
+
+[33mcommit 6ee810e737d727a6e6ee049a78bb12bb9274fc2e[m
+Merge: f923576 9ea2f54
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Fri May 23 01:42:22 2025 +0100
+
+    Merge pull request #16 from SETAP-1C2/frontend
+    
+    Frontend
+
+[33mcommit 9ea2f541a5f480e747a1109f6648a5564b9af65e[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Fri May 23 01:38:18 2025 +0100
+
+    login button now connects to the homepage
+
+[33mcommit 2ac7de9971454232f0533c2681963d4970749887[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Fri May 23 00:05:39 2025 +0100
+
+    added validations for register first name and last name
+
+[33mcommit d387c0dd66bb632d9ca5a1c0054908c660407d53[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Thu May 22 21:00:12 2025 +0100
+
+    delete validations
+
+[33mcommit 2d03c5d9ed9b75675bb9a937b5f1533d5d8ea0f7[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Thu May 22 16:48:51 2025 +0100
+
+    added an export csv for cost summary
+
+[33mcommit 5956ee1617affaec65385881f680039f76349df4[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Thu May 22 16:16:44 2025 +0100
+
+    added a clear summary and an export csv for the task summary
+
+[33mcommit fb2b9ec58df279d3a48c46a69db5b1fc08e1cf17[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Thu May 22 15:20:41 2025 +0100
+
+    attached a clear task button to clear the task summary created
+
+[33mcommit 17097eb9d90e752d6ffe91833bc243824240043c[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Wed May 21 14:01:05 2025 +0100
+
+    filtered group user list such that joining and creating a group does not create duplicate group
+
+[33mcommit df6daf7cd5c3793123cdf14801916d1d7b69306c[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Wed May 21 13:45:52 2025 +0100
+
+    validation for joining group: filtering group IDs from local storage
+
+[33mcommit f9235769ef20ca432c288b85f234c9869211c355[m
+Merge: 770a608 f4e1121
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Wed May 21 05:48:26 2025 +0100
+
+    Merge pull request #15 from SETAP-1C2/frontend
+    
+    Frontend
+
+[33mcommit f4e11210e787626ef1971ab235e31a873dcec8d4[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Wed May 21 05:47:41 2025 +0100
+
+    completed the features section
+
+[33mcommit cdc7e21d41138b852b4c74aadbabb44f9da40ddc[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Wed May 21 05:13:48 2025 +0100
+
+    added empty group text for empty group
+
+[33mcommit f065ee7256dedf1e284654a2d0e3ea259bb8024c[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Wed May 21 05:02:21 2025 +0100
+
+    To add a delete button for each of the group in  the local storage
+
+[33mcommit 665f53527a05d374354b0a8d795e081c27be095e[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Tue May 20 23:26:01 2025 +0100
+
+    used local storage considering we dont have a database, to save and update group in groups list
+
+[33mcommit d9fe7ec67aa6e6cb5ff4d3432fe29aad3851569e[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Tue May 20 04:04:21 2025 +0100
+
+    debugged the population
+
+[33mcommit f70d64e1f465db6659223ecaf4548f647689ae12[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Tue May 20 04:00:33 2025 +0100
+
+    made the assigned users to populate based on resident list
+
+[33mcommit ed1b57be1893fa30333b84222d22301bab89a40b[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Mon May 19 20:06:10 2025 +0100
+
+    added local storage for group name display
+
+[33mcommit 498ea5141a6c389ba0167bbb1141e58cdbe41821[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Mon May 19 03:32:27 2025 +0100
+
+    added clears to task form and cost form
+
+[33mcommit 770a608b18229599a8d45653b48896822f75d1b1[m
+Merge: 7165355 46f14ae
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Mon May 19 03:14:32 2025 +0100
+
+    Merge pull request #14 from SETAP-1C2/frontend
+    
+    Frontend
+
+[33mcommit 46f14ae89284473f146f8c649998172fe6c166af[m
+Merge: 56f8999 1516585
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Mon May 19 03:12:52 2025 +0100
+
+    staged
+
+[33mcommit 56f899970d2de0b1b19d1dec5b2b6d46dafea2e8[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Mon May 19 03:08:46 2025 +0100
+
+    still on the group page
+
+[33mcommit e70482eb176b084e4357a1098c41176c5b9b01a0[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Mon May 19 01:46:35 2025 +0100
+
+    debugged the craete task button not working
+
+[33mcommit 9396652a99af51681f8dc1c3e9a7e9c9acc2c1de[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Sun May 18 22:26:17 2025 +0100
+
+    working on the functionalities for the group.html and group.css
+
+[33mcommit 09c0e01dd4b12769e6a5de6eaefbd736c2045c90[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Sun May 18 19:17:36 2025 +0100
+
+    made the selected buttons to remain highlighted even after hover
+
+[33mcommit 7165355f9e22a85dc5ae10f924b99d5e9dcff354[m
+Author: jfrith04 <jackdpfrith@gmail.com>
+Date:   Sun May 18 18:59:05 2025 +0100
+
+    Add files via upload
+
+[33mcommit 898048e7fc5413c29b0c43de1e02f9a65ae52425[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Sun May 18 18:40:21 2025 +0100
+
+    added a cursor pointer to share tasks and split costs
+
+[33mcommit 652ba85a1444a0e13b0c1993024c2dfd2eaf776d[m
+Merge: 0ac2d69 1516585
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Sun May 18 18:06:35 2025 +0100
+
+    Merge pull request #13 from SETAP-1C2/frontend
+    
+    Created a merge for the files in the frontend after deletion
+
+[33mcommit 151658599f00ef92821fef186bb14e733fe6a7f5[m
+Merge: df62a77 0ac2d69
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Sun May 18 18:05:34 2025 +0100
+
+    Merge branch 'main' into frontend
+
+[33mcommit 0ac2d69fffd984c46a1575d179a2721d6b1ac47b[m
+Author: up2214717 <150632514+up2214717@users.noreply.github.com>
+Date:   Sun May 18 18:02:23 2025 +0100
+
+    Update register.html
+    
+    everything is gone
+
+[33mcommit 4a60c3743b9a765d8c7ab48b819e0e338b2a3869[m
+Author: up2214717 <150632514+up2214717@users.noreply.github.com>
+Date:   Sun May 18 17:57:37 2025 +0100
+
+    Update register.html
+    
+    Deleted everything after body
+
+[33mcommit 5c6ce74472b5a6cd925de4cbd17d514619504e97[m
+Author: up2214717 <150632514+up2214717@users.noreply.github.com>
+Date:   Sun May 18 17:53:26 2025 +0100
+
+    Update register.html
+    
+    Deleted class "card"
+
+[33mcommit df62a775d834a935527174304b469557d347e7ce[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Sun May 18 03:44:52 2025 +0100
+
+    validations for login complete without backend
+
+[33mcommit 9d9d8ed89fca0d712ca1d0597ca57f2741cc0c15[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Sat May 17 19:15:57 2025 +0100
+
+    finished the validations for the register frontend
+
+[33mcommit 33e6ff9ae6c61afa6f31823f5f52affd371c17b5[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Sat May 17 18:42:44 2025 +0100
+
+    finished with frontend join checks
+
+[33mcommit cfbe560cb0cebb6306e800951d0fea105f630726[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Sat May 17 18:15:19 2025 +0100
+
+    added checks for joining group
+
+[33mcommit a2b7046b8d7762eb7a2e6514671e07fba5920a65[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Sat May 17 17:52:43 2025 +0100
+
+    made validation changes to allow one alert at a time
+
+[33mcommit fd1cd102189ad39aa87b794ffb3ace350c2c67a4[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Sat May 17 17:43:26 2025 +0100
+
+    made sure that the group name and id validation works (still have a problem though)
+
+[33mcommit a04650da85cc9c8dc958fc3d1b9d384517da24cf[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Sat May 17 15:31:23 2025 +0100
+
+    debugged problem with the group id, it had problem with different use if ids
+
+[33mcommit 24a02c52e0772f649ea9fc095adce944f45729b7[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Sat May 17 14:33:58 2025 +0100
+
+    attached to event listener
+
+[33mcommit 01d7119351bbc07a11c923805f08a0d2557a190e[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Sat May 17 14:30:32 2025 +0100
+
+    joined functions to prevent for event listener
+
+[33mcommit f024a31455f45d046e18ad9f3481b63112e50779[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Sat May 17 14:27:59 2025 +0100
+
+    id validity still without the database
+
+[33mcommit 94c1c9eb78ae2260d711f3566d9c70d4a1d779af[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Sat May 17 13:44:03 2025 +0100
+
+    description length validity
+
+[33mcommit 505747cde1a050aa7bd554eb6c2b694f46060ce8[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Sat May 17 13:39:21 2025 +0100
+
+    name length validity
+
+[33mcommit ec6b36a5157b801da10d252c8cd85a7af12605fe[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Sat May 17 12:25:19 2025 +0100
+
+    just =gave a standby summary page
+
+[33mcommit d69b5b1aa22801e42c079f3f13a8b5bca735871f[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Fri May 16 21:05:42 2025 +0100
+
+    finished for now with the group page
+
+[33mcommit 19fc9c3cbd02753acb8eeddb45818918c93101cd[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Fri May 16 20:59:04 2025 +0100
+
+    solved some responsive issues
+
+[33mcommit 0c20215db02ed9a1c5e5e31684efdf0945efa32d[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Fri May 16 20:24:45 2025 +0100
+
+    still working on group main page
+
+[33mcommit a140f2c73c16f63655d354387dab89abb6cfd09e[m
+Author: up2214717 <up2214717@myport.ac.uk>
+Date:   Fri May 16 10:01:24 2025 +0100
+
+    added 1 ul element
+
+[33mcommit be96c67b66b8d01dcefe6e91a882d6662fcdd866[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Fri May 16 05:19:41 2025 +0100
+
+    made page changes, working on unctionality of existing pages
+
+[33mcommit a34f35a0f3c6960849d5b62a01303cd8b9e7483e[m
+Merge: a5dc452 329bccd
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Wed May 7 19:38:42 2025 +0100
+
+    updates
+
+[33mcommit a5dc4525ba08d7bb29301d80ac7ecfda4d2770f4[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Wed May 7 19:36:20 2025 +0100
+
+    updates
+
+[33mcommit 329bccd8257a832f74af1cd33444c82ff01fbee8[m
+Merge: bd7b09d febd0dd
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Wed May 7 19:33:10 2025 +0100
+
+    Merge branch 'main' into frontend
+
+[33mcommit febd0ddf9df680c25a657f3539726c668097ad68[m[33m ([m[1;31morigin/up2216916[m[33m)[m
+Merge: d8bd8ac a034d52
+Author: AbdelrhmanMoh1 <abodyjamal12@gmail.com>
+Date:   Wed May 7 19:29:56 2025 +0100
+
+    Merge pull request #12 from SETAP-1C2/up2162181
+    
+    updating css
+
+[33mcommit bd7b09d9152f1203fd75ba12c651db8929f732a9[m
+Merge: 9119962 22989fa
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Wed May 7 19:15:52 2025 +0100
+
+    updates
+
+[33mcommit 91199625997edad384dbe8482c3933b19cf38709[m
+Merge: 11177c4 d8bd8ac
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Wed May 7 19:12:54 2025 +0100
+
+    resolved commit changes
+
+[33mcommit 22989fa0ba1a374bdcdeef62a8052e129e14507f[m
+Merge: 55accad d8bd8ac
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Wed May 7 19:10:09 2025 +0100
+
+    Merge pull request #11 from SETAP-1C2/main
+    
+    Merge pull request #10 from SETAP-1C2/frontend
+
+[33mcommit 11177c458c847a2510d5f4d0513e2353f67c88da[m
+Merge: 9a24670 55accad
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Wed May 7 19:09:29 2025 +0100
+
+    updates
+
+[33mcommit a034d52573b0237a9c150e4ad632bdc7ed7b2c73[m[33m ([m[1;31morigin/up2162181[m[33m)[m
+Author: AbdelrhmanMoh1 <abodyjamal12@gmail.com>
+Date:   Wed May 7 19:08:15 2025 +0100
+
+    updating css
+
+[33mcommit d8bd8ac7735d3ba5656d9228356b6efff0639363[m
+Merge: e7f2f65 55accad
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Wed May 7 19:03:51 2025 +0100
+
+    Merge pull request #10 from SETAP-1C2/frontend
+    
+    Merge pull request #9 from SETAP-1C2/main
+
+[33mcommit 9a246706974f83dc2e1fd237e97367ddb4cefcef[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Wed May 7 19:00:59 2025 +0100
+
+    updated join group
+
+[33mcommit 55accadb50e14a7ad9eeda71f178195e84641839[m
+Merge: b43786f e7f2f65
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Wed May 7 18:59:25 2025 +0100
+
+    Merge pull request #9 from SETAP-1C2/main
+    
+    Join a group
+
+[33mcommit e7f2f65b75c64e3025c383186acb3fb5a17293f4[m
+Merge: d17a62d dc7abba
+Author: AbdelrhmanMoh1 <abodyjamal12@gmail.com>
+Date:   Wed May 7 18:39:02 2025 +0100
+
+    Merge pull request #8 from SETAP-1C2/up2162181
+    
+    Up2162181
+
+[33mcommit dc7abba7ad49288beed148c426756d851f882b80[m
+Author: AbdelrhmanMoh1 <abodyjamal12@gmail.com>
+Date:   Wed May 7 18:38:23 2025 +0100
+
+    updated css
+
+[33mcommit f362839c4a62930391e31cd3dc81565226b22223[m
+Author: AbdelrhmanMoh1 <abodyjamal12@gmail.com>
+Date:   Wed May 7 18:20:12 2025 +0100
+
+    creating a join group html and css
+
+[33mcommit 8035725b5dad1fd49a2a12aaa71131aea2b5ac0b[m
+Author: AbdelrhmanMoh1 <abodyjamal12@gmail.com>
+Date:   Wed May 7 17:26:11 2025 +0100
+
+    add a class for textarea
+
+[33mcommit b2c864ac67412e7c4be5a8af8ed8eedc15eecaab[m
+Merge: eac79db d17a62d
+Author: AbdelrhmanMoh1 <abodyjamal12@gmail.com>
+Date:   Wed May 7 17:22:56 2025 +0100
+
+    Merge pull request #7 from SETAP-1C2/main
+    
+    merge
+
+[33mcommit d17a62dc3e49d36420e2bb2be9c986af3f35a3b7[m
+Merge: f1fcfd1 b43786f
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Wed May 7 17:19:00 2025 +0100
+
+    Merge pull request #6 from SETAP-1C2/frontend
+    
+    Frontend
+
+[33mcommit b43786f3dc1781f443b1eb205307d44267f54ba4[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Wed May 7 17:17:51 2025 +0100
+
+    group.css edit
+
+[33mcommit 46310e9b9198063d7e372e6594fac8f3f1135c24[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Wed May 7 17:09:35 2025 +0100
+
+    group page
+
+[33mcommit 7521898786a59654fdbc60c07835aac939ead4c8[m
+Merge: 8643890 65b8eae
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Wed May 7 17:08:38 2025 +0100
+
+    resolved merged commit
+
+[33mcommit 8643890a7f632f714c23c9dd7dcdf6cd8c29000a[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Wed May 7 17:04:12 2025 +0100
+
+    still working on group page
+
+[33mcommit f1fcfd1b84a79167fbba276604071329b5bfb5be[m
+Merge: 5cf08a9 65b8eae
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Wed May 7 17:03:20 2025 +0100
+
+    Merge pull request #5 from SETAP-1C2/frontend
+    
+    Merge pull request #4 from SETAP-1C2/main
+
+[33mcommit 65b8eaeff773b54e58cbe53790e4cd1c7c62b062[m
+Merge: 385e714 5cf08a9
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Wed May 7 17:00:58 2025 +0100
+
+    Merge pull request #4 from SETAP-1C2/main
+    
+    Utsab restrictions and Abduls group verification
+
+[33mcommit 5cf08a9735528f00469adbae234a6353bdd58630[m
+Merge: 4725d43 eac79db
+Author: AbdelrhmanMoh1 <abodyjamal12@gmail.com>
+Date:   Wed May 7 16:51:20 2025 +0100
+
+    Merge pull request #3 from SETAP-1C2/up2162181
+    
+    Up2162181
+
+[33mcommit eac79dbf4907c03625cc54fa457cc210d0c58c6d[m
+Author: AbdelrhmanMoh1 <abodyjamal12@gmail.com>
+Date:   Wed May 7 16:47:49 2025 +0100
+
+    added a group id
+
+[33mcommit 6e1e0e9f708807d9bb06eea749447bd8f4e8ce05[m
+Author: AbdelrhmanMoh1 <abodyjamal12@gmail.com>
+Date:   Tue May 6 18:02:14 2025 +0100
+
+    updating the css
+
+[33mcommit 03abaf087cbdeb479811d732700b243e81c6be87[m
+Author: Oliver-code1 <dubemoliver4@gmail.com>
+Date:   Mon May 5 22:43:1
