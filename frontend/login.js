@@ -31,39 +31,12 @@ function loginValid(){
 }
 
 
-// Database functionality
 function loginUser() {
     if (!loginValid()) return;
 
     const loginEmail = getLoginEmail();
     const loginPassword = getLoginPassword();
 
-    // Sends email and password to the server
-    fetch("/api/login", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            email: loginEmail,
-            password: loginPassword
-        })
-    })
-    // Gets response from server either success or error
-    .then(response => {
-        if (response.ok) {
-            alert("Login successful!");
-            window.location.href = "index.html";
-        } else {
-            alert("Email or password is incorrect.");
-        }
-    })
-    .catch(error => {
-        console.error("Login error:", error);
-        alert("Something went wrong. Try again.");
-    });
-
-    // Pretty sure we can get rid of this stuff below but checking with you guys
     const registeredUsers = JSON.parse(localStorage.getItem("registeredUsers")) || [];
 
     let matchFound = false;
