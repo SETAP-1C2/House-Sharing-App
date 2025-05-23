@@ -84,6 +84,46 @@ function isPrioritySelected() {
 }
 
 
+function setMinimumDate() {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, "0");
+    const dd = String(today.getDate()).padStart(2, "0");
+    const minDate = `${yyyy}-${mm}-${dd}`;
+    document.querySelector("#task-deadline").setAttribute("min", minDate);
+}
+
+setMinimumDate();
+
+
+function isTaskDeadlineValid() {
+    const deadlineInput = document.querySelector("#task-deadline");
+    const selectedDate = deadlineInput.value;
+
+    // Check if no date is selected
+    if (!selectedDate) {
+        alert("Task deadline is required.");
+        return false;
+    }
+
+    // Compare selected date with today
+    const today = new Date();
+    const chosen = new Date(selectedDate);
+
+    // Set time to 00:00:00 for both for fair comparison
+    today.setHours(0, 0, 0, 0);
+    chosen.setHours(0, 0, 0, 0);
+
+    if (chosen < today) {
+        alert("Unable to select this date.");
+        return false;
+    }
+
+    return true;
+}
+
+
+
 
 
 
@@ -107,6 +147,8 @@ function showTaskSummary() {
 
 
     const deadline = document.querySelector("#task-deadline").value;
+    if (!isTaskDeadlineValid()) return;
+
     const recurrence = document.querySelector("#task-recurrence").value;
 
     const checkboxes = document.querySelectorAll(".checkbox-list input[type='checkbox']");
