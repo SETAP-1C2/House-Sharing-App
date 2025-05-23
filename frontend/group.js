@@ -36,10 +36,64 @@ if (shareTasksButton) {
   shareTasksButton.addEventListener("click", showTaskSection);
 }
 
+
+
+function isTaskTitleValid(title) {
+    if (title.length === 0) {
+        alert("Task Title is required.");
+        return false;
+    }
+
+    if (title.length > 50) {
+        alert("Title must be lower than 50 characters");
+        return false;
+    }
+
+    return true;
+}
+
+
+
+function isTaskDescriptionValid(desc) {
+    if (desc.length > 200) {
+        alert("Description must be lower than 200 characters.");
+        return false;
+    }
+    return true;
+}
+
+function isAssigneeSelected() {
+    const checkboxes = document.querySelectorAll(".checkbox-list input[type='checkbox']");
+    for (let i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+          return true;
+        }
+    }
+    alert("Members required for task creation.");
+    return false;
+}
+
+
+
 // ========== Create and show task summary ==========
 function showTaskSummary() {
     const title = document.querySelector("#task-title").value;
+
+    if (!isTaskTitleValid(title)) {
+        return; 
+    }
+
+
     const desc = document.querySelector("#task-desc").value;
+
+    if (!isTaskDescriptionValid(desc)) {
+        return; 
+    }
+
+    if (!isAssigneeSelected()) return;
+
+
+
     const deadline = document.querySelector("#task-deadline").value;
     const recurrence = document.querySelector("#task-recurrence").value;
 
