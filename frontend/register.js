@@ -123,6 +123,59 @@ function registerUser() {
       password: password
     };
 
+    // Database functionality
+    // Get values from the form
+    let email = document.querySelector("#email").value;
+    let password = document.querySelector("#password").value;
+    let firstName = document.querySelector("#first-name").value;
+    let lastName = document.querySelector("#last-name").value;
+
+    // Create username by combining first and last name
+    let username = firstName + " " + lastName;
+
+    // Check if any fields are empty
+    if (email === "" || password === "" || firstName === "" || lastName === "") {
+      alert("All fields must be filled.");
+      return;
+    }
+
+    // Check password length
+    if (password.length < 8) {
+      alert("Password must be at least 8 characters long.");
+      return;
+    }
+
+    // Check if email contains @ symbol
+    if (!email.includes("@")) {
+      alert("Email must contain '@'");
+      return;
+    }
+
+    // Send the data to the server
+    fetch("/api/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+        username: username
+      })
+    })
+    // Read server reply
+    .then(function(response) {
+      return response.text();
+    })
+    // Show server response
+    .then(function(data) {
+      alert(data);
+    })
+    .catch(function(error) {
+      console.error("Error:", error);
+      alert("Something went wrong. Please try again.");
+    }); 
+  
       // Save to localStorage (using email as key for uniqueness, or pushing to an array)
     const users = JSON.parse(localStorage.getItem("registeredUsers")) || [];
     users.push(user);
