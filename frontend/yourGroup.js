@@ -2,37 +2,39 @@ document.addEventListener("DOMContentLoaded", displayUserGroups);
 
 // ========== Display all stored groups ==========
 function displayUserGroups() {
-  const groupList = document.querySelector("#group-list");
-  const groups = JSON.parse(localStorage.getItem("userGroups")) || [];
-  const emptyGroupText= document.querySelector("#empty-group-text")
+    const groupList = document.querySelector("#group-list");
+    const groups = JSON.parse(localStorage.getItem("userGroups")) || [];
+    const emptyGroupText= document.querySelector("#empty-group-text")
 
-  groupList.innerHTML = "";
+    groupList.innerHTML = "";
 
-  if (groups.length === 0) {
-    emptyGroupText.style.display = "block";  // show message
-    return;
-  } else {
-    emptyGroupText.style.display = "none";  // hide if groups exist
-  }
+    if (groups.length === 0) {
+      emptyGroupText.style.display = "block";  // show message
+      return;
+    } else {
+      emptyGroupText.style.display = "none";  // hide if groups exist
+    }
 
 
 
-  groups.forEach((group, index) => {
-    const row = document.createElement("section");
-    row.classList.add("table-row");
+    groups.forEach((group, index) => {
+      const row = document.createElement("section");
+      row.classList.add("table-row");
 
-    row.innerHTML = `
-        <span>${group.name}</span>
-        <span>${group.id}</span>
-        <span>—</span> <!-- Placeholder for member count -->
-        <span>
-            <button onclick="viewGroup(${index})" class="view-button">View</button>
-            <button onclick="deleteGroup(${index})" class="delete-button">Delete</button>
-        </span>
-    `;
+      row.innerHTML = `
+          <span>${group.name}</span>
+          <span>${group.id}</span>
+          <span>${group.role || "—"}</span>
+          <span>—</span> <!-- Placeholder for member count -->
+          <section class="action-buttons">
+              <button onclick="viewGroup(${index})" class="view-button">View</button>
+              <button onclick="deleteGroup(${index})" class="delete-button">Delete</button>
+          </section>
 
-    groupList.appendChild(row);
-  });
+      `;
+
+      groupList.appendChild(row);
+    });
 }
 
 // ========== View button logic ==========
@@ -50,17 +52,19 @@ function viewGroup(index) {
 
 // ======== To delete from group lists ========
 function deleteGroup(index) {
-  let groups = JSON.parse(localStorage.getItem("userGroups")) || [];
+    const groups = JSON.parse(localStorage.getItem("userGroups")) || [];
+    const group = groups[index];
 
-  // Remove group by index
-  groups.splice(index, 1);
+    const confirmed = confirm(`Are you sure you want to delete the group "${group.name}"?`);
 
-  // Update localStorage
-  localStorage.setItem("userGroups", JSON.stringify(groups));
+    if (!confirmed) return;
 
-  // Refresh view
-  displayUserGroups();
+    groups.splice(index, 1);
+    localStorage.setItem("userGroups", JSON.stringify(groups));
+
+    displayUserGroups();
 }
+
 
 
 

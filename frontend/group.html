@@ -15,8 +15,12 @@
         </header>
 
         <main class="group-container">
-            <h2 class="group-title">Group: Budget Masters</h2>
+            <h2 class="group-title"></h2>
             <p class="group-description">Optional description about this group's purpose or focus.</p>
+
+            <section class="group-nav">
+                <a href="yourGroup.html" class="view">View Group Lists</a>
+            </section>
 
             <section class="resident-section">
                 <h3>Resident List</h3>
@@ -98,7 +102,18 @@
                         <ul id="summary-assignees"></ul>
 
                         <p class="summary-recurrence"><strong>Recurrence:</strong> <span id="summary-recurrence">—</span></p>
-                        <p class="summary-deadline"><strong>Deadline:</strong> <span id="summary-deadline">—</span></p>                    </section>
+                        <p class="summary-deadline"><strong>Deadline:</strong> <span id="summary-deadline">—</span></p>  
+                    </section>
+
+                    <section class="task-actions clear-export-row">
+                        <button type="button" id="clear-task-summary" class="group-button secondary">
+                            &#128465; Clear Summary
+                        </button>
+                        <button type="button" id="export-tasks-csv" class="group-button secondary">
+                            &#128196; Export Csv
+                        </button>
+                    </section>
+
                 </section>
 
 
@@ -171,20 +186,18 @@
                         <ul id="summary-cost-assignees"></ul>
                         <p class="summary-deadline"><strong>Deadline:</strong> <span id="summary-cost-deadline">—</span></p>
                     </section>
+
+                    <section class="task-actions clear-export-row">
+                        <button type="button" id="clear-cost-summary" class="group-button secondary">
+                            &#128465; Clear Summary
+                        </button>
+                        <button type="button" id="export-costs-csv" class="group-button secondary">
+                            &#128196; Export CSV
+                        </button>
+                    </section>
                 </section>
 
             </section>
-
-
-
-            <section class="group-footer">
-                <a href="#" class="group-button secondary leave-btn">Leave Group</a>
-            </section>
-
-                <!-- <section class="group-actions secondary-actions">
-                    <a href="#" class="group-button secondary">Leave Group</a>
-                    <a href="#" class="group-button secondary">Manage Settings</a>
-                </section> -->
         </main>
 
     <footer class="footer">

@@ -38,52 +38,76 @@ if (shareTasksButton) {
 
 // ========== Create and show task summary ==========
 function showTaskSummary() {
-  const title = document.querySelector("#task-title").value;
-  const desc = document.querySelector("#task-desc").value;
-  const deadline = document.querySelector("#task-deadline").value;
-  const recurrence = document.querySelector("#task-recurrence").value;
+    const title = document.querySelector("#task-title").value;
+    const desc = document.querySelector("#task-desc").value;
+    const deadline = document.querySelector("#task-deadline").value;
+    const recurrence = document.querySelector("#task-recurrence").value;
 
-  const checkboxes = document.querySelectorAll(".checkbox-list input[type='checkbox']");
-  let selectedUsers = [];
-  for (let i = 0; i < checkboxes.length; i++) {
-    if (checkboxes[i].checked) {
-      const name = checkboxes[i].getAttribute("data-name");
-      selectedUsers.push(name);
+    const checkboxes = document.querySelectorAll(".checkbox-list input[type='checkbox']");
+    let selectedUsers = [];
+    for (let i = 0; i < checkboxes.length; i++) {
+      if (checkboxes[i].checked) {
+        const name = checkboxes[i].getAttribute("data-name");
+        selectedUsers.push(name);
+      }
     }
-  }
 
-  const selectedPriority = document.querySelector(".priority.selected");
-  let priorityColor = "transparent";
-  if (selectedPriority) {
-    const type = selectedPriority.classList;
-    if (type.contains("critical")) priorityColor = "rgb(200, 0, 0)";
-    else if (type.contains("important")) priorityColor = "rgb(255, 165, 0)";
-    else if (type.contains("low")) priorityColor = "rgb(0, 180, 0)";
-  }
+    const selectedPriority = document.querySelector(".priority.selected");
+    let priorityColor = "transparent";
+    if (selectedPriority) {
+      const type = selectedPriority.classList;
+      if (type.contains("critical")) priorityColor = "rgb(200, 0, 0)";
+      else if (type.contains("important")) priorityColor = "rgb(255, 165, 0)";
+      else if (type.contains("low")) priorityColor = "rgb(0, 180, 0)";
+    }
 
-  document.querySelector("#summary-task-title").textContent = title || "[Untitled]";
-  document.querySelector("#summary-task-desc").textContent = desc || "No description provided.";
-  document.querySelector("#summary-deadline").textContent = deadline || "—";
-  document.querySelector("#summary-recurrence").textContent = recurrence || "—";
-  document.querySelector("#summary-priority-box").style.backgroundColor = priorityColor;
+    document.querySelector("#summary-task-title").textContent = title || "[Untitled]";
+    document.querySelector("#summary-task-desc").textContent = desc || "No description provided.";
+    document.querySelector("#summary-deadline").textContent = deadline || "—";
+    document.querySelector("#summary-recurrence").textContent = recurrence || "—";
+    document.querySelector("#summary-priority-box").style.backgroundColor = priorityColor;
 
-  const assigneeList = document.querySelector("#summary-assignees");
-  assigneeList.innerHTML = "";
+    const assigneeList = document.querySelector("#summary-assignees");
+    assigneeList.innerHTML = "";
 
-  if (selectedUsers.length > 0) {
-    for (let j = 0; j < selectedUsers.length; j++) {
+    if (selectedUsers.length > 0) {
+      for (let j = 0; j < selectedUsers.length; j++) {
+        const li = document.createElement("li");
+        li.textContent = selectedUsers[j];
+        assigneeList.appendChild(li);
+      }
+    } else {
       const li = document.createElement("li");
-      li.textContent = selectedUsers[j];
+      li.textContent = "None";
       assigneeList.appendChild(li);
     }
-  } else {
-    const li = document.createElement("li");
-    li.textContent = "None";
-    assigneeList.appendChild(li);
-  }
 
-  document.querySelector("#task-section").classList.remove("visible");
-  document.querySelector("#task-summary").classList.add("visible");
+    document.querySelector("#task-section").classList.remove("visible");
+    document.querySelector("#task-summary").classList.add("visible");
+
+
+    //local storage for task summary and export
+
+    //preparing the task summary data
+    const taskData = {
+        title,
+        desc,
+        deadline,
+        recurrence,
+        assignees: selectedUsers,
+        priority: priorityColor,
+        timestamp: new Date().toISOString()
+    };
+
+
+    //Get existing tasks
+    let allTasks=  JSON.parse(localStorage.getItem("taskSummaries")) || [];
+
+    //add new task
+    allTasks.push(taskData);
+
+    //save back to storage
+    localStorage.setItem("taskSummaries", JSON.stringify(allTasks));
 }
 
 // ========== Create and show cost summary ==========
@@ -309,6 +333,141 @@ function displayGroupDescription() {
       descElement.style.display = "none";
     }
 }
+
+
+
+//to clear the task summary
+function handleClearTaskSummary() {
+    document.querySelector("#task-summary").classList.remove("visible");
+
+    clearTaskForm(); // Optional: reset form inputs
+
+    // Show main group buttons (Share Tasks, Split Costs)
+    const mainActions = document.querySelector(".group-main-actions");
+    if (mainActions) {
+      mainActions.classList.add("visible");
+    }
+
+    // Hide all task/cost forms
+    document.querySelector("#task-section").classList.remove("visible");
+    document.querySelector("#cost-section").classList.remove("visible");
+    document.querySelector("#cost-summary").classList.remove("visible");
+}
+
+const clearTaskSummaryBtn = document.querySelector("#clear-task-summary");
+
+if (clearTaskSummaryBtn) {
+  clearTaskSummaryBtn.addEventListener("click", handleClearTaskSummary);
+}
+
+
+//function to export tasks to local storage
+function exportTaskSummariesToCSV(){
+    const tasks = JSON.parse(localStorage.getItem("taskSummaries")) || [];
+
+    if (tasks.length === 0) {
+        alert("No tasks to export.");
+        return;
+    }
+
+    // Prepare CSV header
+    let csv = "Title,Description,Deadline,Recurrence,Assignees,Priority,Timestamp\n";
+
+    tasks.forEach(task => {
+      const assignees = task.assignees.join(" | ");
+      const row = [
+          task.title,
+          task.desc,
+          task.deadline,
+          task.recurrence,
+          `"${assignees}"`,
+          task.priority,
+          task.timestamp
+      ].map(field => `"${field}"`).join(",");
+
+      csv += row + "\n";
+    });
+
+
+    //Download the CSV
+    const blob = new Blob([csv], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "task_summaries.csv";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+//event listener for download
+const exportBtn = document.querySelector("#export-tasks-csv");
+if (exportBtn) {
+    exportBtn.addEventListener("click", exportTaskSummariesToCSV);
+}
+
+
+//function to clear costs 
+// Handle clearing cost summary
+function handleClearCostSummary() {
+    document.querySelector("#cost-summary").classList.remove("visible");
+
+    clearCostForm(); // Optional: reset form inputs
+
+    // Show main buttons
+    const mainActions = document.querySelector(".group-main-actions");
+    if (mainActions) {
+      mainActions.classList.add("visible");
+    }
+
+    // Hide other sections
+    document.querySelector("#task-section").classList.remove("visible");
+    document.querySelector("#task-summary").classList.remove("visible");
+    document.querySelector("#cost-section").classList.remove("visible");
+}
+
+const clearCostSummaryBtn = document.querySelector("#clear-cost-summary");
+if (clearCostSummaryBtn) {
+    clearCostSummaryBtn.addEventListener("click", handleClearCostSummary);
+}
+
+
+//for cost export
+function exportCostSummariesToCSV() {
+    const amount = document.querySelector("#summary-cost-amount").textContent || "";
+    const desc = document.querySelector("#summary-cost-desc").textContent || "";
+    const deadline = document.querySelector("#summary-cost-deadline").textContent || "";
+    const recurrence = document.querySelector("#summary-cost-recurrence")?.textContent || "";
+    const assignees = Array.from(document.querySelectorAll("#summary-cost-assignees li")).map(li => li.textContent).join(" | ");
+    const priority = document.querySelector("#summary-cost-priority")?.style.backgroundColor || "";
+    const timestamp = new Date().toISOString();
+
+    // Prepare CSV
+    let csv = "Amount,Description,Deadline,Recurrence,Assignees,Priority,Timestamp\n";
+    let row = [amount, desc, deadline, recurrence, `"${assignees}"`, priority, timestamp].map(f => `"${f}"`).join(",");
+    csv += row + "\n";
+
+    const blob = new Blob([csv], { type: "text/csv" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "cost_summary.csv";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    alert("Cost summary exported as CSV!");
+}
+
+const exportCostBtn = document.querySelector("#export-costs-csv");
+if (exportCostBtn) {
+    exportCostBtn.addEventListener("click", exportCostSummariesToCSV);
+}
+
+
+
+
+
 
 
 
