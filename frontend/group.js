@@ -275,15 +275,39 @@ function isCostPrioritySelected() {
 }
 
 
+function setMinimumCostDate() {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, "0");
+    const dd = String(today.getDate()).padStart(2, "0");
+    const minDate = `${yyyy}-${mm}-${dd}`;
+    document.querySelector("#cost-deadline").setAttribute("min", minDate);
+}
+
+setMinimumCostDate();
 
 
+function isCostDeadlineValid() {
+    const deadlineInput = document.querySelector("#cost-deadline");
+    const selectedDate = deadlineInput.value;
 
+    if (!selectedDate) {
+      alert("Cost deadline is required.");
+      return false;
+    }
 
+    const today = new Date();
+    const chosen = new Date(selectedDate);
+    today.setHours(0, 0, 0, 0);
+    chosen.setHours(0, 0, 0, 0);
 
+    if (chosen < today) {
+      alert("Unable to select this date.");
+      return false;
+    }
 
-
-
-
+    return true;
+}
 
 
 // ========== Create and show cost summary ==========
@@ -294,6 +318,7 @@ function showCostSummary() {
   if (!isCostDescriptionValid()) return;
   if (!isCostAssigneeSelected()) return;
   if (!isCostPrioritySelected()) return;
+  if (!isCostDeadlineValid()) return;
 
   const amount = parseFloat(amountValue);
   
