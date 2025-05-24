@@ -36,11 +36,119 @@ if (shareTasksButton) {
   shareTasksButton.addEventListener("click", showTaskSection);
 }
 
+
+
+function isTaskTitleValid(title) {
+    if (title.length === 0) {
+        alert("Task Title is required.");
+        return false;
+    }
+
+    if (title.length > 50) {
+        alert("Title must be lower than 50 characters");
+        return false;
+    }
+
+    return true;
+}
+
+
+
+function isTaskDescriptionValid(desc) {
+    if (desc.length > 200) {
+        alert("Description must be lower than 200 characters.");
+        return false;
+    }
+    return true;
+}
+
+function isAssigneeSelected() {
+    const checkboxes = document.querySelectorAll(".checkbox-list input[type='checkbox']");
+    for (let i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            return true;
+        }
+    }
+    alert("Members required for task creation.");
+    return false;
+}
+
+
+function isPrioritySelected() {
+    const selected = document.querySelector(".priority.selected");
+    if (!selected) {
+        alert("Priority required for task creation.");
+        return false;
+    }
+    return true;
+}
+
+
+function setMinimumDate() {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, "0");
+    const dd = String(today.getDate()).padStart(2, "0");
+    const minDate = `${yyyy}-${mm}-${dd}`;
+    document.querySelector("#task-deadline").setAttribute("min", minDate);
+}
+
+setMinimumDate();
+
+
+function isTaskDeadlineValid() {
+    const deadlineInput = document.querySelector("#task-deadline");
+    const selectedDate = deadlineInput.value;
+
+    // Check if no date is selected
+    if (!selectedDate) {
+        alert("Task deadline is required.");
+        return false;
+    }
+
+    // Compare selected date with today
+    const today = new Date();
+    const chosen = new Date(selectedDate);
+
+    // Set time to 00:00:00 for both for fair comparison
+    today.setHours(0, 0, 0, 0);
+    chosen.setHours(0, 0, 0, 0);
+
+    if (chosen < today) {
+        alert("Unable to select this date.");
+        return false;
+    }
+
+    return true;
+}
+
+
+
+
+
+
 // ========== Create and show task summary ==========
 function showTaskSummary() {
     const title = document.querySelector("#task-title").value;
+
+    if (!isTaskTitleValid(title)) {
+        return; 
+    }
+
+
     const desc = document.querySelector("#task-desc").value;
+
+    if (!isTaskDescriptionValid(desc)) {
+        return; 
+    }
+
+    if (!isAssigneeSelected()) return;
+    if (!isPrioritySelected()) return;
+
+
     const deadline = document.querySelector("#task-deadline").value;
+    if (!isTaskDeadlineValid()) return;
+
     const recurrence = document.querySelector("#task-recurrence").value;
 
     const checkboxes = document.querySelectorAll(".checkbox-list input[type='checkbox']");
@@ -110,9 +218,110 @@ function showTaskSummary() {
     localStorage.setItem("taskSummaries", JSON.stringify(allTasks));
 }
 
+
+function isCostAmountValid() {
+    const amountField = document.querySelector("#cost-amount");
+    const amountValue = amountField.value;
+    
+    const digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+    // If empty, treat as invalid
+    if (amountValue.length === 0) {
+      alert("Total cost is required.");
+      return false;
+    }
+
+    // Check each character
+    for (let i = 0; i < amountValue.length; i++) {
+      if (!digits.includes(amountValue[i]) && amountValue[i] !== ".") {
+        alert("Total cost must be numbers only.");
+        return false;
+      }
+    }
+
+    return true;
+}
+
+
+function isCostDescriptionValid() {
+    const desc = document.querySelector("#cost-desc").value;
+    if (desc.length > 200) {
+        alert("Description must be lower than 200 characters");
+        return false;
+    }
+    return true;
+}
+
+
+function isCostAssigneeSelected() {
+    const checkboxes = document.querySelectorAll("#cost-section .checkbox-list input[type='checkbox']");
+    for (let i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            return true;
+        }
+    }
+    alert("Members required for cost splitting.");
+    return false;
+}
+
+
+function isCostPrioritySelected() {
+    const selected = document.querySelector("#cost-section .priority.selected");
+    if (!selected) {
+        alert("Priority required for cost splitting.");
+        return false;
+    }
+    return true;
+}
+
+
+function setMinimumCostDate() {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, "0");
+    const dd = String(today.getDate()).padStart(2, "0");
+    const minDate = `${yyyy}-${mm}-${dd}`;
+    document.querySelector("#cost-deadline").setAttribute("min", minDate);
+}
+
+setMinimumCostDate();
+
+
+function isCostDeadlineValid() {
+    const deadlineInput = document.querySelector("#cost-deadline");
+    const selectedDate = deadlineInput.value;
+
+    if (!selectedDate) {
+      alert("Cost deadline is required.");
+      return false;
+    }
+
+    const today = new Date();
+    const chosen = new Date(selectedDate);
+    today.setHours(0, 0, 0, 0);
+    chosen.setHours(0, 0, 0, 0);
+
+    if (chosen < today) {
+      alert("Unable to select this date.");
+      return false;
+    }
+
+    return true;
+}
+
+
 // ========== Create and show cost summary ==========
 function showCostSummary() {
-  const amount = parseFloat(document.querySelector("#cost-amount").value);
+  const amountValue = document.querySelector("#cost-amount").value;
+  
+  if (!isCostAmountValid()) return;
+  if (!isCostDescriptionValid()) return;
+  if (!isCostAssigneeSelected()) return;
+  if (!isCostPrioritySelected()) return;
+  if (!isCostDeadlineValid()) return;
+
+  const amount = parseFloat(amountValue);
+  
   const desc = document.querySelector("#cost-desc").value;
   const deadline = document.querySelector("#cost-deadline").value;
   const recurrence = document.querySelector("#cost-recurrence").value;
