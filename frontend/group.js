@@ -218,9 +218,85 @@ function showTaskSummary() {
     localStorage.setItem("taskSummaries", JSON.stringify(allTasks));
 }
 
+
+function isCostAmountValid() {
+    const amountField = document.querySelector("#cost-amount");
+    const amountValue = amountField.value;
+    
+    const digits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+    // If empty, treat as invalid
+    if (amountValue.length === 0) {
+      alert("Total cost is required.");
+      return false;
+    }
+
+    // Check each character
+    for (let i = 0; i < amountValue.length; i++) {
+      if (!digits.includes(amountValue[i]) && amountValue[i] !== ".") {
+        alert("Total cost must be numbers only.");
+        return false;
+      }
+    }
+
+    return true;
+}
+
+
+function isCostDescriptionValid() {
+    const desc = document.querySelector("#cost-desc").value;
+    if (desc.length > 200) {
+        alert("Description must be lower than 200 characters");
+        return false;
+    }
+    return true;
+}
+
+
+function isCostAssigneeSelected() {
+    const checkboxes = document.querySelectorAll("#cost-section .checkbox-list input[type='checkbox']");
+    for (let i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            return true;
+        }
+    }
+    alert("Members required for cost splitting.");
+    return false;
+}
+
+
+function isCostPrioritySelected() {
+    const selected = document.querySelector("#cost-section .priority.selected");
+    if (!selected) {
+        alert("Priority required for cost splitting.");
+        return false;
+    }
+    return true;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 // ========== Create and show cost summary ==========
 function showCostSummary() {
-  const amount = parseFloat(document.querySelector("#cost-amount").value);
+  const amountValue = document.querySelector("#cost-amount").value;
+  
+  if (!isCostAmountValid()) return;
+  if (!isCostDescriptionValid()) return;
+  if (!isCostAssigneeSelected()) return;
+  if (!isCostPrioritySelected()) return;
+
+  const amount = parseFloat(amountValue);
+  
   const desc = document.querySelector("#cost-desc").value;
   const deadline = document.querySelector("#cost-deadline").value;
   const recurrence = document.querySelector("#cost-recurrence").value;
