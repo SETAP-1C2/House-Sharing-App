@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Group</title>
+  <link rel="stylesheet" href="creategroup.css" />
+</head>
+<body>
+  <section class="page-wrapper">
+    <header class="nav-header">
+      <h1 class="logo">
+        <span class="red">House</span> <span class="green">Share</span>
+      </h1>
+    </header>
+
+    <main class="form-container">
+      <h2>Creating a Group?</h2>
+      <p class="intro-text">Set up your group to start managing shared tasks and budgets with your housemates.</p>
+      <!-- action="#" method="post" -->
+      <form class="group-form">
+        <label for="group-name">Group Name:</label>
+        <input type="text" placeholder="must be less than 50 characters" id="group-name" name="group-name" required />
+
+        <label for="group-id">Group ID:</label>
+        <input type="text" placeholder="must be 5 digits e.g. 12345, 23456, ....." id="group-id" name="group-id" required />
+
+        <label for="group-description">Group Description (Optional):</label>
+        <textarea id="group-description" placeholder="description must be less than 200 characters" name="group-description" rows="4"></textarea>
+
+        <button type="button" class="submit-button-link" id="cg-submit-button-link">Create Group</button>
+      </form>
+    </main>
+
+    <footer class="footer">
+      <p>© 2025 HouseShare. All rights reserved.</p>
+    </footer>
+  </section>
+
+  <script src="createGroup.js"></script>
+</body>
+</html>

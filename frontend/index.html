@@ -1,64 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homepage</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <nav class="navigation_bar">
-        <section class="logo">Header
-            <span>
-                App Logo
-            </span>
-        </section>
-
-        <section class="page_links">
-            <a href="index.html">Home</a>
-            <a href="features.html">Features</a>
-            <a href="pricing.html">Pricing</a>
-            <a href="faqs.html">FAQs</a>
-            <a href="contact.html">Contact Us</a>
+    <section class="page-wrapper">
+        <header class="nav-header">
+            <h1 class="logo">
+            <span class="red">House</span> <span class="green">Share</span>
+            </h1>
+            <nav class="navbar">
+            <a href="#">Home</a>
+            <a href="#features-nav">Features</a>
+            <a href="#pricing">Pricing</a>
             <a href="login.html">Login / Sign Up</a>
-        </section>
-    </nav>
+            </nav>
+        </header>
 
-    <section class= "catchyText">
-        <p>Manage group projects and shared expenses with ease. </p>
-        <p>Stay organised and stress-free, all in one app.</p>
+
+        <main>
+            <section class="tagline">
+            <p>Manage group projects and shared expenses with ease.</p>
+            <p>Stay organised and stress-free, all in one app.</p>
+            </section>
+
+
+            <section class="group-options">
+                <section class="group-block">
+                    <p>Want to create a group?</p>
+
+                    <a href="creategroup.html" class="group-button">
+                        <section>Create</section>
+                        <section>Group</section>
+                    </a>
+                </section>
+
+                <section class="group-block">
+                    <a href="yourgroup.html" class="group-button">
+                        <section>Your</section>
+                        <section>Groups</section>
+                    </a>
+                </section>
+
+                <section class="group-block">
+                    <p>Want to join a group?</p>
+                    <a href="joingroup.html" class="group-button">
+                        <section>Join</section>
+                        <section>Group</section>
+                    </a>
+                </section>
+            </section>
+
+
+            <section class="get-started">
+            <a href="login.html" class="get-started-link">Get Started</a>
+            </section>
+
+
+            <!-- pricing.html inside index.html -->
+            <section id="pricing" class="pricing-section scroll-reveal">
+                <section class="pricing-container">
+                    <h2>Our Pricing</h2>
+                    <p class="note">
+                        As we continue building this app, some features may still be in development.
+                        We appreciate your support and feedback as we grow together.
+                    </p>
+
+                    <section class="tiers">
+                        <section class="pricing-box free">
+                            <span class="badge free-badge">Free</span>
+                            <h3>Free Tier</h3>
+                            <ul>
+                            <li>Group Creation</li>
+                            <li>Task Sharing</li>
+                            <li>Budgeting</li>
+                            </ul>
+                        </section>
+
+                        <section class="pricing-box paid">
+                            <span class="badge paid-badge">Paid</span>
+                            <h3>Paid Version</h3>
+                            <ul>
+                            <li>Task Sharing</li>
+                            <li>Budgeting</li>
+                            <li>Additional Notifications</li>
+                            <li>Task Priority Customisation</li>
+                            <li>Integration with Other Apps</li>
+                            </ul>
+                        </section>
+                    </section>
+                </section>
+            </section>
+
+
+
+            <section id="features-nav" class="features-section">
+                <h2 class="features-heading">Key Features</h2>
+                <section class="features-display">
+                    <section class="features">
+                        <section class="icon">&#128101;</section>
+                        <h3>Create and Join Groups</h3>
+                        <p>Start a new group or join an existing one using a unique ID. 
+                            Perfect for student houses or shared spaces.
+                        </p>
+                    </section>
+
+                    <section class="features">
+                        <section class="icon">&#9989;</section>
+                        <h3> Task Sharing </h3>
+                        <p>Assign tasks like cleaning or shopping to specific group members. Set priorities and deadlines with ease.</p>
+                    </section>
+
+                    <section class="features">
+                        <section class="icon">&#128179;</section>
+                        <h3>Split Costs</h3>
+                        <p>Log shared expenses and automatically divide payments among group members with priority reminders.</p>
+                    </section>
+
+                    <section class="features">
+                        <section class="icon">&#128241;</section>
+                        <h3>Mobile Responsive</h3>
+                        <p>Enjoy a seamless experience on phones, tablets, and desktops. Designed with mobile-first principles.</p>
+                    </section>
+                </section>
+            </section>
+
+
+        </main>
+
+        <footer class="footer">
+            <p>© 2025 HouseShare. All rights reserved.</p>
+        </footer>
     </section>
 
- 
-    <section class="flex">
-        <section>
-            <p class="groupQuestion">Want to create a group?</p>
-            <a href="group.html">
-                <button class="button">
-                    <section>Create</section>
-                    <section>Group</section>
-                </button>
-            </a>
-        </section>
-
-        <section>
-            <a href="grouplist.html" class="">
-                <button id="grpButton">
-                    <section>Your</section>
-                    <section>Groups</section>
-                </button>
-            </a>
-        </section>
- 
-        <section>
-            <p class="groupQuestion">Want to join a group?</p>
-            <button class="button">
-                <section>Join</section>
-                <section>Group</section>
-            </button>
-        </section>
-    </section>
-
-    <a href="login.html" class="getStarted"><button>Get Started</button></a>
+    <script src="script.js"></script>
 </body>
 </html>
