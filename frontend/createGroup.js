@@ -1,7 +1,3 @@
-// ===============================
-// CREATE GROUP VALIDATION LOGIC
-// ===============================
-
 //validity conditions for group name
 function groupNameValid() {
   const groupName = document.querySelector("#group-name").value;
@@ -55,23 +51,8 @@ function groupIdValid() {
 
   return true;
 }
-// Uniqueness check: implement this to the databse constrauint, dont forget
-  "DO NOT FORGET"
-  "You shoukd have a database for the check"
-//   for (let i = 0; i < usedGroupIds.length; i++) {
-//     if (groupId === usedGroupIds[i]) {
-//       alert("Group ID already exists. Please choose another.");
-//       return false;
-//     }
-//   }
-
-//   return true;
-// }
 
 
-
-
-//valid for clicking (local storage added)
 function createGroupClick(){
     if (!groupNameValid()) {
       return;

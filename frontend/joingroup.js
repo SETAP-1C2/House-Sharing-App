@@ -78,7 +78,7 @@ function joinGroupClick() {
         localStorage.setItem("userGroups", JSON.stringify(joinedGroups));
     }
 
-    // Optional: Store selected group in localStorage before redirecting
+    //Store selected group in localStorage before redirecting
     localStorage.setItem("groupName", existingGroup.name);
     localStorage.setItem("groupDescription", existingGroup.description);
     localStorage.setItem("groupId", existingGroup.id);

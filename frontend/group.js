@@ -1,10 +1,4 @@
-// ======================================
-// TASK SUMMARY SETUP AFTER CREATE TASK
-// ======================================
 
-
-
-// local storage for group name
 document.addEventListener("DOMContentLoaded", function () {
   const groupName = localStorage.getItem("groupName");
   if (groupName) {
@@ -13,24 +7,18 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-
-
-
-
-
-// Attach click listener to Create Task button
 const createTaskBtn = document.querySelector("#create-task-button");
 if (createTaskBtn !== null) {
   createTaskBtn.addEventListener("click", showTaskSummary);
 }
 
-// Attach click listener to Split Cost button
+
 const splitCostBtn = document.querySelector("#create-cost-button");
 if (splitCostBtn !== null) {
   splitCostBtn.addEventListener("click", showCostSummary);
 }
 
-// Attach click listener to Share Tasks button
+
 const shareTasksButton = document.querySelector("#share-tasks");
 if (shareTasksButton) {
   shareTasksButton.addEventListener("click", showTaskSection);
@@ -138,10 +126,6 @@ function showTaskSummary() {
     document.querySelector("#task-section").classList.remove("visible");
     document.querySelector("#task-summary").classList.add("visible");
 
-
-    //local storage for task summary and export
-
-    //preparing the task summary data
     const taskData = {
         title,
         desc,
@@ -393,7 +377,7 @@ function displayGroupDescription() {
 function handleClearTaskSummary() {
     document.querySelector("#task-summary").classList.remove("visible");
 
-    clearTaskForm(); // Optional: reset form inputs
+    clearTaskForm(); 
 
     // Show main group buttons (Share Tasks, Split Costs)
     const mainActions = document.querySelector(".group-main-actions");

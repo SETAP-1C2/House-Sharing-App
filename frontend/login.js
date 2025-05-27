@@ -51,9 +51,9 @@ function loginUser() {
     }
 
     if (matchFound) {
-        window.location.href = "index.html"; // ✅ success: go to homepage
+        window.location.href = "index.html"; 
     } else {
-        alert("Email or password is incorrect."); // ❌ show error
+        alert("Email or password is incorrect.");
     }
 }
 

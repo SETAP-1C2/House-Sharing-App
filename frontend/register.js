@@ -123,7 +123,7 @@ function registerUser() {
       password: password
     };
 
-      // Save to localStorage (using email as key for uniqueness, or pushing to an array)
+    // Save to localStorage (using email as key for uniqueness, or pushing to an array)
     const users = JSON.parse(localStorage.getItem("registeredUsers")) || [];
     users.push(user);
     localStorage.setItem("registeredUsers", JSON.stringify(users));

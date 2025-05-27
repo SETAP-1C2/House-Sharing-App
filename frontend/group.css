@@ -132,15 +132,15 @@ main {
   transform: scale(1.05);
 }
 
-/* Start hidden and transparent */
+
 .task-section {
-  margin-top: 1.5rem; /* Adds breathing room below buttons */
+  margin-top: 1.5rem;
   padding-top: 2rem;
-  border-top: 0.0625rem solid rgb(100, 100, 100); /* Thin line */
-  opacity: 0;                /* faded by default */
-  transform: translateY(2rem); /* subtle slide */
+  border-top: 0.0625rem solid rgb(100, 100, 100); 
+  opacity: 0;               
+  transform: translateY(2rem); 
   transition: opacity 0.5s ease, transform 0.5s ease;
-  pointer-events: none;        /* prevent clicks */
+  pointer-events: none;        
 }
 
 .task-section.visible {
@@ -225,7 +225,6 @@ main {
 #task-summary,
 #cost-section {
   display: none;
-  /* other styles... */
 }
 
 
@@ -271,8 +270,6 @@ main {
   background-color: rgba(255, 255, 255, 0.1);
   color: white;
   transition: background-color 0.2s ease;
-
-  /* added */
   flex: 1 1 8rem;
   text-align: center;
 }
@@ -341,7 +338,7 @@ main {
   max-width: 30rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem; /*  adds spacing between each section */
+  gap: 1rem; 
 }
 
 .task-summary-box h3 {
@@ -407,7 +404,7 @@ main {
   margin-left: 1rem;
 }
 
-/* Optional Description */
+
 .summary-desc {
   font-style: italic;
   color: rgb(200, 200, 200);
@@ -436,7 +433,7 @@ main {
 }
 
 .group-main-actions.visible {
-  display: flex; /* or block depending on your layout */
+  display: flex; 
 }
 
 .clear-export-btn {

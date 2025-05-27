@@ -264,7 +264,7 @@ button:active {
 
 .password-wrapper input {
   width: 100%;
-  padding-right: 2.5rem; /* make room for eye icon inside input */
+  padding-right: 2.5rem; 
 }
 
 .toggle-password {
@@ -316,7 +316,7 @@ button:active {
   max-width: 62.5rem; 
   margin: 4rem auto;
   padding-top: 0.1rem;
-  background-color: rgb(50, 50, 50); /* or lighter if needed */
+  background-color: rgb(50, 50, 50); 
   border-radius: 1rem;
   padding: 2rem 1rem;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
