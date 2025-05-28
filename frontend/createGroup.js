@@ -53,45 +53,65 @@ function groupIdValid() {
 }
 
 
-function createGroupClick(){
-    if (!groupNameValid()) {
-      return;
-    }
+function createGroupClick(event) {
+  event.preventDefault();
 
-    if (!groupDescriptionValid()) {
-      return;
-    }
+  const groupName = document.querySelector("#group-name").value;
+  const groupId = document.querySelector("#group-id").value;
+  const groupDesc = document.querySelector("#group-description").value;
+  const userId = localStorage.getItem("userId");
 
-    if (!groupIdValid()) {
-      return;
-    }
+  if (!userId) {
+    alert("You must be logged in to create a group.");
+    return;
+  }
 
-    const groupName = document.querySelector("#group-name").value;
-    const groupId = document.querySelector("#group-id").value;
-    const groupDesc = document.querySelector("#group-description").value;
+  if (groupName.length === 0 || groupName.length > 50) {
+    alert("Group name is required and must be under 50 characters.");
+    return;
+  }
 
-    const createdGroup= {
+  if (groupDesc.length > 200) {
+    alert("Description must be under 200 characters.");
+    return;
+  }
+
+  if (!/^[0-9]{5}$/.test(groupId)) {
+    alert("Group ID must be exactly 5 digits.");
+    return;
+  }
+
+  fetch("/api/create-group", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
       name: groupName,
-      id: groupId,
       description: groupDesc,
-      role: "creator"
-    };
-
-    //get the existing group 
-    const yourGroups= JSON.parse(localStorage.getItem("userGroups")) || [];
-    yourGroups.push (createdGroup);
-
-    localStorage.setItem("userGroups", JSON.stringify (yourGroups));
-
-
-    //stored the group in a local storage to display in group.html.
-    localStorage.setItem("groupName", groupName);
-    localStorage.setItem("groupDescription", groupDesc);
-    localStorage.setItem("groupId", groupId);
-
-    window.location.href = "group.html";
+      code: groupId,
+      userId: userId
+    })
+  })
+    .then(res => res.text())
+    .then(msg => {
+      alert(msg);
+      localStorage.setItem("groupName", groupName);
+      localStorage.setItem("groupDescription", groupDesc);
+      localStorage.setItem("groupId", groupId);
+      window.location.href = "group.html";
+    })
+    .catch(err => {
+      console.error("Group creation failed:", err);
+      alert("Group creation failed.");
+    });
 }
 
+
+const createBtn = document.querySelector("#cg-submit-button-link");
+if (createBtn) {
+  createBtn.addEventListener("click", createGroupClick);
+}
 
 
 //event listener
