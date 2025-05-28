@@ -6,7 +6,7 @@ The **House Sharing Assistant** is a web-based application designed to support i
 This documentation provides everything you need to understand, deploy, and contribute to the project, including system requirements, application structure, setup instructions, testing, and future development.
 
 Core Features
--------------
+~~~~~~~~~~~~~
 
 - **Group Management**: Users can create and join groups using unique IDs, with role distinctions (creator vs. member).
 - **Task Assignment**: Share and assign responsibilities across group members, with optional priority and recurrence.
@@ -16,7 +16,7 @@ Core Features
 - **Unit Tested**: Core logic is tested using Jest to ensure correctness and maintainability.
 
 Technical Stack
----------------
+~~~~~~~~~~~~~~~~
 
 - **Frontend**: HTML, CSS, and vanilla JavaScript
 - **Backend/Server**: ``svr.cjs`` (Node.js with Express)
@@ -25,7 +25,7 @@ Technical Stack
 - **Documentation**: Written in reStructuredText and hosted on Read the Docs
 
 Target Users
-------------
+~~~~~~~~~~~~~
 
 - Students sharing accommodation
 - Roommates and flatmates
@@ -33,7 +33,7 @@ Target Users
 - Developers looking to extend household management tools
 
 What You'll Find in This Documentation
---------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Project architecture and folder structure
 - User and system requirements

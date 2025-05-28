@@ -7,7 +7,7 @@ This section outlines the core components that make up the **House Sharing Assis
 ---
 
 Frontend Components
--------------------
+~~~~~~~~~~~~~~~~~~~~
 
 These are implemented in JavaScript, HTML, and CSS, and handle user interactions and UI rendering.
 
@@ -39,7 +39,7 @@ These are implemented in JavaScript, HTML, and CSS, and handle user interactions
 ---
 
 Backend Components
-------------------
+~~~~~~~~~~~~~~~~~~~
 
 .. note:: 
 
@@ -59,7 +59,7 @@ Backend Components
 ---
 
 Supporting Files
-----------------
+~~~~~~~~~~~~~~~~~
 
 - ``validation.js``: Contains all frontend validation logic.
 - ``jest.config.mjs``: Configuration for running Jest tests with ESM and jsdom support.
