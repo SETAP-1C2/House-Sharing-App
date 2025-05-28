@@ -1,4 +1,4 @@
-House Sharing Assistant Documentation
+House Share Documentation
 =====================================
 
 Welcome! This documentation includes system requirements, architecture, testing, and more.
@@ -21,7 +21,6 @@ Contents:
    testing
    setup
    future_work
-   testing
 
 Indices and tables
 ==================
