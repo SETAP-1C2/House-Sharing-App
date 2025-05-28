@@ -54,13 +54,11 @@ Backend Components
 Supporting Files
 ----------------
 
-- `validation.js`: Contains all frontend validation logic.
-- `jest.config.mjs`: Configuration for running Jest tests with ESM and jsdom support.
-- `.readthedocs.yml`: Configuration for Read the Docs build.
-- `README.md`: Basic developer guide and quickstart.
-
----
+- ``validation.js``: Contains all frontend validation logic.
+- ``jest.config.mjs``: Configuration for running Jest tests with ESM and jsdom support.
+- ``.readthedocs.yml``: Configuration for Read the Docs build.
+- ``README.md``: Basic developer guide and quickstart.
 
 .. note::
 
-    Each of these components plays a role in delivering a smooth, modular, and maintainable user experience.
+Each of these components plays a role in delivering a smooth, modular, and maintainable user experience.
