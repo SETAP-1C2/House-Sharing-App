@@ -41,11 +41,11 @@ Backend Components
     The backend is implemented using Node.js (`svr.cjs`) and SQLite.
 
 
-**Server (`svr.cjs`)**
+**Server (``svr.cjs``)**
   - Handles HTTP requests and serves frontend files.
   - Can connect to database if extended for persistent storage.
 
-**Database (`house_share_app.db`)**
+**Database (``house_share_app.db``)**
   - SQLite-based local database for persistent data.
   - Used for storing user, group, and activity data efficiently.
 

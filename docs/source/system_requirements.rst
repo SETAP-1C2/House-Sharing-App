@@ -1,7 +1,6 @@
 System Requirement
 =====================================
 
-
 This section outlines the system-level requirements necessary to support the development, deployment, and execution of the House Sharing Assistant App. These include both functional capabilities and technical constraints based on the final implementation.
 
 Functional Requirements
