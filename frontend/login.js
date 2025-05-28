@@ -32,30 +32,50 @@ function loginValid(){
 
 
 
-function loginUser() {
-    if (!loginValid()) return;
+function loginUser(event) {
+    event.preventDefault();
 
-    const loginEmail = getLoginEmail();
-    const loginPassword = getLoginPassword();
+    const email = document.querySelector("#email").value.trim();
+    const password = document.querySelector("#password").value.trim();
 
-    const registeredUsers = JSON.parse(localStorage.getItem("registeredUsers")) || [];
+    if (email === "" || password === "") {
+        alert("Please fill in both fields.");
+        return;
+    }
 
-    let matchFound = false;
+    fetch("/api/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ email, password })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success && data.user) {
+            // Save user data in localStorage
+            localStorage.setItem("userId", data.user.id);
+            localStorage.setItem("userEmail", data.user.email);
+            localStorage.setItem("userFirstName", data.user.first_name || "");
+            localStorage.setItem("userLastName", data.user.last_name || "");
 
-    for (let i = 0; i < registeredUsers.length; i++) {
-        const user = registeredUsers[i];
-        if (user.email === loginEmail && user.password === loginPassword) {
-            matchFound = true;
-            break;
+            alert("Login successful!");
+            window.location.href = "index.html";
+        } else {
+            alert(data.message || "Email or password is incorrect.");
         }
-    }
-
-    if (matchFound) {
-        window.location.href = "index.html"; 
-    } else {
-        alert("Email or password is incorrect.");
-    }
+    })
+    .catch(error => {
+        console.error("Login error:", error);
+        alert("Something went wrong. Please try again.");
+    });
 }
+
+const loginButton = document.querySelector("#login-btn");
+if (loginButton) {
+    loginButton.addEventListener("click", loginUser);
+}
+
 
 
 function loginUserAttacher() {
