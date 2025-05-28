@@ -1,8 +1,6 @@
 User Requirement
 =====================================
 
-
-
 This section outlines the key user requirements that guided the design and development of the House Sharing Assistant application. Each requirement is derived from initial goals and was refined through user feedback, development iterations, and technical feasibility.
 
 Sign-Up and Registration

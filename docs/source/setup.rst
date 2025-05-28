@@ -1,8 +1,5 @@
-Setup
+Setup Instructions 
 =====================================
-
-Setup Instructions
-------------------
 
 This section outlines the full setup process for running the House Sharing Assistant App locally, including installing dependencies, launching the database, starting the server, and running tests.
 
@@ -83,24 +80,24 @@ Before running the app, you must initialize the SQLite database:
 
    node database.js
 
-This creates `house_share_app.db` with the required tables.
+This creates ``house_share_app.db`` with the required tables.
 
 Start the Application
 ~~~~~~~~~~~~~~~~~~~~~
 
-To start the backend server (`svr.cjs`) with file watching enabled:
+To start the backend server (``svr.cjs``) with file watching enabled:
 
 .. code-block:: bash
 
    npm start
 
-This uses `nodemon` to monitor changes and serve files at:
+This uses ``nodemon`` to monitor changes and serve files at:
 
 .. code-block:: text
 
    http://localhost:3000
 
-Frontend files are located in the `frontend/` directory and will load automatically.
+Frontend files are located in the ``frontend/`` directory and will load automatically.
 
 Run the Unit Tests
 ~~~~~~~~~~~~~~~~~~
@@ -111,20 +108,20 @@ Unit tests are implemented using **Jest**. To run all test suites:
 
    npm run test
 
-This executes tests from the `tests/` folder using the configuration in `jest.config.mjs`.
+This executes tests from the ``tests/`` folder using the configuration in ``jest.config.mjs``.
 
 Project Structure
 ~~~~~~~~~~~~~~~~~
 
-- `frontend/`: HTML, CSS, and JavaScript UI files
-- `svr.cjs`: Express server backend file
-- `database.js`: Script to create and initialize the database
-- `house_share_app.db`: SQLite database file
-- `validation.js`: Contains input validation logic
-- `tests/`: Contains Jest test files
-- `jest.config.mjs`: Jest configuration for ESM and jsdom
-- `docs/`: Documentation files for Read the Docs
+- ``frontend/``: HTML, CSS, and JavaScript UI files
+- ``svr.cjs``: Express server backend file
+- ``database.js``: Script to create and initialize the database
+- ``house_share_app.db``: SQLite database file
+- ``validation.js``: Contains input validation logic
+- ``tests/``: Contains Jest test files
+- ``jest.config.mjs``: Jest configuration for ESM and jsdom
+- ``docs/``: Documentation files for Read the Docs
 
 .. note::
 
-   After installing dependencies and running `node database.js`, you must always start the server with `npm start` before accessing the app in your browser.
+   After installing dependencies and running ``node database.js``, you must always start the server with ``npm start`` before accessing the app in your browser.
