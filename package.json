@@ -7,4 +7,21 @@
   "scripts": {
     "dev": "nodemon svr.js",
     "test": "jest"
+  },
+  "name": "house-sharing-app",
+  "version": "1.0.0",
+  "description": "Can edit",
+  "main": "database.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SETAP-1C2/House-Sharing-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SETAP-1C2/House-Sharing-App/issues"
+  },
+  "homepage": "https://github.com/SETAP-1C2/House-Sharing-App#readme"
 }
