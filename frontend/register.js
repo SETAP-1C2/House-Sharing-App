@@ -98,40 +98,58 @@ function checkCharacterMix(password) {
 }
 
 // Handle register
-function registerUser() {
-    const email = getEmail();
-    const password = getPassword();
-    const firstName = getFirstName();
-    const lastName = getLastName();
+function registerUser(event) {
+    event.preventDefault();
 
-    if (!fieldsFilled()) return;
-    if (!isEmailValid(email)) return;
-    if (!checkPasswordLength(password)) return;
-    if (!checkCharacterMix(password)) return;
-    if (!isFirstNameValid(firstName)) {
-        return; // Stop if first name is invalid
+    let email = document.querySelector("#email").value;
+    let password = document.querySelector("#password").value;
+    let firstName = document.querySelector("#first-name").value;
+    let lastName = document.querySelector("#last-name").value;
+    let username = firstName + " " + lastName;
+
+    if (email === "" || password === "" || firstName === "" || lastName === "") {
+      alert("All fields are required.");
+      return;
     }
 
-    if (!isLastNameValid(lastName)) {
-        return; // Stop if last name is invalid
+    if (!email.includes("@")) {
+      alert("Email must contain '@'");
+      return;
     }
 
-    const user = {
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      password: password
-    };
+    if (password.length < 8) {
+      alert("Password must be at least 8 characters.");
+      return;
+    }
 
-    // Save to localStorage (using email as key for uniqueness, or pushing to an array)
-    const users = JSON.parse(localStorage.getItem("registeredUsers")) || [];
-    users.push(user);
-    localStorage.setItem("registeredUsers", JSON.stringify(users));
+    fetch("/api/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+        username: username,
+        first_name: firstName,
+        last_name: lastName
+      })
+    })
+    .then(function (response) {
+      return response.text();
+    })
+    .then(function (message) {
+      alert(message);
+    })
+    .catch(function (error) {
+      console.log("Registration error:", error);
+      alert("Something went wrong.");
+    });
+}
 
-    alert("Registration successful.");
-    console.log("User registered:", firstName, lastName, email, password);
-
-    window.location.href = "login.html";
+let registerButton = document.querySelector("#register-btn");
+if (registerButton) {
+  registerButton.addEventListener("click", registerUser);
 }
 
 // Event listener
