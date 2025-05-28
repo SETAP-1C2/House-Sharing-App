@@ -2,9 +2,9 @@
 
 # -- Project information
 
-project = 'Lumache'
-copyright = '2021, Graziella'
-author = 'Graziella'
+project = 'House Share'
+copyright = '2025, 1C2'
+author = '1C2'
 
 release = '0.1'
 version = '0.1.0'

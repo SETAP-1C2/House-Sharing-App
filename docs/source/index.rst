@@ -13,10 +13,26 @@ how to :ref:`installation` the project.
 
    This project is under active development.
 
-Contents
---------
+Contents:
+---------
 
 .. toctree::
+   :maxdepth: 2
+   :caption: Documentation
 
-   usage
-   api
+   overview
+   user_requirements
+   system_requirements
+   architecture
+   components
+   testing
+   future_work
+   setup
+   acknowledgements
+
+Indices and Tables:
+-------------------
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
