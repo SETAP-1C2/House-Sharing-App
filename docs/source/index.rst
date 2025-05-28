@@ -1,12 +1,7 @@
-Welcome to House Share documentation!
-===================================
+House Sharing Assistant Documentation
+=====================================
 
-**House Share** 
-Working on it
-
-.. note::
-
-   This project is under active development.
+Welcome! This documentation includes system requirements, architecture, testing, and more.
 
 Contents:
 ---------
@@ -25,8 +20,8 @@ Contents:
    setup
    acknowledgements
 
-Indices and Tables:
--------------------
+Indices and tables
+==================
 
 * :ref:`genindex`
 * :ref:`modindex`
