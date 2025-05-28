@@ -1,70 +1,72 @@
 Future Work
 =====================================
 
-This section outlines the system-level requirements necessary to support the development, deployment, and execution of the House Sharing Assistant App. These include both functional capabilities and technical constraints based on the final implementation.
+While the House Sharing Assistant App meets its core goals, there are several improvements and features planned for future versions to enhance collaboration, usability, and scalability.
 
-Functional Requirements
-~~~~~~~~~~~~~~~~~~~~~~~
+Shared Data Across Members
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- The system must allow:
-  - New users to register and log in with valid credentials.
-  - Users to create and join groups using 5-digit numeric IDs.
-  - Tasks and costs to be assigned to selected members within a group.
-  - All actions (create/join group, assign task, split cost) to be validated before submission.
-  - Group members to view task and cost summaries immediately after form submission.
-  - CSV export of task and cost summaries for record-keeping.
+Currently, each user's tasks and costs are stored locally using ``localStorage``. In the future, these will be synced through a central database so that:
 
-- Each created group must store:
-  - Group name and ID
-  - Description (optional)
-  - Creator role metadata
+- All group members can see the same task and cost lists
+- Updates made by one user reflect in real time for others
+- Centralized group dashboards become possible
 
-- Task and cost entries must store:
-  - Assigned users
-  - Title and description
-  - Deadline
-  - Priority level (with color-coded indicator)
-  - Amount (for costs only), calculated per user
+Edit and Delete Functionality
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Technical Requirements
+Tasks and costs are currently immutable once added. Future work includes:
+
+- Allowing users to edit or delete existing tasks and costs
+- Logging history or timestamps for changes
+- Enforcing edit permissions based on group roles
+
+User Roles and Permissions
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Although the app distinguishes between group "creators" and "members," this has no functional impact yet. Planned improvements:
+
+- Restrict certain actions (e.g., delete group) to creators only
+- Enable role-based task assignment and management
+- Add a group admin panel for better control
+
+Notifications and Reminders
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To support better task management and accountability:
+
+- Email or in-app reminders for upcoming deadlines
+- Alerts for overdue tasks or pending cost contributions
+- Real-time notifications when changes are made to the group
+
+Gamification and Progress Tracking
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To encourage participation and shared responsibility:
+
+- Introduce a point-based system for completing tasks
+- Leaderboards or reward badges for consistent contributors
+- Visual progress bars or completion stats
+
+Mobile Optimization
+~~~~~~~~~~~~~~~~~~~
+
+Although responsive to some extent, the app is currently optimized for desktop use. Future enhancements:
+
+- Full mobile responsiveness
+- Progressive Web App (PWA) features for offline access
+- Touch-friendly UI adjustments
+
+Deployment and Hosting
 ~~~~~~~~~~~~~~~~~~~~~~
 
-- **Frontend Stack**: HTML5, CSS3, JavaScript
-- **Backend Environment**: Node.js with Express (via `svr.cjs`)
-- **Database**: SQLite (via ``sqlite3`` package), used for persistent group/user data
-- **Data Storage**: Primarily ``localStorage`` for client-side persistence, with optional SQLite integration
-- **Testing Framework**: Jest with jsdom for unit testing logic
-- **Documentation**: reStructuredText rendered via Read the Docs
+The app is currently designed for local use. Planned deployment goals include:
 
-Browser Compatibility
-~~~~~~~~~~~~~~~~~~~~~
-
-- Fully functional on latest versions of:
-  - Google Chrome
-  - Mozilla Firefox
-  - Microsoft Edge
-
-Device Compatibility
-~~~~~~~~~~~~~~~~~~~~
-
-- Designed for desktops and tablets
-- Responsive layout tested for small screens, but optimized for medium+ viewports
-
-Performance Expectations
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-- Quick form validation and instant feedback without server round-trips
-- Minimal external dependencies to reduce load time
-- Smooth transitions between sections using vanilla JavaScript and dynamic DOM manipulation
-
-Known Limitations
-~~~~~~~~~~~~~~~~~
-
-- No real-time updates or cross-user visibility due to lack of shared backend sync
-- No authentication/session handling to persist user identity across sessions/devices
-- Features like edit/delete, status tracking, notifications, and gamification are excluded due to time and tool constraints
+- Hosting on a cloud platform (e.g., Heroku, Render, Vercel)
+- Environment variable support for secure credentials
+- Domain registration and HTTPS setup
 
 .. note::
 
-   The system prioritizes a smooth user experience through manual validation and fast feedback. While currently relying on localStorage for simplicity, the backend and database structure allows for scalable upgrades in future versions.
+   These improvements aim to transform the app from a personal helper tool into a truly collaborative, real-time, and cross-device platform for house sharing and group living.
 

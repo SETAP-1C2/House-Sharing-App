@@ -3,6 +3,9 @@ System Requirement
 
 This section outlines the system-level requirements necessary to support the development, deployment, and execution of the House Sharing Assistant App. These include both functional capabilities and technical constraints based on the final implementation.
 
+Functional Requirements 
+~~~~~~~~~~~~~~~~~~~~~~~
+
 The system must allow:
 - New users to register and log in with valid credentials.
 - Users to create and join groups using 5-digit numeric IDs.
