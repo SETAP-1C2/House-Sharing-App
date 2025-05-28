@@ -33,11 +33,11 @@ Testing Results
 
 As of the latest test run:
 
-    **Test Suites**: **1 passed**, 1 total
-    **Tests**: **21 passed**, 21 total
-    **Snapshots**: 0 total
-    **Time**: 1.791 s
-    **Time**: 1.791 s
+    | **Test Suites**: **1 passed**, 1 total
+    | **Tests**: **21 passed**, 21 total
+    | **Snapshots**: 0 total
+    | **Time**: 1.791 s
+    | **Time**: 1.791 s
 
 This indicates that the app's validation logic is functioning correctly under all expected input scenarios.
 
