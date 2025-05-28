@@ -1,25 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>group_page</title>
-    <link rel="stylesheet" href="group.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Group Page</title>
+  <link rel="stylesheet" href="group.css" />
 </head>
 <body>
-    <p id="groupTitle">Creating a group?</p>
-    <section class="creation">
-        <section class="detail">
-            <h2>Group Name:</h2>
-            <input type="text" placeholder="Group Name">
-            <h2>Group ID:</h2>
-            <input number="number" placeholder="e.g., 0123456789">
-            <h2>Group Description (Optional):</h2>
-            <textarea class="typeText" type="text" placeholder="Description"></textarea>
-        </section>
-        <section class="create">
-            <button>Create Group</button>
-        </section>
-    </section>
+    <section class="page-wrapper">
+        <header class="nav-header">
+          <h1 class="logo">
+            <span class="red">House</span> <span class="green">Share</span>
+          </h1>
+        </header>
+
+        <main class="group-container">
+            <h2 class="group-title"></h2>
+            <p class="group-description">Optional description about this group's purpose or focus.</p>
+
+            <section class="group-nav">
+                <a href="yourGroup.html" class="view">View Group Lists</a>
+            </section>
+
+            <section class="resident-section">
+                <h3>Resident List</h3>
+                <ul class="resident-list">
+                    <li>Abdelrhman</li>
+                    <li>Ashley</li>
+                    <li>Augustine</li>
+                </ul>
+            </section>
+
+            <section class="group-actions">
+                <a class="group-button" id="share-tasks" title="click to share tasks">Share Tasks</a>
+                <a class="group-button" id="split-costs" title="click to split costs">Split Costs</a>
+            </section>
+            
+            <section id="form-wrapper">
+                <!-- task section -->
+                <section id="task-section" class="task-section">
+                    <p class="task-placeholder">Assign and manage tasks for your group easily.</p>
+                    <h3 class="task-heading">Create a New Task</h3>
+
+                    <form class="task-form">
+                        <section class="task-field">
+                            <label for="task-title">Task Title:</label>
+                            <input type="text" id="task-title" required />
+                        </section>
+
+                        <section class="task-field">
+                            <label for="task-desc">Task Description <span class="optional">(optional)</span>:</label>
+                            <textarea id="task-desc" placeholder="Optional description..."></textarea>
+                        </section>
+
+                        <section class="task-field">
+                            <label for="task-recurrence">Recurrence:</label>
+                            <select id="task-recurrence">
+                                <option value="">None</option>
+                                <option value="once">One-Time</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="monthly">Monthly</option>
+                            </select>
+                        </section>
+
+                        <section class="task-field">
+                            <label>Assign Users:</label>
+                            <section class="checkbox-list" id="task-assignees"></section>
+                        </section>
+
+                        <section class="task-field">
+                            <label>Task Priority:</label>
+                            <section class="priority-options">
+                                <button type="button" class="priority critical">Critical</button>
+                                <button type="button" class="priority important">Important</button>
+                                <button type="button" class="priority low">Low Priority</button>
+                            </section>
+                        </section>
+
+                        <section class="task-field">
+                            <label for="task-deadline">Deadline:</label>
+                            <input type="date" id="task-deadline" />
+                        </section>
+
+                        <section class="task-actions">
+                            <button type="button" class="group-button" id="create-task-button">Create Task</button>
+                        </section>
+                    </form>
+                </section>
+
+                <!-- task summary -->
+                <section id="task-summary" class="summary-section">
+                    <h3 class="summary-title">
+                        <span id="summary-task-title">[Title]</span>
+                        <span id="summary-priority-box" class="summary-priority-box"></span>
+                    </h3>
+
+                    <p id="summary-task-desc" class="summary-desc"></p>
+
+                    <section class="summary-ass-date">
+                        <p><strong>Assigned To:</strong></p>
+                        <ul id="summary-assignees"></ul>
+
+                        <p class="summary-recurrence"><strong>Recurrence:</strong> <span id="summary-recurrence">—</span></p>
+                        <p class="summary-deadline"><strong>Deadline:</strong> <span id="summary-deadline">—</span></p>  
+                    </section>
+
+                    <section class="task-actions clear-export-row">
+                        <button type="button" id="clear-task-summary" class="group-button secondary">
+                            &#128465; Clear Summary
+                        </button>
+                        <button type="button" id="export-tasks-csv" class="group-button secondary">
+                            &#128196; Export Csv
+                        </button>
+                    </section>
+
+                </section>
+
+
+                <!-- split cost section -->
+                <section id="cost-section" class="cost-section">
+                    <p class="task-placeholder">Track and share group costs effectively.</p>
+
+                    <h3 class="task-heading">Split a New Cost</h3>
+
+                    <form class="task-form">
+                        <section class="task-field">
+                            <label for="cost-amount">Give Total Cost:</label>
+                            <input type="number" id="cost-amount" required />
+                        </section>
+
+                        <section class="task-field">
+                            <label for="cost-desc">Cost Description <span class="optional">(optional)</span>:</label>
+                            <textarea id="cost-desc" placeholder="Optional description..."></textarea>
+                        </section>
+
+
+                        <section class="task-field">
+                            <label for="cost-recurrence">Recurrence:</label>
+                            <select id="cost-recurrence">
+                                <option value="">None</option>
+                                <option value="once">One-Time</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="monthly">Monthly</option>
+                            </select>
+                        </section>
+
+
+                        <section class="task-field">
+                            <label>Assign Users:</label>
+                            <section class="checkbox-list" id="cost-assignees"></section>
+                        </section>
+
+                        <section class="task-field">
+                            <label>Cost Priority:</label>
+                            <section class="priority-options">
+                                <button type="button" class="priority critical">Critical</button>
+                                <button type="button" class="priority important">Important</button>
+                                <button type="button" class="priority low">Low Priority</button>
+                            </section>
+                        </section>
+
+                        <section class="task-field">
+                            <label for="cost-deadline">Deadline:</label>
+                            <input type="date" id="cost-deadline" />
+                        </section>
+
+                        <section class="task-actions">
+                            <button type="button" class="group-button" id="create-cost-button">Split Cost</button>
+                        </section>
+                    </form>
+                </section>
+
+
+                <!-- Cost Summary -->
+                <section id="cost-summary" class="summary-section">
+                    <h3 class="summary-title">
+                        <span id="summary-cost-amount">[Amount]</span>
+                        <span id="summary-cost-priority" class="summary-priority-box"></span>
+                    </h3>
+
+                    <p id="summary-cost-desc" class="summary-desc"></p>
+
+                    <section class="summary-ass-date">
+                        <p><strong>Shared With:</strong></p>
+                        <ul id="summary-cost-assignees"></ul>
+                        <p class="summary-deadline"><strong>Deadline:</strong> <span id="summary-cost-deadline">—</span></p>
+                    </section>
+
+                    <section class="task-actions clear-export-row">
+                        <button type="button" id="clear-cost-summary" class="group-button secondary">
+                            &#128465; Clear Summary
+                        </button>
+                        <button type="button" id="export-costs-csv" class="group-button secondary">
+                            &#128196; Export CSV
+                        </button>
+                    </section>
+                </section>
+
+            </section>
+        </main>
+
+    <footer class="footer">
+      <p>© 2025 HouseShare. All rights reserved.</p>
+    </footer>
+  </section>
+  <script src="group.js"></script>
 </body>
 </html>
