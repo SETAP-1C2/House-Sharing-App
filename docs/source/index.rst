@@ -21,7 +21,7 @@ Contents:
    testing
    setup
    future_work
-   acknowledgements
+   testing
 
 Indices and tables
 ==================
