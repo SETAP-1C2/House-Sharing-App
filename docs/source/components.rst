@@ -1,4 +1,4 @@
-Component
+Components
 =====================================
 
 
@@ -6,7 +6,8 @@ This section outlines the core components that make up the **House Sharing Assis
 
 ---
 
-## Frontend Components
+Frontend Components
+-------------------
 
 These are implemented in JavaScript, HTML, and CSS, and handle user interactions and UI rendering.
 
@@ -32,7 +33,7 @@ These are implemented in JavaScript, HTML, and CSS, and handle user interactions
 
 ---
 
-## Backend Components
+# Backend Components
 
 The backend is implemented using Node.js (`svr.cjs`) and SQLite.
 
