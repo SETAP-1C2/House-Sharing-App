@@ -8,12 +8,12 @@ This documentation provides everything you need to understand, deploy, and contr
 Core Features
 -------------
 
-- 🏠 **Group Management**: Users can create and join groups using unique IDs, with role distinctions (creator vs. member).
-- ✅ **Task Assignment**: Share and assign responsibilities across group members, with optional priority and recurrence.
-- 💸 **Cost Splitting**: Log shared expenses and automatically calculate how much each member owes.
-- 📦 **Local Data Handling**: Information is stored locally using `localStorage` for simplicity and responsiveness.
-- 🧠 **Validation Layer**: Input validations ensure clean, structured data and prevent user errors.
-- 🧪 **Unit Tested**: Core logic is tested using Jest to ensure correctness and maintainability.
+- **Group Management**: Users can create and join groups using unique IDs, with role distinctions (creator vs. member).
+- **Task Assignment**: Share and assign responsibilities across group members, with optional priority and recurrence.
+- **Cost Splitting**: Log shared expenses and automatically calculate how much each member owes.
+- **Local Data Handling**: Information is stored locally using `localStorage` for simplicity and responsiveness.
+- **Validation Layer**: Input validations ensure clean, structured data and prevent user errors.
+- **Unit Tested**: Core logic is tested using Jest to ensure correctness and maintainability.
 
 Technical Stack
 ---------------
