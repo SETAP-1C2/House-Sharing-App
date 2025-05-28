@@ -501,6 +501,29 @@ if (exportCostBtn) {
     exportCostBtn.addEventListener("click", exportCostSummariesToCSV);
 }
 
+function loadGroups() {
+  fetch("/api/groups")
+    .then((res) => res.json())
+    .then((groups) => {
+      const groupList = document.querySelector("#group-list");
+      groupList.innerHTML = "";
+
+      if (groups.length === 0) {
+        groupList.innerHTML = "<p>No groups joined.</p>";
+      } else {
+        groups.forEach((group) => {
+          const item = document.createElement("p");
+          item.textContent = `Group ID: ${group.id}, Name: ${group.name}`;
+          groupList.appendChild(item);
+        });
+      }
+    })
+    .catch((err) => {
+      console.error("Error loading groups:", err);
+    });
+}
+
+document.addEventListener("DOMContentLoaded", loadGroups);
 
 
 
