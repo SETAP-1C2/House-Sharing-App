@@ -28,64 +28,43 @@ function groupIdValid(){
 
 
 
-function joinGroupClick() {
-    if (!groupIdValid()) {
-      return;
-    }
+function joinGroupClick(event) {
+  event.preventDefault();
 
-    const inputId = document.querySelector("#group-id").value;
-    const groups = JSON.parse(localStorage.getItem("userGroups")) || [];
+  const groupId = document.querySelector("#group-id").value;
+  const userId = localStorage.getItem("userId");
 
-    // Check if the ID exists
-    let found = false;
-    let existingGroup=null;
+  if (!userId) {
+    alert("You must be logged in to join a group.");
+    return;
+  }
 
-    for (let i = 0; i < groups.length; i++) {
-        if (groups[i].id === inputId) {
-          found = true;
-          existingGroup = groups[i];
-          break;
-        }
-    }
+  if (!groupIdValid()) {
+    return;
+  }
 
-    if (!found) {
-        alert(`Group ID "${inputId}" does not exist.`);
-        return;
-    }
-
-
-    // To check if the group is already in the user's list
-    const joinedGroups = JSON.parse(localStorage.getItem("userGroups")) || [];
-    let alreadyJoined = false;
-
-    for (let j = 0; j < joinedGroups.length; j++) {
-      if (joinedGroups[j].id === existingGroup.id) {
-          alreadyJoined = true;
-          break;
+  fetch("/api/join-group", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ code: groupId, userId: userId })
+  })
+    .then(res => res.json())
+    .then(data => {
+      if (data.success) {
+        localStorage.setItem("groupName", data.name);
+        localStorage.setItem("groupDescription", data.description);
+        localStorage.setItem("groupId", groupId);
+        window.location.href = "group.html";
+      } else {
+        alert(data.message);
       }
-    }
-
-    // Add to your groups list if not already there
-    if (!alreadyJoined) {
-        const joinedAsMember = {
-            name: existingGroup.name,
-            id: existingGroup.id,
-            description: existingGroup.description,
-            role: "member"
-        };
-
-        joinedGroups.push(joinedAsMember);
-        localStorage.setItem("userGroups", JSON.stringify(joinedGroups));
-    }
-
-    //Store selected group in localStorage before redirecting
-    localStorage.setItem("groupName", existingGroup.name);
-    localStorage.setItem("groupDescription", existingGroup.description);
-    localStorage.setItem("groupId", existingGroup.id);
-
-
-    // Proceed to group.html
-    window.location.href = "group.html";
+    })
+    .catch(err => {
+      console.error("Error joining group:", err);
+      alert("Could not join group.");
+    });
 }
 
 
