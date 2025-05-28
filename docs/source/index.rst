@@ -11,13 +11,13 @@ Contents:
    :caption: Documentation
 
    overview
+   components
+   architecture
    user_requirements
    system_requirements
-   architecture
-   components
    testing
-   future_work
    setup
+   future_work
    acknowledgements
 
 Indices and tables
