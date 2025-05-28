@@ -6,12 +6,12 @@ This section outlines the system-level requirements necessary to support the dev
 Functional Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-- The system must allow:
-  - New users to register and log in with valid credentials.
-  - Users to create and join groups using 5-digit numeric IDs.
-  - Tasks and costs to be assigned to selected members within a group.
-  - All actions (create/join group, assign task, split cost) to be validated before submission.
-  - Group members to view task and cost summaries immediately after form submission.
+The system must allow:
+- New users to register and log in with valid credentials.
+- Users to create and join groups using 5-digit numeric IDs.
+- Tasks and costs to be assigned to selected members within a group.
+- All actions (create/join group, assign task, split cost) to be validated before submission.
+- Group members to view task and cost summaries immediately after form submission.
   - CSV export of task and cost summaries for record-keeping.
 
 - Each created group must store:

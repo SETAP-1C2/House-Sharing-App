@@ -7,6 +7,7 @@ System Layers
 -------------
 
 **1. Frontend Layer (Client-Side)**  
+
 - Built using **HTML**, **CSS**, and **JavaScript**
 - Handles all UI rendering, form submissions, and client-side validation
 - Interacts with ``localStorage`` and (where implemented) backend routes for data persistence
@@ -18,11 +19,13 @@ System Layers
   - Validation & Summary Screens
 
 **2. Backend Layer (Server-Side)**  
+
 - Implemented in **Node.js** with **Express**, located in ``svr.cjs``
 - Handles HTTP requests and connects with the database when available
 - Manages file serving and future support for session-based interactions
 
 **3. Data Layer (Storage)**  
+
 - **SQLite** used for structured persistent storage (``house_share_app.db``)
 - Originally designed for full CRUD but only partial integration completed
 - Client-side **localStorage** used as a fallback for storing:
