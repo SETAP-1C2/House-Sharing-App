@@ -10,7 +10,7 @@ Testing Approach
 - **Test Type**: Unit tests (no end-to-end or integration tests)
 - **Environment**: DOM-based environment simulated with ``jest-environment-jsdom``
 
-The tests were written for the most critical functions in the app—specifically, input validation logic contained in `validation.js`. This includes checks for:
+The tests were written for the most critical functions in the app—specifically, input validation logic contained in ``validation.js``. This includes checks for:
 
 - Email formatting
 - Password length and complexity
@@ -26,7 +26,7 @@ To run the tests:
 
    npm run test
 
-This command runs all `.test.js` files under the `tests/` directory using the configuration defined in `jest.config.mjs`.
+This command runs all ``.test.js`` files under the ``tests/`` directory using the configuration defined in ``jest.config.mjs``.
 
 Testing Results
 ~~~~~~~~~~~~~~~
