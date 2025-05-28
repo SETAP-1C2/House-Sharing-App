@@ -65,7 +65,38 @@ function deleteGroup(index) {
     displayUserGroups();
 }
 
+function loadYourGroups() {
+  const userId = localStorage.getItem("userId");
 
+  if (!userId) {
+    alert("You need to be logged in to view your groups.");
+    return;
+  }
+
+  fetch(`/api/user-groups?userId=${userId}`)
+    .then(response => response.json())
+    .then(groups => {
+      const container = document.querySelector("#your-groups");
+      if (container) {
+        container.innerHTML = "";
+
+        if (groups.length === 0) {
+          container.textContent = "No groups joined yet.";
+          return;
+        }
+
+        groups.forEach(group => {
+          const p = document.createElement("p");
+          p.textContent = `Group ID: ${group.id}, Name: ${group.group_name}`;
+          container.appendChild(p);
+        });
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      alert("Could not load your groups");
+    });
+}
 
 
 
